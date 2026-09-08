@@ -12,6 +12,13 @@ type GraduationVideo = {
 
 const graduationVideos: GraduationVideo[] = [
   {
+    title: "Srividya's Mom",
+    description: "My mom's most recent update at 75 years: 12 kg lost, stronger movement, better stamina, improved blood sugar control, and renewed independence.",
+    youtubeUrl: 'https://youtu.be/I-eVGKpUlKY',
+    storyHref: '/success-stories#story-srividya-s-mom',
+    storyCta: 'Read Success Story',
+  },
+  {
     title: 'Deva',
     description: '51, menopause, stubborn belly fat, high cholesterol, and overeating snacks.',
     youtubeUrl: 'https://youtu.be/uItCYP5PJ-I',

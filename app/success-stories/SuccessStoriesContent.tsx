@@ -20,6 +20,8 @@ const fadeUp = {
 type SuccessStory = {
   name: string
   imageSrc?: string
+  videoUrl?: string
+  videoTitle?: string
   imageWidth?: number
   imageHeight?: number
   imageMaxWidth?: number
@@ -42,6 +44,24 @@ type StoryImage = {
 }
 
 const stories: SuccessStory[] = [
+  {
+    name: "Srividya's Mom",
+    imageSrc: '/success-stories/Bhuvana.png',
+    imageWidth: 1304,
+    imageHeight: 1600,
+    imageMaxWidth: 560,
+    imageAlt: "Srividya's mom's transformation at 75",
+    program: 'The 8th Element',
+    challenge:
+      'At 75, she was struggling with leg swelling, varicose veins, pain, bloating, low energy, poor confidence, and reduced mobility.',
+    approach:
+      'A steady, sustainable lifestyle transformation built around strength, nutrition, consistency, and support over 1.5 years.',
+    result:
+      'Lost 12 kg, improved mobility, stamina, blood sugar control, and HbA1c, and her doctor discontinued diabetes medication.',
+    pullQuote:
+      "At 75, my mom's most recent update is not just weight loss. She is stronger, lighter, more mobile, more confident, and independent again.",
+    imageRight: false,
+  },
   {
     name: 'Nirupa Seshadri',
     imageSrc: '/success-stories/niupa.jpeg',
@@ -326,6 +346,19 @@ function getStoryImages(story: SuccessStory): StoryImage[] {
   ]
 }
 
+function getYoutubeEmbedUrl(url: string) {
+  const trimmedUrl = url.trim()
+  if (!trimmedUrl) return ''
+
+  const match =
+    trimmedUrl.match(/youtu\.be\/([^?&/]+)/) ||
+    trimmedUrl.match(/[?&]v=([^?&/]+)/) ||
+    trimmedUrl.match(/youtube\.com\/embed\/([^?&/]+)/) ||
+    trimmedUrl.match(/youtube\.com\/shorts\/([^?&/]+)/)
+
+  return match ? `https://www.youtube.com/embed/${match[1]}` : trimmedUrl
+}
+
 function StoryImageFrame({
   story,
   onSelectImage,
@@ -349,6 +382,28 @@ function StoryImageFrame({
 
     return () => window.clearInterval(timer)
   }, [hasSlides, storyImages.length])
+
+  if (story.videoUrl) {
+    return (
+      <div className="relative mx-auto w-full max-w-[782px] overflow-hidden rounded-2xl bg-navy p-3 shadow-[0_18px_45px_rgba(21,34,56,0.14)] ring-1 ring-navy/10">
+        <div className="aspect-video overflow-hidden rounded-xl bg-navy/95">
+          <iframe
+            className="h-full w-full"
+            src={getYoutubeEmbedUrl(story.videoUrl)}
+            title={story.videoTitle ?? `${story.name} success story`}
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        </div>
+        {story.videoTitle ? (
+          <p className="px-2 pt-4 text-center text-sm font-semibold uppercase tracking-[0.14em] text-gold">
+            {story.videoTitle}
+          </p>
+        ) : null}
+      </div>
+    )
+  }
 
   if (!activeImage) {
     return (

@@ -118,6 +118,36 @@ const mediaFeatures = [
   },
 ]
 
+const teamMembers = [
+  {
+    name: 'Kshma',
+    role: 'Precision Nutrition Level 1 Certified Coach',
+    image: '/team/kshma.jpeg',
+    alt: 'Kshma, Precision Nutrition Level 1 Certified Coach',
+    imageClassName: 'object-[50%_18%]',
+    focus: 'Sustainable lifestyle change, strength training, and practical habit building.',
+    bio: 'Kshma helps women become healthier, stronger, and more confident through nutrition, movement, and behaviour change that fits real life.',
+  },
+  {
+    name: 'Nithyaa Sundaramoorthy',
+    role: 'Client Relations',
+    image: '/team/Nithyaa.png',
+    alt: 'Nithyaa Sundaramoorthy, Client Relations',
+    imageClassName: 'object-[50%_18%]',
+    focus: 'Listening, empathy, coordination, and warm client support.',
+    bio: 'A B.A. B.L. (Hons.) graduate and former High Court advocate, Nithyaa brings empathy, intuition, and calm coordination to every client conversation.',
+  },
+  {
+    name: 'Deborah Jacob',
+    role: "Clinical Dietitian & Women's Health Coach",
+    image: '/team/Deborah.png',
+    alt: "Deborah Jacob, Clinical Dietitian and Women's Health Coach",
+    imageClassName: 'object-[50%_16%]',
+    focus: 'Evidence-based nutrition, holistic wellness, and sustainable lifestyle change.',
+    bio: 'With a Masters in Clinical Nutrition, Deborah combines personalised nutrition with practical habits that help women build a healthier relationship with food.',
+  },
+]
+
 function PortraitFrame({
   src,
   alt,
@@ -179,6 +209,73 @@ function FeaturedPortraitHolder({
         <p className="text-navy font-semibold mt-1 leading-snug">{caption}</p>
       </div>
     </div>
+  )
+}
+
+function TeamSection() {
+  return (
+    <section className="py-20 lg:py-28 bg-warm-bg" aria-labelledby="team-heading">
+      <div className="w-full px-8 sm:px-12 lg:px-20">
+        <motion.div {...fade(0)} className="mx-auto max-w-4xl text-center mb-14">
+          <p className="text-xs uppercase tracking-[0.18em] text-accent font-semibold mb-4">
+            Meet My Team
+          </p>
+          <h2
+            id="team-heading"
+            className="text-section text-navy mb-5"
+            style={{ fontFamily: 'var(--font-playfair)' }}
+          >
+            The People Who Help Hold the Journey With You
+          </h2>
+          <p className="text-muted text-lg leading-relaxed font-light">
+            Behind The 8th Element is a small, thoughtful team built around care, clarity,
+            nutrition expertise, and sustainable transformation for women in midlife.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 gap-7 lg:grid-cols-3">
+          {teamMembers.map((member, index) => (
+            <motion.article
+              key={member.name}
+              {...fade(index * 0.08)}
+              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-cream/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-navy/10"
+            >
+              <div className="relative aspect-square overflow-hidden bg-cream">
+                <Image
+                  src={member.image}
+                  alt={member.alt}
+                  fill
+                  sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+                  className={`object-cover transition-transform duration-500 group-hover:scale-[1.03] ${member.imageClassName}`}
+                />
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-navy/55 to-transparent" aria-hidden="true" />
+              </div>
+
+              <div className="flex flex-1 flex-col p-7">
+                <div className="mb-5">
+                  <p className="text-xs uppercase tracking-[0.16em] text-accent font-semibold">
+                    {member.role}
+                  </p>
+                  <h3
+                    className="mt-2 text-2xl text-navy"
+                    style={{ fontFamily: 'var(--font-playfair)' }}
+                  >
+                    {member.name}
+                  </h3>
+                </div>
+
+                <p className="border-l-4 border-gold pl-4 text-dark font-semibold leading-relaxed">
+                  {member.focus}
+                </p>
+                <p className="mt-5 text-muted leading-relaxed font-light">
+                  {member.bio}
+                </p>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }
 
@@ -431,6 +528,7 @@ export function AboutOneContent() {
 
       <AboutVideoSection />
       <PersonalJourneySection />
+      <TeamSection />
 
       <section className="py-20 lg:py-28 bg-white" aria-labelledby="about-story-heading">
         <div className="w-full px-8 sm:px-12 lg:px-20">
