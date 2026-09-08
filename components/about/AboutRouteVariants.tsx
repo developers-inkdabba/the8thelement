@@ -214,60 +214,59 @@ function FeaturedPortraitHolder({
 
 function TeamSection() {
   return (
-    <section className="py-20 lg:py-28 bg-warm-bg" aria-labelledby="team-heading">
+    <section className="py-16 lg:py-20 bg-warm-bg" aria-labelledby="team-heading">
       <div className="w-full px-8 sm:px-12 lg:px-20">
-        <motion.div {...fade(0)} className="mx-auto max-w-4xl text-center mb-14">
+        <motion.div {...fade(0)} className="mx-auto max-w-3xl text-center mb-10">
           <p className="text-xs uppercase tracking-[0.18em] text-accent font-semibold mb-4">
             Meet My Team
           </p>
           <h2
             id="team-heading"
-            className="text-section text-navy mb-5"
+            className="text-navy mb-4 text-[clamp(1.9rem,3vw,2.6rem)] font-semibold leading-tight"
             style={{ fontFamily: 'var(--font-playfair)' }}
           >
             The People Who Help Hold the Journey With You
           </h2>
-          <p className="text-muted text-lg leading-relaxed font-light">
+          <p className="text-muted leading-relaxed font-light">
             Behind The 8th Element is a small, thoughtful team built around care, clarity,
             nutrition expertise, and sustainable transformation for women in midlife.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-7 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-3">
           {teamMembers.map((member, index) => (
             <motion.article
               key={member.name}
               {...fade(index * 0.08)}
-              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-cream/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-navy/10"
+              className="group flex h-full flex-col rounded-2xl border border-cream/80 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-navy/10"
             >
-              <div className="relative aspect-square overflow-hidden bg-cream">
+              <div className="relative mx-auto mb-5 h-32 w-32 overflow-hidden rounded-full bg-cream ring-4 ring-warm-bg sm:h-36 sm:w-36 lg:h-40 lg:w-40">
                 <Image
                   src={member.image}
                   alt={member.alt}
                   fill
-                  sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+                  sizes="(min-width: 1024px) 10rem, (min-width: 640px) 9rem, 8rem"
                   className={`object-cover transition-transform duration-500 group-hover:scale-[1.03] ${member.imageClassName}`}
                 />
-                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-navy/55 to-transparent" aria-hidden="true" />
               </div>
 
-              <div className="flex flex-1 flex-col p-7">
-                <div className="mb-5">
-                  <p className="text-xs uppercase tracking-[0.16em] text-accent font-semibold">
+              <div className="flex flex-1 flex-col">
+                <div className="mb-4">
+                  <p className="text-[0.68rem] uppercase tracking-[0.14em] text-accent font-semibold leading-relaxed">
                     {member.role}
                   </p>
                   <h3
-                    className="mt-2 text-2xl text-navy"
+                    className="mt-2 text-[1.45rem] text-navy"
                     style={{ fontFamily: 'var(--font-playfair)' }}
                   >
                     {member.name}
                   </h3>
                 </div>
 
-                <p className="border-l-4 border-gold pl-4 text-dark font-semibold leading-relaxed">
+                <p className="mx-auto max-w-sm border-t border-gold/60 pt-4 text-sm font-semibold leading-relaxed text-dark">
                   {member.focus}
                 </p>
-                <p className="mt-5 text-muted leading-relaxed font-light">
+                <p className="mt-4 text-sm leading-relaxed text-muted font-light">
                   {member.bio}
                 </p>
               </div>
