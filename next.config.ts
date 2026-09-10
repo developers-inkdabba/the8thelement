@@ -6,6 +6,85 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
     dangerouslyAllowSVG: false,
   },
+  async redirects() {
+    return [
+      {
+        source: '/the8elements',
+        destination: '/menothrive',
+        permanent: true,
+      },
+      {
+        source: '/the-8th-element-story',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/about-us',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/programs',
+        destination: '/menothrive',
+        permanent: true,
+      },
+      {
+        source: '/programmes',
+        destination: '/menothrive',
+        permanent: true,
+      },
+      {
+        source: '/programs-old',
+        destination: '/menothrive',
+        permanent: true,
+      },
+      {
+        source: '/testimonials',
+        destination: '/success-stories',
+        permanent: true,
+      },
+      {
+        source: '/privacypolicy',
+        destination: '/privacy',
+        permanent: true,
+      },
+      {
+        source: '/privacy-policy',
+        destination: '/privacy',
+        permanent: true,
+      },
+      {
+        source: '/termsandconditions',
+        destination: '/terms',
+        permanent: true,
+      },
+      {
+        source: '/terms-and-conditions',
+        destination: '/terms',
+        permanent: true,
+      },
+      {
+        source: '/refundpolicy',
+        destination: '/refunds-cancellation',
+        permanent: true,
+      },
+      {
+        source: '/refund-policy',
+        destination: '/refunds-cancellation',
+        permanent: true,
+      },
+      {
+        source: '/refunds',
+        destination: '/refunds-cancellation',
+        permanent: true,
+      },
+      {
+        source: '/refunds-and-cancellation-policy',
+        destination: '/refunds-cancellation',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {
