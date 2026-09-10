@@ -45,12 +45,12 @@ type StoryImage = {
 
 const stories: SuccessStory[] = [
   {
-    name: "Srividya's Mom",
+    name: "Bhuvana, 75 years (Srividya's mom)",
     imageSrc: '/success-stories/Bhuvana.png',
     imageWidth: 1304,
     imageHeight: 1600,
     imageMaxWidth: 560,
-    imageAlt: "Srividya's mom's transformation at 75",
+    imageAlt: "Bhuvana's transformation at 75",
     program: 'The 8th Element',
     challenge:
       'At 75, she was struggling with leg swelling, varicose veins, pain, bloating, low energy, poor confidence, and reduced mobility.',

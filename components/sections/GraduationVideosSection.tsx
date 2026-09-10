@@ -12,11 +12,73 @@ type GraduationVideo = {
 
 const graduationVideos: GraduationVideo[] = [
   {
-    title: "Srividya's Mom",
+    title: "Bhuvana, 75 years (Srividya's mom)",
     description: "My mom's most recent update at 75 years: 12 kg lost, stronger movement, better stamina, improved blood sugar control, and renewed independence.",
     youtubeUrl: 'https://youtu.be/I-eVGKpUlKY',
-    storyHref: '/success-stories#story-srividya-s-mom',
+    storyHref: '/success-stories#story-bhuvana-75-years-srividya-s-mom',
     storyCta: 'Read Success Story',
+  },
+  {
+    title: 'Uthra Sankaran',
+    description: '36, dancer: from self-doubt to self-trust, strength, confidence, and a deeper belief in her potential.',
+    youtubeUrl: 'https://youtu.be/DNl_pZDI-ZA',
+  },
+  {
+    title: 'Uthra Natarajan',
+    description: '40+, perimenopause: nutrition, lifestyle, sleep, and stress management for a steadier midlife journey.',
+    youtubeUrl: 'https://youtu.be/0OgPMpiqeZM',
+  },
+  {
+    title: 'Megha Kaveri',
+    description: '30+, South Indian in Switzerland: high cholesterol, stubborn weight, and building consistency across borders.',
+    youtubeUrl: 'https://youtu.be/u3PYdrp5dP0',
+  },
+  {
+    title: 'Subha Kannan',
+    description: '51, perimenopause: stubborn weight, belly fat, and inconsistent eating patterns transformed with support.',
+    youtubeUrl: 'https://youtu.be/uPye-9I2mIE',
+  },
+  {
+    title: 'Lakshmi',
+    description: '40+, perimenopause: stubborn weight, low energy, poor fitness, and inconsistent habits rebuilt step by step.',
+    youtubeUrl: 'https://youtu.be/QU-vpNDHrTQ',
+    storyHref: '/success-stories#story-lakshmi',
+    storyCta: 'Read Success Story',
+  },
+  {
+    title: 'Sujatha',
+    description: '30+: stubborn weight, low energy, sleep, stress, fitness, and inconsistent habits improved through sustainable change.',
+    youtubeUrl: 'https://youtu.be/l2RNyetlUNE',
+  },
+  {
+    title: 'Smruti',
+    description: '40+, perimenopause: stubborn midsection fat, strength, and consistency through the transformation journey.',
+    youtubeUrl: 'https://youtu.be/FO0rDP8Y6vg',
+  },
+  {
+    title: 'Srividya - Follow-Up',
+    description: '40+, perimenopause: stubborn weight, poor fitness, energy, and inconsistent habits rebuilt with structure.',
+    youtubeUrl: 'https://youtu.be/Mr3HwiME3_U',
+  },
+  {
+    title: 'Maalavika',
+    description: '30+: stubborn weight and inconsistent habits transformed through practical coaching and accountability.',
+    youtubeUrl: 'https://youtu.be/7Wi8gBcpb-4',
+  },
+  {
+    title: 'Transform V2.0 Graduation',
+    description: 'A group graduation call celebrating the women of Transform & Thrive and their health, habit, and confidence wins.',
+    youtubeUrl: 'https://youtu.be/2dPrkV50Ae8',
+  },
+  {
+    title: 'Transform & Thrive Group Graduation',
+    description: 'A group coaching graduation call with real reflections from women rebuilding strength, habits, and self-trust.',
+    youtubeUrl: 'https://youtu.be/FF9IPD34ckM',
+  },
+  {
+    title: 'Transform V1.0 Graduation',
+    description: 'A group coaching graduation call from Transform V1.0, sharing client progress, confidence, and sustainable lifestyle change.',
+    youtubeUrl: 'https://youtu.be/glIBIn9hbSA',
   },
   {
     title: 'Deva',
@@ -226,7 +288,7 @@ export function GraduationVideosSection() {
             </a>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {graduationVideos.map((video) => {
               const embedUrl = getYoutubeEmbedUrl(video.youtubeUrl)
 
@@ -245,7 +307,7 @@ export function GraduationVideosSection() {
                       allowFullScreen
                     />
                   </div>
-                  <div className="p-7 lg:p-8">
+                  <div className="p-6">
                     <h3
                       className="text-xl text-navy mb-3"
                       style={{ fontFamily: 'var(--font-playfair)' }}
