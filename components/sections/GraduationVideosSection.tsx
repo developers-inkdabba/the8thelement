@@ -22,6 +22,8 @@ const graduationVideos: GraduationVideo[] = [
     title: 'Uthra Sankaran',
     description: '36, dancer: from self-doubt to self-trust, strength, confidence, and a deeper belief in her potential.',
     youtubeUrl: 'https://youtu.be/DNl_pZDI-ZA',
+    storyHref: '/success-stories#story-uthra',
+    storyCta: 'Read Success Story',
   },
   {
     title: 'Uthra Natarajan',
@@ -146,6 +148,8 @@ const graduationVideos: GraduationVideo[] = [
     title: 'Aritu',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/omEPpVWtd_k',
+    storyHref: '/success-stories#story-aritu',
+    storyCta: 'Read Success Story',
   },
   {
     title: 'Kavitha',

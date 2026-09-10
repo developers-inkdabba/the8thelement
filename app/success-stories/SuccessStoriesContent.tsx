@@ -63,6 +63,42 @@ const stories: SuccessStory[] = [
     imageRight: false,
   },
   {
+    name: 'Uthra',
+    imageSrc: '/success-stories/Uthra.jpg',
+    imageWidth: 1122,
+    imageHeight: 1402,
+    imageMaxWidth: 560,
+    imageAlt: "Uthra's strength and confidence transformation",
+    program: 'Transform & Thrive',
+    challenge:
+      '36, dancer, navigating self-doubt, inconsistent habits, and all-or-nothing thinking around her body and progress.',
+    approach:
+      'A realistic coaching plan built around strength, stability, movement quality, and small consistent actions even on busy days.',
+    result:
+      'Built strength and stability, improved movement quality, became consistent with just 10-15 minutes when needed, and rebuilt self-trust.',
+    pullQuote:
+      'Built strength, stability, and confidence while becoming more comfortable in her body and moving beyond all-or-nothing thinking.',
+    imageRight: true,
+  },
+  {
+    name: 'Aritu',
+    imageSrc: '/success-stories/Aritu.jpeg',
+    imageWidth: 1200,
+    imageHeight: 1600,
+    imageMaxWidth: 500,
+    imageAlt: "Aritu's perimenopause transformation journey",
+    program: 'Transform & Thrive',
+    challenge:
+      "Perimenopause, stressful life periods, weight she had not seen shift in four years, and the need for a more compassionate way to stay consistent.",
+    approach:
+      'Eight months of sustainable coaching focused on nutrition, strength, stress-aware habits, and learning how to continue without abandoning progress.',
+    result:
+      'Lost 10+ kg, reached a weight she had not seen in four years, and built habits with a healthier, more compassionate mindset.',
+    pullQuote:
+      'Aritu learned that sustainable change was about more than weight loss: it was about navigating perimenopause with consistency, resilience, and self-compassion.',
+    imageRight: false,
+  },
+  {
     name: 'Nirupa Seshadri',
     imageSrc: '/success-stories/niupa.jpeg',
     imageWidth: 1599,
