@@ -81,24 +81,6 @@ const stories: SuccessStory[] = [
     imageRight: true,
   },
   {
-    name: 'Aritu',
-    imageSrc: '/success-stories/Aritu.jpeg',
-    imageWidth: 1200,
-    imageHeight: 1600,
-    imageMaxWidth: 500,
-    imageAlt: "Aritu's perimenopause transformation journey",
-    program: 'Transform & Thrive',
-    challenge:
-      "Perimenopause, stressful life periods, weight she had not seen shift in four years, and the need for a more compassionate way to stay consistent.",
-    approach:
-      'Eight months of sustainable coaching focused on nutrition, strength, stress-aware habits, and learning how to continue without abandoning progress.',
-    result:
-      'Lost 10+ kg, reached a weight she had not seen in four years, and built habits with a healthier, more compassionate mindset.',
-    pullQuote:
-      'Aritu learned that sustainable change was about more than weight loss: it was about navigating perimenopause with consistency, resilience, and self-compassion.',
-    imageRight: false,
-  },
-  {
     name: 'Nirupa Seshadri',
     imageSrc: '/success-stories/niupa.jpeg',
     imageWidth: 1599,
@@ -348,6 +330,24 @@ const stories: SuccessStory[] = [
     pullQuote:
       'Srividya\'s guidance helped me stay consistent with ease. Simple food and exercise habits, flexible meal planning, recipe ideas, and regular fine-tuning helped me lose inches, improve stamina, feel mentally clear, and make fitness part of everyday life. I even went from barely being able to run to completing 21 km in 2 hours 38 minutes.',
     imageRight: false,
+  },
+  {
+    name: 'Aritu',
+    imageSrc: '/success-stories/Aritu.jpeg',
+    imageWidth: 1200,
+    imageHeight: 1600,
+    imageMaxWidth: 500,
+    imageAlt: "Aritu's perimenopause transformation journey",
+    program: 'Transform & Thrive',
+    challenge:
+      "Perimenopause, stressful life periods, weight she had not seen shift in four years, and the need for a more compassionate way to stay consistent.",
+    approach:
+      'Eight months of sustainable coaching focused on nutrition, strength, stress-aware habits, and learning how to continue without abandoning progress.',
+    result:
+      'Lost 10+ kg, reached a weight she had not seen in four years, and built habits with a healthier, more compassionate mindset.',
+    pullQuote:
+      'Aritu learned that sustainable change was about more than weight loss: it was about navigating perimenopause with consistency, resilience, and self-compassion.',
+    imageRight: true,
   },
 ]
 
