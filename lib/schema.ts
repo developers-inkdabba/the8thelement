@@ -56,7 +56,7 @@ export const personSchema = {
   '@type': 'Person',
   name: 'Srividya',
   jobTitle: 'Menopause Nutrition Lifestyle Weight loss Coach',
-  image: 'https://www.the8thelement.in/images/srividya.png',
+  image: 'https://www.the8thelement.in/images/srividya.jpg',
   description:
     'Menopause Nutrition, Lifestyle & Weight Loss Coach and founder of The 8th Element.',
   worksFor: {

@@ -131,7 +131,7 @@ const teamMembers = [
   {
     name: 'Nithyaa Sundaramoorthy',
     role: 'Client Relations',
-    image: '/team/Nithyaa.png',
+    image: '/team/Nithyaa.jpg',
     alt: 'Nithyaa Sundaramoorthy, Client Relations',
     imageClassName: 'object-[50%_18%]',
     focus: 'Listening, empathy, coordination, and warm client support.',
@@ -140,7 +140,7 @@ const teamMembers = [
   {
     name: 'Deborah Jacob',
     role: "Clinical Dietitian & Women's Health Coach",
-    image: '/team/Deborah.png',
+    image: '/team/Deborah.jpg',
     alt: "Deborah Jacob, Clinical Dietitian and Women's Health Coach",
     imageClassName: 'object-[50%_16%]',
     focus: 'Evidence-based nutrition, holistic wellness, and sustainable lifestyle change.',
@@ -387,7 +387,7 @@ function PersonalJourneySection() {
               <div className="relative overflow-hidden rounded-2xl bg-cream p-2 shadow-2xl shadow-navy/10">
                 <div className="relative aspect-[414/763] overflow-hidden rounded-xl bg-white">
                   <Image
-                    src="/images/old1.png"
+                    src="/images/old1.jpg"
                     alt="Srividya during an early personal fitness milestone"
                     fill
                     sizes="(min-width: 1024px) 21rem, (min-width: 640px) 18rem, 16rem"
@@ -481,7 +481,7 @@ export function AboutOneContent() {
       <section className="bg-navy pt-28 pb-20 lg:pt-32 lg:pb-24 overflow-hidden" aria-labelledby="about-heading">
         <div className="w-full px-8 sm:px-12 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            <motion.div {...fade(0.1)} className="lg:col-span-7">
+            <motion.div {...fade(0.1)} className="order-2 lg:order-1 lg:col-span-7">
               <p className="text-gold uppercase tracking-[0.18em] text-xs font-semibold mb-5">Nutrition &amp; Dietetics &bull; Strength Training &bull; Intuitive Eating &bull; Sleep &amp; Stress Management &bull; Behaviour Change</p>
               <h1 id="about-heading" className="text-hero text-white" style={{ fontFamily: 'var(--font-playfair)' }}>
                 Meet Srividya
@@ -509,7 +509,7 @@ export function AboutOneContent() {
               </div>
             </motion.div>
 
-            <motion.div {...fade(0.18)} className="lg:col-span-5 flex justify-center lg:justify-end">
+            <motion.div {...fade(0.18)} className="order-1 flex justify-center lg:order-2 lg:col-span-5 lg:justify-end">
               <FeaturedPortraitHolder
                 src="/lead-magnet/coach1.jpeg"
                 alt="Coach Srividya seated on a couch"
@@ -517,7 +517,7 @@ export function AboutOneContent() {
                 sizes="(min-width: 1024px) 25rem, 78vw"
                 eyebrow="Science-Backed Coaching"
                 caption="Helping women feel like themselves again."
-                className="max-w-[25rem]"
+                className="max-w-[18rem] sm:max-w-[25rem]"
                 frameClassName="ring-1 ring-white/10"
               />
             </motion.div>

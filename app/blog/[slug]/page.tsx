@@ -129,7 +129,7 @@ export default async function BlogPostPage({ params }: Props) {
 
         <div className="relative h-[22rem] sm:h-[28rem] lg:h-[34rem] max-w-4xl mx-auto rounded-t-2xl overflow-hidden bg-cream">
           <Image
-            src={`/blog/${post.slug}.png`}
+            src={`/blog/${post.slug}.jpg`}
             alt={post.title}
             fill
             priority

@@ -154,7 +154,7 @@ export function TransformThriveContent() {
             className="text-white mb-5"
             style={{
               fontFamily: 'var(--font-playfair)',
-              fontSize: 'clamp(2.4rem, 5vw, 4rem)',
+              fontSize: 'clamp(2.15rem, 10vw, 4rem)',
               fontWeight: 700,
               lineHeight: 1.15,
             }}

@@ -503,7 +503,7 @@ function DraggableMarqueeRow({ direction, children }: DraggableMarqueeRowProps) 
   return (
     <div
       ref={viewportRef}
-      className={`marquee-drag-viewport w-full overflow-x-auto flex ${
+      className={`marquee-drag-viewport w-full overflow-hidden flex ${
         isDragging ? 'is-dragging cursor-grabbing' : 'cursor-grab'
       }`}
       onPointerDown={startDrag}

@@ -203,13 +203,13 @@ export function QuizFlow() {
   }
 
   const variants = {
-    enter: (d: number) => ({ x: d > 0 ? 60 : -60, opacity: 0 }),
+    enter: (d: number) => ({ x: d > 0 ? 24 : -24, opacity: 0 }),
     center: { x: 0, opacity: 1 },
-    exit: (d: number) => ({ x: d > 0 ? -60 : 60, opacity: 0 }),
+    exit: (d: number) => ({ x: d > 0 ? -24 : 24, opacity: 0 }),
   }
 
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="mx-auto max-w-3xl overflow-hidden">
       {step > 0 && step < 6 && (
         <div className="mb-8">
           <div className="flex justify-between text-xs text-muted mb-2">

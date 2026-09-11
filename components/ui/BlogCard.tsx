@@ -21,7 +21,7 @@ export function BlogCard({ slug, title, excerpt, category, date, dateTime, readT
         aria-label={`Featured image for ${title}`}
       >
         <Image
-          src={`/blog/${slug}.png`}
+          src={`/blog/${slug}.jpg`}
           alt={title}
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"

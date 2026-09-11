@@ -31,9 +31,9 @@ export function AppointmentNudge() {
   }, [])
 
   return (
-    <div className="fixed bottom-24 right-6 z-50 flex items-end gap-3" aria-label="Book an appointment">
+    <div className="fixed bottom-4 right-20 z-50 flex flex-col items-end gap-2 sm:bottom-24 sm:right-6 sm:flex-row sm:gap-3" aria-label="Book an appointment">
       <div
-        className={`max-w-[15rem] rounded-lg border border-gold/30 bg-white px-5 py-4 text-[0.95rem] leading-relaxed text-navy shadow-xl shadow-navy/15 transition-all duration-300 ${
+        className={`hidden max-w-[12.75rem] rounded-lg border border-gold/30 bg-white px-4 py-3 text-sm leading-relaxed text-navy shadow-xl shadow-navy/15 transition-all duration-300 sm:block sm:max-w-[15rem] sm:px-5 sm:py-4 sm:text-[0.95rem] ${
           bubbleVisible
             ? 'translate-y-0 opacity-100'
             : 'pointer-events-none translate-y-2 opacity-0'
@@ -51,10 +51,10 @@ export function AppointmentNudge() {
         rel="noopener noreferrer"
         onMouseEnter={() => setBubbleVisible(true)}
         onMouseLeave={() => setBubbleVisible(false)}
-        className="flex h-16 w-16 items-center justify-center rounded-full bg-accent text-white shadow-lg shadow-navy/15 transition-all duration-200 hover:scale-110 hover:bg-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-white shadow-lg shadow-navy/15 transition-all duration-200 hover:scale-110 hover:bg-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 sm:h-16 sm:w-16"
         aria-label="Book your appointment today"
       >
-        <CalendarCheck size={28} aria-hidden="true" />
+        <CalendarCheck className="h-5 w-5 sm:h-7 sm:w-7" aria-hidden="true" />
       </a>
     </div>
   )

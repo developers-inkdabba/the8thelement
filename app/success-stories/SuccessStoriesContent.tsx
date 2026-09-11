@@ -46,7 +46,7 @@ type StoryImage = {
 const stories: SuccessStory[] = [
   {
     name: "Bhuvana, 75 years (Srividya's mom)",
-    imageSrc: '/success-stories/Bhuvana.png',
+    imageSrc: '/success-stories/Bhuvana.jpg',
     imageWidth: 1304,
     imageHeight: 1600,
     imageMaxWidth: 560,
@@ -136,7 +136,7 @@ const stories: SuccessStory[] = [
   },
   {
     name: 'Aishwarya',
-    imageSrc: '/success-stories/Aishwarya.png',
+    imageSrc: '/success-stories/Aishwarya.jpg',
     imageWidth: 782,
     imageHeight: 493,
     imageAlt: "Aishwarya's transformation journey",
@@ -153,7 +153,7 @@ const stories: SuccessStory[] = [
   },
   {
     name: 'Ishwarya',
-    imageSrc: '/success-stories/Ishwarya.png',
+    imageSrc: '/success-stories/Ishwarya.jpg',
     imageWidth: 727,
     imageHeight: 821,
     imageMaxWidth: 520,
@@ -171,7 +171,7 @@ const stories: SuccessStory[] = [
   },
   {
     name: 'Lakshmi',
-    imageSrc: '/success-stories/Lakshmi.png',
+    imageSrc: '/success-stories/Lakshmi.jpg',
     imageWidth: 828,
     imageHeight: 826,
     imageMaxWidth: 520,
@@ -189,7 +189,7 @@ const stories: SuccessStory[] = [
   },
   {
     name: 'Akshaya',
-    imageSrc: '/success-stories/Akshaya.png',
+    imageSrc: '/success-stories/Akshaya.jpg',
     imageWidth: 826,
     imageHeight: 823,
     imageMaxWidth: 520,
@@ -207,7 +207,7 @@ const stories: SuccessStory[] = [
   },
   {
     name: 'Kavitha',
-    imageSrc: '/success-stories/Kavitha.png',
+    imageSrc: '/success-stories/Kavitha.jpg',
     imageWidth: 622,
     imageHeight: 791,
     imageMaxWidth: 480,
@@ -225,7 +225,7 @@ const stories: SuccessStory[] = [
   },
   {
     name: 'Akila',
-    imageSrc: '/success-stories/Akila.png',
+    imageSrc: '/success-stories/Akila.jpg',
     imageWidth: 765,
     imageHeight: 800,
     imageMaxWidth: 520,
@@ -243,13 +243,13 @@ const stories: SuccessStory[] = [
   },
   {
     name: 'Kalai',
-    imageSrc: '/success-stories/Kalai.png',
+    imageSrc: '/success-stories/Kalai.jpg',
     imageWidth: 705,
     imageHeight: 792,
     imageMaxWidth: 520,
     images: [
       {
-        src: '/success-stories/Kalai-1.png',
+        src: '/success-stories/Kalai-1.jpg',
         width: 744,
         height: 794,
         maxWidth: 520,
@@ -270,13 +270,13 @@ const stories: SuccessStory[] = [
   },
   {
     name: 'Krithiga',
-    imageSrc: '/success-stories/Krithiga.png',
+    imageSrc: '/success-stories/Krithiga.jpg',
     imageWidth: 816,
     imageHeight: 674,
     imageMaxWidth: 560,
     images: [
       {
-        src: '/success-stories/Krithiga-1.png',
+        src: '/success-stories/Krithiga-1.jpg',
         width: 661,
         height: 692,
         maxWidth: 520,
@@ -297,7 +297,7 @@ const stories: SuccessStory[] = [
   },
   {
     name: 'Swetha Vignesh',
-    imageSrc: '/success-stories/Swetha Vignesh.png',
+    imageSrc: '/success-stories/Swetha Vignesh.jpg',
     imageWidth: 464,
     imageHeight: 420,
     imageMaxWidth: 500,
@@ -315,7 +315,7 @@ const stories: SuccessStory[] = [
   },
   {
     name: 'Rajula',
-    imageSrc: '/success-stories/Rajula.png',
+    imageSrc: '/success-stories/Rajula.jpg',
     imageWidth: 742,
     imageHeight: 818,
     imageMaxWidth: 520,
@@ -520,7 +520,7 @@ export function SuccessStoriesContent() {
             className="text-navy mb-5"
             style={{
               fontFamily: 'var(--font-playfair)',
-              fontSize: 'clamp(2.8rem, 6vw, 5rem)',
+              fontSize: 'clamp(2.2rem, 11vw, 5rem)',
               fontWeight: 700,
               lineHeight: 1.1,
             }}

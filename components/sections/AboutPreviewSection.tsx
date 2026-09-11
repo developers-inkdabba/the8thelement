@@ -19,7 +19,7 @@ export function AboutPreviewSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 order-2 lg:order-1 flex justify-center relative py-6"
+            className="order-1 flex justify-center relative py-6 lg:order-1 lg:col-span-5"
           >
             <div className="relative w-72 h-80 sm:w-96 sm:h-[28rem] lg:w-[25rem] lg:h-[31rem]">
               <div
@@ -33,7 +33,7 @@ export function AboutPreviewSection() {
                 aria-label="Srividya's first transformation photo"
               >
                 <Image
-                  src="/images/old.png"
+                  src="/images/old.jpg"
                   alt="Srividya's early health journey photo"
                   fill
                   sizes="(min-width: 1024px) 25rem, (min-width: 640px) 24rem, 18rem"
@@ -48,7 +48,7 @@ export function AboutPreviewSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 order-1 lg:order-2"
+            className="order-2 lg:order-2 lg:col-span-7"
           >
             <h2
               id="about-preview-heading"
