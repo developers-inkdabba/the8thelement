@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
@@ -51,7 +51,7 @@ const stories: SuccessStory[] = [
     imageHeight: 1600,
     imageMaxWidth: 560,
     imageAlt: "Bhuvana's transformation at 75",
-    program: 'The 8th Element',
+    program: 'MenoThrive',
     challenge:
       'At 75, she was struggling with leg swelling, varicose veins, pain, bloating, low energy, poor confidence, and reduced mobility.',
     approach:
@@ -69,7 +69,7 @@ const stories: SuccessStory[] = [
     imageHeight: 1402,
     imageMaxWidth: 560,
     imageAlt: "Uthra's strength and confidence transformation",
-    program: 'Transform & Thrive',
+    program: 'MenoThrive',
     challenge:
       '36, dancer, navigating self-doubt, inconsistent habits, and all-or-nothing thinking around her body and progress.',
     approach:
@@ -87,7 +87,7 @@ const stories: SuccessStory[] = [
     imageHeight: 1599,
     imageMaxWidth: 520,
     imageAlt: "Nirupa Seshadri's PCOS transformation journey",
-    program: 'Transform & Thrive',
+    program: 'MenoThrive',
     challenge:
       'PCOS, stubborn weight changes, and the need for a sustainable approach to improve body composition and confidence at 37.',
     approach:
@@ -158,7 +158,7 @@ const stories: SuccessStory[] = [
     imageHeight: 821,
     imageMaxWidth: 520,
     imageAlt: "Ishwarya's post-pregnancy transformation",
-    program: 'Transform & Thrive',
+    program: 'MenoThrive',
     challenge:
       'Post-pregnancy weight gain, erratic mealtimes, cravings, binge eating, and hormonal changes while caring for a newborn.',
     approach:
@@ -212,7 +212,7 @@ const stories: SuccessStory[] = [
     imageHeight: 791,
     imageMaxWidth: 480,
     imageAlt: "Kavitha's GI health recovery",
-    program: 'Transform & Thrive',
+    program: 'MenoThrive',
     challenge:
       'Years of GI distress and constant stomach discomfort that made her avoid social meals and gatherings.',
     approach:
@@ -230,7 +230,7 @@ const stories: SuccessStory[] = [
     imageHeight: 800,
     imageMaxWidth: 520,
     imageAlt: "Akila's health transformation",
-    program: 'Transform & Thrive',
+    program: 'MenoThrive',
     challenge:
       'Mindset and belief patterns around food, emotional eating, low energy, and difficulty understanding hunger and appetite cues.',
     approach:
@@ -284,7 +284,7 @@ const stories: SuccessStory[] = [
       },
     ],
     imageAlt: "Krithiga's habit transformation",
-    program: 'Transform & Thrive',
+    program: 'MenoThrive',
     challenge:
       'Perfection pressure, negative thought patterns, and difficulty building consistent health habits.',
     approach:
@@ -332,13 +332,121 @@ const stories: SuccessStory[] = [
     imageRight: false,
   },
   {
+    name: 'Dr. Poornima',
+    imageSrc: '/success-stories/dr-poornima.jpg',
+    imageWidth: 762,
+    imageHeight: 787,
+    imageMaxWidth: 540,
+    imageAlt: "Dr. Poornima's body composition transformation",
+    program: 'Transform & Thrive',
+    challenge:
+      'A demanding professional life, changing body composition, and the need for a realistic system that could fit into a busy routine without extremes.',
+    approach:
+      'A practical coaching plan focused on food awareness, steady movement, strength, consistency, and simple routines that could be sustained alongside work and family life.',
+    result:
+      'Visible inch loss, better posture, improved body confidence, and a stronger sense of ease in her own clothes.',
+    pullQuote:
+      'Dr. Poornima\'s journey shows the power of steady, realistic change: not a crash approach, but a body-composition transformation built through consistency, confidence, and sustainable habits.',
+    imageRight: true,
+  },
+  {
+    name: 'Pavithra',
+    imageSrc: '/success-stories/pavithra.jpg',
+    imageWidth: 780,
+    imageHeight: 799,
+    imageMaxWidth: 540,
+    imageAlt: "Pavithra's inch loss and confidence transformation",
+    program: 'MenoThrive',
+    challenge:
+      'Stubborn midsection weight, low body confidence, and the need to build a routine that felt doable instead of restrictive.',
+    approach:
+      'Balanced nutrition, habit-based consistency, movement, and small lifestyle shifts designed to help her feel more in control of her body and energy.',
+    result:
+      'Visible inch loss, a lighter frame, improved posture, and a more confident, relaxed presence.',
+    pullQuote:
+      'Pavithra\'s transformation is a reminder that progress is not only about the scale. Her posture, shape, and confidence all reflect the strength of small habits repeated consistently.',
+    imageRight: false,
+  },
+  {
+    name: 'Sangeetha',
+    imageSrc: '/success-stories/sangeetha.jpg',
+    imageWidth: 802,
+    imageHeight: 798,
+    imageMaxWidth: 540,
+    imageAlt: "Sangeetha's confidence and inch loss transformation",
+    program: 'MenoThrive',
+    challenge:
+      'Weight fluctuations, body-confidence dips, and the need for a sustainable approach that could support real life, celebrations, travel, and family routines.',
+    approach:
+      'Portion awareness, consistent movement, mindful eating, and habit coaching that helped her build structure without giving up the foods and occasions she enjoys.',
+    result:
+      'Visible inch loss, improved confidence in ethnic wear, more energy, and a brighter relationship with her body.',
+    pullQuote:
+      'Sangeetha\'s result is not just visible in the inches lost. It shows in the way she carries herself - brighter, lighter, and more at home in her body.',
+    imageRight: true,
+  },
+  {
+    name: 'Sujatha Ravi',
+    imageSrc: '/success-stories/sujatha-ravi.jpg',
+    imageWidth: 812,
+    imageHeight: 705,
+    imageMaxWidth: 560,
+    imageAlt: "Sujatha Ravi's lifestyle and confidence transformation",
+    program: 'Transform & Thrive',
+    challenge:
+      'Feeling disconnected from her own interests and needing a lifestyle reset that went beyond weight loss alone.',
+    approach:
+      'Habit transformation, food awareness, movement, and mindset coaching that helped her create more space for health, joy, and personal expression.',
+    result:
+      'Greater confidence, renewed energy, and the freedom to enjoy her passions - from tending her terrace garden to dressing up with ease.',
+    pullQuote:
+      'Sujatha Ravi\'s transformation is about liberation. As her habits changed, her life opened up again - with more energy, confidence, and room for the things that make her feel alive.',
+    imageRight: false,
+  },
+  {
+    name: 'Sujatha',
+    imageSrc: '/success-stories/sujatha.jpg',
+    imageWidth: 812,
+    imageHeight: 806,
+    imageMaxWidth: 540,
+    imageAlt: "Sujatha's body confidence transformation",
+    program: 'MenoThrive',
+    challenge:
+      'Wanting to feel lighter, more energetic, and more confident in her body without getting trapped in guilt, restriction, or an all-or-nothing mindset.',
+    approach:
+      'A sustainable lifestyle plan built around balanced meals, consistent habits, movement, and a healthier relationship with food and self-care.',
+    result:
+      'Visible inch loss, improved confidence, and a more playful, comfortable relationship with her body.',
+    pullQuote:
+      'Sujatha\'s after photo says what numbers often cannot: she looks lighter, freer, and more comfortable in her own skin.',
+    imageRight: true,
+  },
+  {
+    name: 'Swetha',
+    imageSrc: '/success-stories/swetha.jpg',
+    imageWidth: 806,
+    imageHeight: 812,
+    imageMaxWidth: 540,
+    imageAlt: "Swetha's strength and style transformation",
+    program: 'MenoThrive',
+    challenge:
+      'Body-composition changes, inconsistent routines, and the desire to feel strong, stylish, and confident again.',
+    approach:
+      'Structured nutrition, movement consistency, strength-focused habits, and coaching support that helped her move from effort to ownership.',
+    result:
+      'Visible body-composition change, stronger presence, renewed confidence, and a style-forward transformation that reflects how she feels inside.',
+    pullQuote:
+      'Swetha\'s transformation carries a quiet strength: visible change, sharper confidence, and the kind of self-assurance that shows up in how she stands, dresses, and lives.',
+    imageRight: false,
+  },
+  {
     name: 'Aritu',
     imageSrc: '/success-stories/Aritu.jpeg',
     imageWidth: 1200,
     imageHeight: 1600,
     imageMaxWidth: 500,
     imageAlt: "Aritu's perimenopause transformation journey",
-    program: 'Transform & Thrive',
+    program: 'MenoThrive',
     challenge:
       "Perimenopause, stressful life periods, weight she had not seen shift in four years, and the need for a more compassionate way to stay consistent.",
     approach:
@@ -478,7 +586,6 @@ function StoryImageFrame({
             width={activeImage.width}
             height={activeImage.height}
             sizes="(max-width: 1024px) calc(100vw - 6rem), 50vw"
-            unoptimized
             draggable={false}
             onContextMenu={(event) => event.preventDefault()}
             className="h-auto w-full select-none object-contain"
@@ -507,7 +614,7 @@ export function SuccessStoriesContent() {
 
   return (
     <>
-      {/* ── 1. Hero ── */}
+      {/* -- 1. Hero -- */}
       <section
         className="bg-white pt-32 pb-14 lg:pb-28"
         aria-labelledby="ss-hero-heading" 
@@ -538,7 +645,7 @@ export function SuccessStoriesContent() {
         </div>
       </section>
 
-      {/* ── 2. Featured Stories ── */}
+      {/* -- 2. Featured Stories -- */}
       <section aria-label="Client transformation stories">
         {stories.map((story, i) => (
           <article
@@ -628,7 +735,7 @@ export function SuccessStoriesContent() {
 
       <TestimonialsSection />
 
-      {/* ── 3. Stats Strip ── */}
+      {/* -- 3. Stats Strip -- */}
       <section
         className="py-14 lg:py-20 bg-navy"
         aria-labelledby="ss-stats-heading"
@@ -654,7 +761,7 @@ export function SuccessStoriesContent() {
         </div>
       </section>
 
-      {/* ── 4. CTA Section ── */}
+      {/* -- 4. CTA Section -- */}
       <section
         className="py-14 lg:py-20 bg-cream"
         aria-labelledby="ss-cta-heading"
@@ -689,7 +796,7 @@ export function SuccessStoriesContent() {
         </div>
       </section>
 
-      {/* ── 5. CTA Banner ── */}
+      {/* -- 5. CTA Banner -- */}
       <CTABanner />
 
       {selectedImage ? (
@@ -726,7 +833,6 @@ export function SuccessStoriesContent() {
               width={selectedImage.width}
               height={selectedImage.height}
               sizes="(max-width: 1024px) calc(100vw - 2rem), 1024px"
-              unoptimized
               draggable={false}
               onContextMenu={(event) => event.preventDefault()}
               className="max-h-[80vh] w-auto select-none object-contain"

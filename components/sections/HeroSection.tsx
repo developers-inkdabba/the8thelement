@@ -96,14 +96,14 @@ export function HeroSection() {
                 href={ASSESSMENT_FORM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex min-h-[52px] w-full max-w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-accent px-5 py-3.5 text-center text-[0.95rem] font-bold uppercase leading-snug text-white transition-all duration-300 hover:bg-navy hover:shadow-lg hover:shadow-navy/10 sm:w-auto sm:px-8 sm:py-4 sm:text-base"
+                className="group inline-flex min-h-[52px] w-full max-w-full items-center justify-center gap-2 rounded-full bg-accent px-5 py-3.5 text-center text-[0.95rem] font-bold uppercase leading-snug text-white transition-all duration-300 hover:bg-navy hover:shadow-lg hover:shadow-navy/10 sm:w-auto sm:px-8 sm:py-4 sm:text-base"
               >
                 Book Your Appointment Today
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </a>
               <Link
                 href="/quiz"
-                className="group inline-flex min-h-[44px] w-full max-w-full items-center justify-center gap-2 whitespace-nowrap px-2 py-2 text-center text-sm font-semibold leading-snug text-navy transition-colors duration-300 hover:text-accent sm:w-auto"
+                className="group inline-flex min-h-[44px] w-full max-w-full items-center justify-center gap-2 px-2 py-2 text-center text-sm font-semibold leading-snug text-navy transition-colors duration-300 hover:text-accent sm:w-auto"
               >
                 Discover My Menopause Stage
                 <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />

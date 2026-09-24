@@ -177,7 +177,7 @@ export function Navbar() {
 
   // The bar is transparent ONLY at the very top of a page, so the hero can
   // run full-bleed underneath it. As soon as scrolling begins the bar takes
-  // a background and keeps it — including over dark sections further down
+  // a background and keeps it - including over dark sections further down
   // (a dark CTA, the footer), which previously kept it transparent all the
   // way and left the links floating over moving content.
   //
@@ -212,13 +212,13 @@ export function Navbar() {
                 src="/logo.svg"
                 alt="The 8th Element"
                 width={477}
-                height={382}
-                className={`h-11 w-auto object-contain group-hover:scale-105 transition-all duration-300 sm:h-12 lg:h-14 ${
+                height={312}
+                className={`h-10 w-auto object-contain group-hover:scale-105 transition-all duration-300 sm:h-14 lg:h-16 ${
                   onDark ? 'brightness-0 invert' : ''
                 }`}
               />
               <span
-                className={`font-bold text-sm uppercase tracking-[0.14em] transition-colors duration-300 sm:text-base sm:tracking-[0.2em] lg:text-lg ${
+                className={`font-bold text-sm uppercase tracking-[0.1em] transition-colors duration-300 sm:text-lg sm:tracking-[0.2em] lg:text-xl ${
                   onDark
                     ? 'text-white group-hover:text-white/70'
                     : 'text-navy group-hover:text-accent'
@@ -230,7 +230,7 @@ export function Navbar() {
             </Link>
 
             {/* Desktop nav */}
-            <nav className="hidden lg:flex items-center gap-2" aria-label="Main navigation">
+            <nav className="hidden xl:flex items-center gap-2" aria-label="Main navigation">
               {navLinks.map((link) =>
                 link.children ? (
                   <div key={link.label} className="relative">
@@ -297,7 +297,7 @@ export function Navbar() {
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setMobileOpen((v) => !v)}
-                className={`lg:hidden p-2 rounded-md transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center ${
+                className={`xl:hidden p-2 rounded-md transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center ${
                   onDark
                     ? 'text-white hover:bg-white/10'
                     : 'text-dark hover:bg-cream'
@@ -320,7 +320,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[55] flex flex-col overflow-y-auto bg-warm-bg px-4 pb-6 pt-24 lg:hidden"
+            className="fixed inset-0 z-[55] flex flex-col overflow-y-auto bg-warm-bg px-4 pb-6 pt-24 xl:hidden"
           >
             <div className="mx-auto flex w-full max-w-md flex-1 flex-col gap-5">
               <motion.div

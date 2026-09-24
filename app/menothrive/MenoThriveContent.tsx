@@ -1,10 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
   CheckCircle2, XCircle, Dumbbell, Salad,
-  Target, BookOpen, Phone, MessageCircle, ArrowRight, ImageOff,
+  Target, BookOpen, Phone, MessageCircle, ArrowRight,
   Scale, Battery, ShieldCheck, Repeat,
 } from 'lucide-react'
 import { FAQAccordion } from '@/components/ui/FAQAccordion'
@@ -32,8 +33,102 @@ const offerItems = [
 ]
 
 const realWomenCases = [
-  { name: 'Ranjitha', stat: '51 cm fat loss', detail: 'Scale barely changed — but her strength, body composition and confidence transformed.' },
-  { name: 'Aishwarya', stat: 'Strength goals she once wasn’t sure she could achieve.', detail: 'Push-ups. Pull-ups. Squats. Deadlifts.' },
+  {
+    name: 'Bhuvana',
+    stat: '75 years, stronger and independent',
+    detail: 'Mobility, confidence, blood sugar control, and daily strength improved through steady lifestyle change.',
+    imageSrc: '/success-stories/Bhuvana.jpg',
+    imageAlt: "Bhuvana's MenoThrive transformation",
+    href: '/success-stories#story-bhuvana-75-years-srividya-s-mom',
+  },
+  {
+    name: 'Uthra',
+    stat: 'Strength, stability, and self-trust rebuilt',
+    detail: 'A dancer rebuilt consistency and confidence without the all-or-nothing pressure.',
+    imageSrc: '/success-stories/Uthra.jpg',
+    imageAlt: "Uthra's MenoThrive transformation",
+    href: '/success-stories#story-uthra',
+  },
+  {
+    name: 'Nirupa Seshadri',
+    stat: '10+ kg lost and 118 cm reduced',
+    detail: 'A PCOS-focused transformation built through nutrition, strength, and sustainable routines.',
+    imageSrc: '/success-stories/niupa.jpeg',
+    imageAlt: "Nirupa Seshadri's MenoThrive transformation",
+    href: '/success-stories#story-nirupa-seshadri',
+  },
+  {
+    name: 'Ishwarya',
+    stat: 'Post-pregnancy strength and rhythm',
+    detail: 'Returned to her pre-pregnancy weight while building habits she could actually keep.',
+    imageSrc: '/success-stories/Ishwarya.jpg',
+    imageAlt: "Ishwarya's MenoThrive transformation",
+    href: '/success-stories#story-ishwarya',
+  },
+  {
+    name: 'Kavitha',
+    stat: 'Food awareness and GI relief',
+    detail: 'A careful, personalised approach helped her feel comfortable around food and social meals again.',
+    imageSrc: '/success-stories/Kavitha.jpg',
+    imageAlt: "Kavitha's MenoThrive transformation",
+    href: '/success-stories#story-kavitha',
+  },
+  {
+    name: 'Akila',
+    stat: '8 kg and 52 cm lost',
+    detail: 'Energy, strength, sleep, confidence, and food control improved through steady habit coaching.',
+    imageSrc: '/success-stories/Akila.jpg',
+    imageAlt: "Akila's MenoThrive transformation",
+    href: '/success-stories#story-akila',
+  },
+  {
+    name: 'Krithiga',
+    stat: 'Consistency without perfection',
+    detail: 'Built sustainable habits by showing up imperfectly, kindly, and consistently.',
+    imageSrc: '/success-stories/Krithiga.jpg',
+    imageAlt: "Krithiga's MenoThrive transformation",
+    href: '/success-stories#story-krithiga',
+  },
+  {
+    name: 'Swetha',
+    stat: 'Visible strength and body confidence',
+    detail: 'A stronger routine helped her reconnect with confidence, style, and self-assurance.',
+    imageSrc: '/success-stories/swetha.jpg',
+    imageAlt: "Swetha's MenoThrive transformation",
+    href: '/success-stories#story-swetha',
+  },
+  {
+    name: 'Aritu',
+    stat: '10+ kg lost through perimenopause',
+    detail: 'Learned to stay consistent through stressful seasons with a more compassionate strategy.',
+    imageSrc: '/success-stories/Aritu.jpeg',
+    imageAlt: "Aritu's MenoThrive transformation",
+    href: '/success-stories#story-aritu',
+  },
+  {
+    name: 'Pavithra',
+    stat: 'Inch loss and posture confidence',
+    detail: 'Small, repeatable habits helped her feel lighter, stronger, and more relaxed in her body.',
+    imageSrc: '/success-stories/pavithra.jpg',
+    imageAlt: "Pavithra's MenoThrive transformation",
+    href: '/success-stories#story-pavithra',
+  },
+  {
+    name: 'Lakshmi',
+    stat: 'Diabetes support and renewed energy',
+    detail: 'Built strength, food awareness, and confidence while changing her relationship with health.',
+    imageSrc: '/success-stories/Lakshmi.jpg',
+    imageAlt: "Lakshmi's MenoThrive transformation",
+    href: '/success-stories#story-lakshmi',
+  },
+  {
+    name: 'Sharmila',
+    stat: '8 kg and 73 cm lost',
+    detail: 'Reduced pain, lighter movement, stronger dance practice, and a healthier relationship with food.',
+    imageSrc: '/success-stories/Sharmila.jpeg',
+    imageAlt: "Sharmila's MenoThrive transformation",
+    href: '/success-stories#story-sharmila',
+  },
 ]
 
 const differentPoints = ['Travel.', 'Stress.', 'Busy weeks.', 'Low-energy days.', 'Life transitions.']
@@ -74,8 +169,8 @@ export function MenoThriveContent() {
       {/* 1. Hero — Sell the Outcome */}
       <section className="bg-navy pt-24 pb-16 lg:pt-28 lg:pb-24" aria-labelledby="menothrive-hero-heading">
         <div className="w-full px-8 sm:px-12 lg:px-20">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="text-center lg:col-span-7 lg:text-left">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-14 xl:gap-20">
+            <div className="text-center lg:col-span-6 lg:text-left">
               <motion.p {...stagger(0.05)} className="text-gold uppercase tracking-[0.18em] text-sm font-semibold mb-5">MenoThrive&trade; Private 1:1 Coaching</motion.p>
               <motion.h1 {...stagger(0.1)} id="menothrive-hero-heading" className="text-hero text-white" style={{ fontFamily: 'var(--font-playfair)' }}>
                 <span className="block">Feel Stronger.</span>
@@ -94,20 +189,23 @@ export function MenoThriveContent() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="relative mx-auto w-48 sm:w-60 lg:col-span-5 lg:mx-0 lg:w-full lg:max-w-sm"
+              className="relative mx-auto w-full max-w-[300px] sm:max-w-[380px] lg:col-span-6 lg:mr-0 lg:ml-auto lg:max-w-[460px] xl:max-w-[520px]"
             >
               <div
-                className="absolute inset-0 -translate-x-3 translate-y-3 border border-gold/40"
-                style={{ borderRadius: '58% 42% 62% 38% / 42% 58% 42% 58%' }}
+                className="absolute inset-0 -translate-x-3 translate-y-3 rounded-[2rem] border border-gold/40 sm:-translate-x-4 sm:translate-y-4"
                 aria-hidden="true"
               />
-              <div
-                className="relative flex aspect-[3/4] items-center justify-center overflow-hidden bg-white/5 shadow-xl shadow-black/30"
-                style={{ borderRadius: '58% 42% 62% 38% / 42% 58% 42% 58%' }}
-              >
-                <div className="flex flex-col items-center gap-2 px-6 text-center text-white/40">
-                  <ImageOff size={30} aria-hidden="true" />
-                  <span className="text-xs uppercase tracking-wider">Image placeholder</span>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-2xl shadow-black/35">
+                <Image
+                  src="/success-stories/Uthra.jpg"
+                  alt="Client transformation before and after from the MenoThrive coaching journey"
+                  fill
+                  priority
+                  sizes="(min-width: 1280px) 520px, (min-width: 1024px) 460px, (min-width: 640px) 380px, 300px"
+                  className="object-cover"
+                />
+                <div className="absolute inset-x-4 bottom-4 rounded-full border border-white/15 bg-navy/75 px-4 py-2 text-center text-xs font-semibold uppercase tracking-[0.18em] text-white/85 backdrop-blur-sm">
+                  Client Transformation
                 </div>
               </div>
             </motion.div>
@@ -116,37 +214,48 @@ export function MenoThriveContent() {
       </section>
 
       {/* 2. Problem — "This Is Me" */}
-      <section className="py-14 lg:py-20 bg-white" aria-labelledby="problem-heading">
-        <div className="w-full px-8 sm:px-12 lg:px-20 max-w-3xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.5 }}
-            className="group mx-auto flex h-28 w-28 items-center justify-center rounded-full bg-navy text-gold shadow-sm transition-transform duration-300 ease-out hover:scale-110 hover:rotate-6"
-          >
-            <ImageOff size={32} aria-hidden="true" />
-          </motion.div>
+      <section className="py-12 lg:py-20 bg-white" aria-labelledby="problem-heading">
+        <div className="w-full px-8 sm:px-12 lg:px-20">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
+            <motion.div
+              {...stagger(0.12)}
+              className="relative order-2 mx-auto w-full max-w-[320px] sm:max-w-[390px] lg:order-1 lg:col-span-5 lg:mx-0"
+            >
+              <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-[2rem] border border-gold/40" aria-hidden="true" />
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-cream shadow-xl shadow-black/10">
+                <Image
+                  src="/lead-magnet/cta-portrait.jpg"
+                  alt="Srividya Gowri, menopause nutrition and lifestyle coach"
+                  fill
+                  sizes="(min-width: 1024px) 390px, (min-width: 640px) 390px, 320px"
+                  className="object-cover object-[50%_32%]"
+                />
+              </div>
+            </motion.div>
 
-          <motion.p {...stagger(0.15)} className="mt-8 text-accent uppercase tracking-[0.18em] text-sm font-semibold mb-6">This Is Me</motion.p>
-          <motion.h2 {...stagger(0.2)} id="problem-heading" className="text-section text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>
-            You Know What To Do.
-          </motion.h2>
-          <motion.p {...stagger(0.26)} className="mt-5 text-navy text-xl lg:text-2xl font-bold leading-snug" style={{ fontFamily: 'var(--font-playfair)' }}>
-            So Why Isn&apos;t It Working Anymore?
-          </motion.p>
-          <motion.div {...stagger(0.3)} className="mt-10 space-y-4 text-muted text-lg leading-relaxed">
-            <p>Your body has changed.</p>
-            <p>The strategies that worked before may not be working the same way now.</p>
-            <p>You keep trying.</p>
-            <p>You keep restarting.</p>
-            <p>And you&apos;re tired of feeling like <strong className="font-semibold text-dark">you&apos;re the problem</strong>.</p>
-          </motion.div>
-          <motion.p {...stagger(0.4)} className="mt-12 text-navy text-xl font-semibold leading-relaxed">
-            You&apos;re not.
-            <br />
-            Your strategy needs to change with you.
-          </motion.p>
+            <div className="order-1 text-center lg:order-2 lg:col-span-7 lg:text-left">
+              <motion.p {...stagger(0.05)} className="text-accent uppercase tracking-[0.18em] text-sm font-semibold mb-5">This Is Me</motion.p>
+              <motion.h2 {...stagger(0.1)} id="problem-heading" className="text-section text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>
+                You Know What To Do.
+              </motion.h2>
+              <motion.p {...stagger(0.16)} className="mt-4 text-navy text-xl lg:text-2xl font-bold leading-snug" style={{ fontFamily: 'var(--font-playfair)' }}>
+                So Why Isn&apos;t It Working Anymore?
+              </motion.p>
+              <motion.div {...stagger(0.24)} className="mt-8 space-y-4 text-muted text-lg leading-relaxed">
+                <p>Your body has changed.</p>
+                <p>The strategies that worked before may not be working the same way now.</p>
+                <p>You keep trying. You keep restarting.</p>
+                <p>And you&apos;re tired of feeling like <strong className="font-semibold text-dark">you&apos;re the problem</strong>.</p>
+              </motion.div>
+              <motion.div {...stagger(0.32)} className="mt-8 rounded-2xl border border-gold/25 bg-warm-bg p-6 text-center lg:text-left">
+                <p className="text-navy text-xl font-semibold leading-relaxed">
+                  You&apos;re not.
+                  <br />
+                  Your strategy needs to change with you.
+                </p>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -239,17 +348,35 @@ export function MenoThriveContent() {
             <h2 id="real-women-heading" className="text-section text-navy mb-3" style={{ fontFamily: 'var(--font-playfair)' }}>Real Women. Real Transformations.</h2>
             <p className="text-muted text-xl max-w-2xl mx-auto leading-relaxed">See What Can Change When the Strategy Changes.</p>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {realWomenCases.map(({ name, stat, detail }, idx) => (
-              <motion.div key={name} {...stagger(idx * 0.1)} className="bg-warm-bg rounded-2xl p-8 border border-gray-100">
-                <p className="text-[0.7rem] uppercase tracking-[0.16em] font-semibold text-accent mb-3">{name}</p>
-                <p className="font-bold text-navy text-xl leading-snug" style={{ fontFamily: 'var(--font-playfair)' }}>{stat}</p>
-                <p className="mt-3 text-muted leading-relaxed">{detail}</p>
-              </motion.div>
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {realWomenCases.map(({ name, stat, detail, imageSrc, imageAlt, href }, idx) => (
+              <motion.article
+                key={name}
+                {...stagger(idx * 0.04)}
+                className="group overflow-hidden rounded-2xl border border-gold/20 bg-warm-bg shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+                <Link href={href} className="block h-full">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-cream">
+                    <Image
+                      src={imageSrc}
+                      alt={imageAlt}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-4 lg:p-5">
+                    <p className="text-[0.68rem] uppercase tracking-[0.16em] font-semibold text-accent mb-2">{name}</p>
+                    <p className="font-bold text-navy text-base leading-snug" style={{ fontFamily: 'var(--font-playfair)' }}>{stat}</p>
+                    <p className="mt-2 text-muted text-sm leading-relaxed">{detail}</p>
+                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-navy transition-colors group-hover:text-accent">
+                      Read story
+                      <ArrowRight size={16} aria-hidden="true" />
+                    </span>
+                  </div>
+                </Link>
+              </motion.article>
             ))}
-            <motion.div {...stagger(0.2)} className="rounded-2xl border border-dashed border-gray-300 p-8 flex items-center justify-center text-center">
-              <p className="text-muted leading-relaxed">More transformation stories coming soon.</p>
-            </motion.div>
           </div>
           <motion.div {...stagger(0.3)} className="mt-12 text-center">
             <Link href="/success-stories" className="inline-flex items-center gap-2 text-navy font-bold hover:text-accent transition-colors">
@@ -263,8 +390,8 @@ export function MenoThriveContent() {
       {/* 7. Why MenoThrive Is Different */}
       <section className="py-14 lg:py-20 bg-cream" aria-labelledby="different-heading">
         <div className="w-full px-8 sm:px-12 lg:px-20">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="text-center max-w-3xl mx-auto lg:mx-0 lg:col-span-7 lg:text-left">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="text-center max-w-3xl mx-auto lg:col-span-7 lg:text-left">
               <motion.p {...fadeUp} className="text-accent uppercase tracking-[0.18em] text-sm font-semibold mb-4">Why MenoThrive Is Different</motion.p>
               <motion.h2 {...stagger(0.1)} id="different-heading" className="text-section text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>Your Plan Changes As You Do.</motion.h2>
               <motion.div {...stagger(0.2)} className="mt-6 flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-2 text-muted text-lg leading-relaxed">
@@ -282,21 +409,20 @@ export function MenoThriveContent() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="relative mx-auto w-48 sm:w-60 lg:col-span-5 lg:mx-0 lg:w-full lg:max-w-sm"
+              className="relative mx-auto w-full max-w-[280px] sm:max-w-[340px] lg:col-span-5 lg:w-full lg:max-w-[340px]"
             >
               <div
-                className="absolute inset-0 -translate-x-3 translate-y-3 border border-gold/40"
-                style={{ borderRadius: '58% 42% 62% 38% / 42% 58% 42% 58%' }}
+                className="absolute inset-0 -translate-x-3 translate-y-3 rounded-[2rem] border border-gold/40"
                 aria-hidden="true"
               />
-              <div
-                className="relative flex aspect-[3/4] items-center justify-center overflow-hidden bg-white shadow-xl shadow-black/10"
-                style={{ borderRadius: '58% 42% 62% 38% / 42% 58% 42% 58%' }}
-              >
-                <div className="flex flex-col items-center gap-2 px-6 text-center text-muted">
-                  <ImageOff size={30} aria-hidden="true" />
-                  <span className="text-xs uppercase tracking-wider">Image placeholder</span>
-                </div>
+              <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem] bg-white shadow-xl shadow-black/10">
+                <Image
+                  src="/lead-magnet/strength-focus.jpg"
+                  alt="Woman strength training as part of the MenoThrive coaching approach"
+                  fill
+                  sizes="(min-width: 1024px) 384px, (min-width: 640px) 360px, 280px"
+                  className="object-cover object-[62%_50%]"
+                />
               </div>
             </motion.div>
           </div>

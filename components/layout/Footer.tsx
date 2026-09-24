@@ -34,23 +34,23 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-4 group" aria-label="The 8th Element">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white">
+              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white">
                 <Image
                   src="/logo.svg"
                   alt="The 8th Element"
                   width={477}
-                  height={382}
-                  className="h-9 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+                  height={312}
+                  className="h-11 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
                 />
               </span>
-              <span className="font-bold text-sm tracking-[0.2em] uppercase group-hover:text-gold transition-colors duration-300" style={{ fontFamily: 'var(--font-playfair)' }}>
+              <span className="font-bold text-base tracking-[0.2em] uppercase group-hover:text-gold transition-colors duration-300" style={{ fontFamily: 'var(--font-playfair)' }}>
                 The 8th Element
               </span>
             </Link>
             <p className="text-white/70 text-sm leading-relaxed mb-6">
               Helping women navigate perimenopause and menopause through science-backed nutrition, personalised coaching, and sustainable lifestyle transformation.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-4">
               <SocialLink href="https://www.facebook.com" label="Facebook">
                 <FbIcon />
               </SocialLink>
@@ -141,7 +141,7 @@ export function Footer() {
 
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
           <p>&copy; {new Date().getFullYear()} The 8th Element. All rights reserved.</p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:justify-end sm:gap-4">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
             <Link href="/refunds-cancellation" className="hover:text-white transition-colors">Refunds & Cancellation</Link>

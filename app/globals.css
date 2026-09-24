@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand Colors — Human Connection: Navy, Oxblood & Cream */
+  /* Brand Colors: Human Connection, Navy, Oxblood & Cream */
   --color-navy: #192028;
   --color-accent: #8E0000;
   --color-oxblood: #8E0000;

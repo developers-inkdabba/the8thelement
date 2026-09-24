@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
 import { buildMeta, seoKeywords } from '@/lib/metadata'
-import { Clock, Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Clock, Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
 import { ContactForm } from '@/components/forms/ContactForm'
 import { NewsletterForm } from '@/components/forms/NewsletterForm'
 import { ASSESSMENT_FORM_URL } from '@/lib/links'
@@ -65,40 +64,70 @@ const socialLinks = [
 export default function ContactPage() {
   return (
     <>
-      <section className="pt-32 pb-14 bg-navy text-white">
+      <section className="pt-32 pb-16 bg-warm-bg">
         <div className="w-full px-8 sm:px-12 lg:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 text-center lg:text-left">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            <div className="lg:col-span-6 text-center lg:text-left">
+              <p className="text-accent font-semibold uppercase tracking-[0.2em] text-sm mb-4">
+                Start The Conversation
+              </p>
               <h1
-                className="text-4xl sm:text-5xl font-bold mb-5"
+                className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-navy mb-5 leading-tight"
                 style={{ fontFamily: 'var(--font-playfair)' }}
               >
-                Let&apos;s Talk
+                Let&apos;s Find Your Right Next Step.
               </h1>
-              <p className="text-white/75 text-lg leading-relaxed max-w-3xl mx-auto lg:mx-0">
-                Whether you&apos;re looking for expert guidance, have questions about our programs, or
-                simply aren&apos;t sure where to begin, we&apos;re here to help.
+              <p className="text-muted text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                Not sure whether MenoThrive, Transform &amp; Thrive, or the quiz is the best place
+                to begin? Send a note or start with the assessment. We&apos;ll keep it simple.
               </p>
+              <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
+                <a
+                  href={ASSESSMENT_FORM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[54px] max-w-full items-center justify-center gap-2 rounded-full bg-accent px-7 py-3 text-center text-base font-bold leading-snug text-white transition-all duration-200 hover:bg-navy hover:shadow-xl"
+                >
+                  Book Your Appointment Today
+                  <ArrowRight size={18} aria-hidden="true" />
+                </a>
+                <a
+                  href="https://wa.me/919884835729"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[54px] max-w-full items-center justify-center gap-2 rounded-full border border-navy/15 bg-white px-7 py-3 text-center text-base font-bold leading-snug text-navy transition-all duration-200 hover:border-navy hover:bg-navy hover:text-white"
+                >
+                  WhatsApp Srividya
+                </a>
+              </div>
+              <div className="mt-8 grid gap-3 text-left sm:grid-cols-3">
+                {['Personally reviewed', 'Warm guidance', 'Clear next step'].map((item) => (
+                  <div key={item} className="flex items-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-semibold text-navy shadow-sm">
+                    <CheckCircle2 size={17} className="shrink-0 text-accent" aria-hidden="true" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative w-44 sm:w-56 lg:w-full lg:max-w-[18rem]">
+            <div className="lg:col-span-6 flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[440px]">
                 <div
-                  className="absolute inset-0 -translate-x-3 translate-y-3 border border-gold/40"
-                  style={{ borderRadius: '58% 42% 62% 38% / 42% 58% 42% 58%' }}
+                  className="absolute inset-0 -translate-x-3 translate-y-3 rounded-[2rem] border border-gold/50 sm:-translate-x-4 sm:translate-y-4"
                   aria-hidden="true"
                 />
-                <div
-                  className="relative aspect-[3/4] overflow-hidden bg-cream shadow-xl shadow-black/30"
-                  style={{ borderRadius: '58% 42% 62% 38% / 42% 58% 42% 58%' }}
-                >
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-cream shadow-2xl shadow-navy/15">
                   <Image
                     src="/contact/lets-talk.jpg"
                     alt="Srividya, ready to talk with you"
                     fill
-                    sizes="(min-width: 1024px) 18rem, 14rem"
-                    className="object-cover object-top"
+                    sizes="(min-width: 1024px) 440px, (min-width: 640px) 380px, 320px"
+                    className="object-cover object-[52%_32%]"
                     priority
                   />
+                  <div className="absolute inset-x-4 bottom-4 rounded-2xl bg-white/90 p-4 text-left shadow-lg backdrop-blur">
+                    <p className="text-sm font-bold text-navy">Need personal guidance?</p>
+                    <p className="text-sm leading-relaxed text-muted">Start with a short assessment or message us directly.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -106,41 +135,47 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-surface">
+      <section className="py-16 lg:py-20 bg-surface">
         <div className="w-full px-8 sm:px-12 lg:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
             <div className="lg:col-span-7">
-              <div className="bg-cream rounded-2xl border border-gold/30 p-6 mb-10">
-                <h2
-                  className="text-2xl font-bold text-navy mb-3"
-                  style={{ fontFamily: 'var(--font-playfair)' }}
-                >
-                  Looking for coaching?
-                </h2>
-                <p className="text-muted leading-relaxed mb-5">
-                  Every woman begins with a Menopause Health Assessment.
-                  <br />
-                  Once I understand your symptoms, health history, lifestyle, and goals, I&apos;ll
-                  recommend the most appropriate level of support to help you achieve lasting results.
-                </p>
-                <div className="flex flex-col items-start gap-5">
-                  <a href={ASSESSMENT_FORM_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[52px] max-w-full items-center justify-center px-7 py-3 rounded-full bg-navy text-white text-center text-sm font-semibold leading-snug whitespace-normal hover:bg-accent transition-colors">
-                    Book Your Appointment Today
+              <div className="grid gap-4 sm:grid-cols-2 mb-10">
+                <div className="rounded-2xl border border-gold/30 bg-cream p-6">
+                  <p className="text-accent font-semibold uppercase tracking-[0.18em] text-xs mb-3">
+                    Best first step
+                  </p>
+                  <h2
+                    className="text-2xl font-bold text-navy mb-3"
+                    style={{ fontFamily: 'var(--font-playfair)' }}
+                  >
+                    Menopause Health Assessment
+                  </h2>
+                  <p className="text-muted leading-relaxed mb-5">
+                    Share what is happening in your body and lifestyle. We&apos;ll recommend the
+                    most useful next step.
+                  </p>
+                  <a href={ASSESSMENT_FORM_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[48px] max-w-full items-center justify-center rounded-full bg-navy px-6 py-3 text-center text-sm font-semibold leading-snug text-white transition-colors hover:bg-accent">
+                    Book Appointment
                   </a>
+                </div>
 
-                  <div>
-                    <p className="text-sm font-semibold text-muted mb-3">
-                      Want to learn more about our coaching programs first?
-                    </p>
-                    <div className="flex flex-wrap gap-3">
-                      <Link href="/menothrive" className="inline-flex min-w-[180px] max-w-full items-center justify-center px-5 py-3 rounded-full bg-white text-navy text-center text-sm font-semibold leading-snug whitespace-normal hover:bg-navy hover:text-white transition-colors">
-                        Explore MenoThrive
-                      </Link>
-                      <Link href="/transform-thrive" className="inline-flex min-w-[180px] max-w-full items-center justify-center px-5 py-3 rounded-full bg-white text-navy text-center text-sm font-semibold leading-snug whitespace-normal hover:bg-navy hover:text-white transition-colors">
-                        Explore Transform &amp; Thrive
-                      </Link>
-                    </div>
-                  </div>
+                <div className="rounded-2xl border border-rose-tint bg-rose-faint p-6">
+                  <p className="text-accent font-semibold uppercase tracking-[0.18em] text-xs mb-3">
+                    Quick question?
+                  </p>
+                  <h2
+                    className="text-2xl font-bold text-navy mb-3"
+                    style={{ fontFamily: 'var(--font-playfair)' }}
+                  >
+                    Message Srividya
+                  </h2>
+                  <p className="text-muted leading-relaxed mb-5">
+                    If you want to check something before booking, WhatsApp is the fastest way to
+                    reach us.
+                  </p>
+                  <a href="https://wa.me/919884835729" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[48px] max-w-full items-center justify-center rounded-full bg-white px-6 py-3 text-center text-sm font-semibold leading-snug text-navy transition-colors hover:bg-navy hover:text-white">
+                    WhatsApp Now
+                  </a>
                 </div>
               </div>
 
@@ -149,22 +184,15 @@ export default function ContactPage() {
                   className="text-3xl font-bold text-navy mb-3"
                   style={{ fontFamily: 'var(--font-playfair)' }}
                 >
-                  Still Have a Question?
+                  Send a Message
                 </h2>
                 <p className="text-muted leading-relaxed">
-                  If your enquiry isn&apos;t about one of our coaching programs, we&apos;d love to
-                  hear from you. Complete the form below and we&apos;ll get back to you within 1-2
-                  business days.
+                  For media, speaking, corporate wellness, collaborations, or general questions,
+                  use the form below.
                 </p>
               </div>
 
               <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-cream">
-                <h2
-                  className="text-2xl font-bold text-navy mb-8"
-                  style={{ fontFamily: 'var(--font-playfair)' }}
-                >
-                  Send Us a Message
-                </h2>
                 <ContactForm />
               </div>
             </div>

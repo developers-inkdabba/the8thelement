@@ -82,11 +82,71 @@ const notForYouChecks = [
   "You're looking for a passive programme.",
 ]
 
-const outcomeCaptions = [
-  'Lost weight. Built strength. Changed her habits.',
-  'Dropped dress sizes. Improved her relationship with food.',
-  'Built consistency and confidence.',
-  'Created habits that fit real life.',
+const transformStories = [
+  {
+    name: 'Lakshmi',
+    stat: 'Strength, energy, and diabetes support',
+    detail: 'Built health confidence through strength, food awareness, and steady habit change.',
+    imageSrc: '/success-stories/Lakshmi.jpg',
+    imageAlt: "Lakshmi's Transform & Thrive journey",
+    href: '/success-stories#story-lakshmi',
+  },
+  {
+    name: 'Akshaya',
+    stat: 'Dropped dress sizes and cravings reduced',
+    detail: 'Built a healthier relationship with food through small daily wins and craving support.',
+    imageSrc: '/success-stories/Akshaya.jpg',
+    imageAlt: "Akshaya's Transform & Thrive journey",
+    href: '/success-stories#story-akshaya',
+  },
+  {
+    name: 'Rajula',
+    stat: 'Inches lost, stamina gained',
+    detail: 'Moved from barely running to completing 21 km with consistency and confidence.',
+    imageSrc: '/success-stories/Rajula.jpg',
+    imageAlt: "Rajula's Transform & Thrive journey",
+    href: '/success-stories#story-rajula',
+  },
+  {
+    name: 'Sujatha Ravi',
+    stat: '60+ confidence and renewed energy',
+    detail: 'A lifestyle reset that created more space for health, joy, and self-expression.',
+    imageSrc: '/success-stories/sujatha-ravi.jpg',
+    imageAlt: "Sujatha Ravi's Transform & Thrive journey",
+    href: '/success-stories#story-sujatha-ravi',
+  },
+  {
+    name: 'Krithiga',
+    stat: 'Sustainable habits without perfection',
+    detail: 'Learned to show up consistently with self-kindness and practical habit tracking.',
+    imageSrc: '/success-stories/Krithiga.jpg',
+    imageAlt: "Krithiga's Transform & Thrive journey",
+    href: '/success-stories#story-krithiga',
+  },
+  {
+    name: 'Swetha Vignesh',
+    stat: 'Lifestyle structure and strength confidence',
+    detail: 'Rebuilt routines around work, motherhood, sleep, food, and emotional regulation.',
+    imageSrc: '/success-stories/Swetha Vignesh.jpg',
+    imageAlt: "Swetha Vignesh's Transform & Thrive journey",
+    href: '/success-stories#story-swetha-vignesh',
+  },
+  {
+    name: 'Dr. Poornima',
+    stat: 'Visible inch loss and better posture',
+    detail: 'A busy professional’s body-composition shift through realistic, steady change.',
+    imageSrc: '/success-stories/dr-poornima.jpg',
+    imageAlt: "Dr. Poornima's Transform & Thrive journey",
+    href: '/success-stories#story-dr-poornima',
+  },
+  {
+    name: 'Sujatha',
+    stat: 'Lighter, freer, more comfortable',
+    detail: 'Improved body confidence without guilt, restriction, or all-or-nothing pressure.',
+    imageSrc: '/success-stories/sujatha.jpg',
+    imageAlt: "Sujatha's Transform & Thrive journey",
+    href: '/success-stories#story-sujatha',
+  },
 ]
 
 const faqs = [
@@ -363,11 +423,34 @@ export function TransformThriveContent() {
               See What Can Change When You Stay With It.
             </h2>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {outcomeCaptions.map((caption, i) => (
-              <motion.div key={caption} {...stagger(i * 0.08)} className="bg-white rounded-2xl p-6 border border-gray-100 text-center">
-                <p className="text-navy font-semibold leading-snug">{caption}</p>
-              </motion.div>
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {transformStories.map(({ name, stat, detail, imageSrc, imageAlt, href }, i) => (
+              <motion.article
+                key={name}
+                {...stagger(i * 0.04)}
+                className="group overflow-hidden rounded-2xl border border-gold/20 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+                <Link href={href} className="block h-full">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-cream">
+                    <Image
+                      src={imageSrc}
+                      alt={imageAlt}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-4 lg:p-5">
+                    <p className="text-[0.68rem] uppercase tracking-[0.16em] font-semibold text-accent mb-2">{name}</p>
+                    <p className="font-bold text-navy text-base leading-snug" style={{ fontFamily: 'var(--font-playfair)' }}>{stat}</p>
+                    <p className="mt-2 text-muted text-sm leading-relaxed">{detail}</p>
+                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-navy transition-colors group-hover:text-accent">
+                      Read story
+                      <ArrowRight size={16} aria-hidden="true" />
+                    </span>
+                  </div>
+                </Link>
+              </motion.article>
             ))}
           </div>
           <motion.div {...stagger(0.3)} className="mt-12 text-center">

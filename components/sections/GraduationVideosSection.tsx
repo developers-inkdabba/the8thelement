@@ -6,155 +6,134 @@ type GraduationVideo = {
   title: string
   description: string
   youtubeUrl: string
+  faceVisibility: 'shown' | 'private'
   storyHref?: string
   storyCta?: string
 }
 
 const graduationVideos: GraduationVideo[] = [
   {
-    title: "Bhuvana, 75 years (Srividya's mom)",
-    description: "My mom's most recent update at 75 years: 12 kg lost, stronger movement, better stamina, improved blood sugar control, and renewed independence.",
-    youtubeUrl: 'https://youtu.be/I-eVGKpUlKY',
-    storyHref: '/success-stories#story-bhuvana-75-years-srividya-s-mom',
-    storyCta: 'Read Success Story',
-  },
-  {
-    title: 'Uthra Sankaran',
-    description: '36, dancer: from self-doubt to self-trust, strength, confidence, and a deeper belief in her potential.',
-    youtubeUrl: 'https://youtu.be/DNl_pZDI-ZA',
-    storyHref: '/success-stories#story-uthra',
-    storyCta: 'Read Success Story',
-  },
-  {
-    title: 'Uthra Natarajan',
-    description: '40+, perimenopause: nutrition, lifestyle, sleep, and stress management for a steadier midlife journey.',
-    youtubeUrl: 'https://youtu.be/0OgPMpiqeZM',
-  },
-  {
-    title: 'Megha Kaveri',
-    description: '30+, South Indian in Switzerland: high cholesterol, stubborn weight, and building consistency across borders.',
-    youtubeUrl: 'https://youtu.be/u3PYdrp5dP0',
-  },
-  {
-    title: 'Subha Kannan',
-    description: '51, perimenopause: stubborn weight, belly fat, and inconsistent eating patterns transformed with support.',
-    youtubeUrl: 'https://youtu.be/uPye-9I2mIE',
-  },
-  {
-    title: 'Lakshmi',
-    description: '40+, perimenopause: stubborn weight, low energy, poor fitness, and inconsistent habits rebuilt step by step.',
-    youtubeUrl: 'https://youtu.be/QU-vpNDHrTQ',
-    storyHref: '/success-stories#story-lakshmi',
-    storyCta: 'Read Success Story',
-  },
-  {
-    title: 'Sujatha',
-    description: '30+: stubborn weight, low energy, sleep, stress, fitness, and inconsistent habits improved through sustainable change.',
-    youtubeUrl: 'https://youtu.be/l2RNyetlUNE',
-  },
-  {
-    title: 'Smruti',
-    description: '40+, perimenopause: stubborn midsection fat, strength, and consistency through the transformation journey.',
-    youtubeUrl: 'https://youtu.be/FO0rDP8Y6vg',
-  },
-  {
-    title: 'Srividya - Follow-Up',
-    description: '40+, perimenopause: stubborn weight, poor fitness, energy, and inconsistent habits rebuilt with structure.',
-    youtubeUrl: 'https://youtu.be/Mr3HwiME3_U',
-  },
-  {
-    title: 'Maalavika',
-    description: '30+: stubborn weight and inconsistent habits transformed through practical coaching and accountability.',
-    youtubeUrl: 'https://youtu.be/7Wi8gBcpb-4',
-  },
-  {
-    title: 'Transform V2.0 Graduation',
-    description: 'A group graduation call celebrating the women of Transform & Thrive and their health, habit, and confidence wins.',
-    youtubeUrl: 'https://youtu.be/2dPrkV50Ae8',
-  },
-  {
-    title: 'Transform & Thrive Group Graduation',
-    description: 'A group coaching graduation call with real reflections from women rebuilding strength, habits, and self-trust.',
-    youtubeUrl: 'https://youtu.be/FF9IPD34ckM',
-  },
-  {
-    title: 'Transform V1.0 Graduation',
-    description: 'A group coaching graduation call from Transform V1.0, sharing client progress, confidence, and sustainable lifestyle change.',
-    youtubeUrl: 'https://youtu.be/glIBIn9hbSA',
-  },
-  {
-    title: 'Deva',
-    description: '51, menopause, stubborn belly fat, high cholesterol, and overeating snacks.',
-    youtubeUrl: 'https://youtu.be/uItCYP5PJ-I',
-  },
-  {
-    title: 'Ranjitha',
-    description: 'UK-based doctor: from perimenopause chaos to sustainable strength.',
-    youtubeUrl: 'https://youtu.be/vvrUuCZNr7k',
-  },
-  {
-    title: 'Nirupa',
-    description: 'Busy professional and mom: from PCOS overwhelm to effortless consistency.',
-    youtubeUrl: 'https://youtu.be/DgqUBJ24zec',
-    storyHref: '/success-stories#story-nirupa-seshadri',
-    storyCta: 'Read Success Story',
+    title: 'Sowmya',
+    description:
+      '40+, perimenopause, busy professional, sciatica, stubborn weight, midsection fat, bloating, heaviness, weakness, aches, and pains.',
+    youtubeUrl: 'https://youtu.be/3wMiEcCu1Ws',
+    faceVisibility: 'private',
   },
   {
     title: 'Dr. Priya Ravi',
-    description: '60+, diabetes, stubborn weight, weakness, and knee pain.',
+    description:
+      '60+, diabetes, stubborn weight, weakness, and knee pain. A client story about rebuilding health, strength, and confidence later in life.',
     youtubeUrl: 'https://youtu.be/mN6YrwRX_bg?si=mKC4W3Mi3vtpotQh',
+    faceVisibility: 'shown',
     storyHref: '/success-stories#testimonial-dr-priya',
     storyCta: 'View Testimonial',
   },
   {
     title: 'Ramya Vadlamudi',
-    description: 'Client graduation reflection from The 8th Element journey.',
+    description:
+      '40+, perimenopause, busy professional in the US, stubborn weight, midsection fat, poor energy, mood changes, irritability, and inconsistent habits.',
     youtubeUrl: 'https://youtu.be/y7WO_dQ3FDo',
+    faceVisibility: 'shown',
     storyHref: '/success-stories#testimonial-ramya',
     storyCta: 'View Testimonial',
   },
   {
+    title: 'Subha Kannan',
+    description:
+      '50+, menopause, busy professional in the US, stubborn weight, and midsection fat despite eating clean and exercising.',
+    youtubeUrl: 'https://youtu.be/uPye-9I2mIE',
+    faceVisibility: 'private',
+  },
+  {
     title: 'Vasanthi',
-    description: 'Client graduation reflection from The 8th Element journey.',
+    description:
+      '40+, perimenopause, stubborn weight, and midsection fat despite eating clean and strength training.',
     youtubeUrl: 'https://youtu.be/6b5nOmHlRdw',
+    faceVisibility: 'shown',
   },
   {
     title: 'Abhilasha',
-    description: 'Client graduation reflection from The 8th Element journey.',
+    description:
+      '40+, perimenopause, busy professional, stubborn weight, confusion, mindset challenges, professional stress, and inconsistent food and exercise habits.',
     youtubeUrl: 'https://youtu.be/SJ1rMPZGpY0',
+    faceVisibility: 'shown',
   },
   {
     title: 'Kriti',
-    description: 'Client graduation reflection from The 8th Element journey.',
+    description:
+      '40+, perimenopause, homemaker in Germany, stubborn weight, midsection fat, bloating, fibromyalgia, sleep issues, cravings, and heavy snacking.',
     youtubeUrl: 'https://youtu.be/iU3djHwO4PA',
+    faceVisibility: 'shown',
     storyHref: '/success-stories#story-kriti',
     storyCta: 'Read Success Story',
   },
   {
-    title: 'Sharmila',
-    description: 'Client graduation reflection from The 8th Element journey.',
+    title: 'Anusha',
+    description:
+      '40+, perimenopause, stubborn weight, joint family life, inconsistent food and exercise habits, sleep issues, poor energy, and cravings.',
+    youtubeUrl: 'https://youtu.be/ef1_ETiOiCg',
+    faceVisibility: 'private',
+  },
+  {
+    title: 'Sharmila Bansal Rao',
+    description:
+      '40+, perimenopause, Bharatanatyam dancer in Zurich, stubborn weight, midsection fat, and no progress despite moving more and eating less.',
     youtubeUrl: 'https://youtu.be/gX4QnV1PY48',
+    faceVisibility: 'shown',
     storyHref: '/success-stories#story-sharmila',
     storyCta: 'Read Success Story',
   },
   {
-    title: 'Sangeetha',
-    description: 'Client graduation reflection from The 8th Element journey.',
+    title: 'Sangeetha Arjun',
+    description:
+      '40, perimenopause, busy professional, cravings, stubborn weight, belly fat, bloating, body discomfort, and inconsistent food and exercise habits.',
     youtubeUrl: 'https://youtu.be/PUEDDOTy-m0',
+    faceVisibility: 'shown',
     storyHref: '/success-stories#testimonial-sangeetha',
     storyCta: 'View Testimonial',
   },
   {
     title: 'Aritu',
-    description: 'Client graduation reflection from The 8th Element journey.',
+    description:
+      '40+, perimenopause, busy professional in Zurich, cravings, stubborn weight, belly fat, bloating, body discomfort, and inconsistent habits.',
     youtubeUrl: 'https://youtu.be/omEPpVWtd_k',
+    faceVisibility: 'shown',
     storyHref: '/success-stories#story-aritu',
     storyCta: 'Read Success Story',
+  },
+  {
+    title: 'Sahitya',
+    description:
+      'A client graduation reflection from The 8th Element journey, shared with privacy protected.',
+    youtubeUrl: 'https://youtu.be/zp2b2kRb1xc',
+    faceVisibility: 'private',
+  },
+  {
+    title: 'Ranjani',
+    description:
+      'A client graduation reflection from The 8th Element journey, shared with privacy protected.',
+    youtubeUrl: 'https://youtu.be/lQpnoGK0onc',
+    faceVisibility: 'private',
+  },
+  {
+    title: 'Charanya',
+    description:
+      'A client graduation reflection from The 8th Element journey, shared with privacy protected.',
+    youtubeUrl: 'https://youtu.be/RhcexDLZcv4',
+    faceVisibility: 'private',
+  },
+  {
+    title: 'Kartika',
+    description:
+      'A client graduation reflection from The 8th Element journey, shared with privacy protected.',
+    youtubeUrl: 'https://youtu.be/7xTcQooHOyI',
+    faceVisibility: 'private',
   },
   {
     title: 'Kavitha',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/mDWyO5Lp9TQ',
+    faceVisibility: 'shown',
     storyHref: '/success-stories#story-kavitha',
     storyCta: 'Read Success Story',
   },
@@ -162,21 +141,25 @@ const graduationVideos: GraduationVideo[] = [
     title: 'Rabini',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/WueJCoM22lA',
+    faceVisibility: 'shown',
   },
   {
     title: 'Dr. Swetha',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/7xG1i2aUyUs',
+    faceVisibility: 'shown',
   },
   {
     title: 'Kavitha Srinivas',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/OkEVOtI90G4',
+    faceVisibility: 'shown',
   },
   {
     title: 'Krithiga',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/La9p67SeQJ8',
+    faceVisibility: 'shown',
     storyHref: '/success-stories#story-krithiga',
     storyCta: 'Read Success Story',
   },
@@ -184,47 +167,62 @@ const graduationVideos: GraduationVideo[] = [
     title: 'Aishwarya',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/2JwLiFTVbsQ',
+    faceVisibility: 'shown',
     storyHref: '/success-stories#story-aishwarya',
     storyCta: 'Read Success Story',
   },
   {
-    title: 'Mythily',
+    title: 'Mythily - Story 1',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/kSe-3FGu_kU',
+    faceVisibility: 'shown',
     storyHref: '/success-stories#testimonial-mythily',
     storyCta: 'View Testimonial',
   },
   {
-    title: 'Mythily - Follow-Up',
+    title: 'Mythily - Story 2',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/bcv07b9DE4o',
+    faceVisibility: 'shown',
     storyHref: '/success-stories#testimonial-mythily',
     storyCta: 'View Testimonial',
+  },
+  {
+    title: 'Varsha',
+    description:
+      'A client graduation reflection from The 8th Element journey, shared with privacy protected.',
+    youtubeUrl: 'https://youtu.be/eARFCS70Xxw',
+    faceVisibility: 'private',
   },
   {
     title: 'Radhika',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/ecXt1knC0J0',
+    faceVisibility: 'shown',
   },
   {
     title: 'Swati',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/yldfb_yw-RI',
+    faceVisibility: 'shown',
   },
   {
     title: 'Srividya',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/i2ywijDtY0k',
+    faceVisibility: 'shown',
   },
   {
     title: 'Subashini',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/NbY1w5ivK7M',
+    faceVisibility: 'shown',
   },
   {
     title: 'Swetha Vignesh',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/UCV3C2VW0-k',
+    faceVisibility: 'shown',
     storyHref: '/success-stories#story-swetha-vignesh',
     storyCta: 'Read Success Story',
   },
@@ -232,16 +230,33 @@ const graduationVideos: GraduationVideo[] = [
     title: 'Rekha',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/584kgxHPU7M',
+    faceVisibility: 'shown',
+  },
+  {
+    title: 'Smruti',
+    description:
+      'A client graduation reflection from The 8th Element journey, shared with privacy protected.',
+    youtubeUrl: 'https://youtu.be/FO0rDP8Y6vg',
+    faceVisibility: 'private',
+  },
+  {
+    title: 'Maalavika',
+    description:
+      'A client graduation reflection from The 8th Element journey, shared with privacy protected.',
+    youtubeUrl: 'https://youtu.be/7Wi8gBcpb-4',
+    faceVisibility: 'private',
   },
   {
     title: 'Jyotsna',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/BrQnZfQok50',
+    faceVisibility: 'shown',
   },
   {
     title: 'Usha',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/Ay38J9mTIVY',
+    faceVisibility: 'shown',
     storyHref: '/success-stories#testimonial-usha',
     storyCta: 'View Testimonial',
   },
@@ -312,12 +327,23 @@ export function GraduationVideosSection() {
                     />
                   </div>
                   <div className="p-6">
-                    <h3
-                      className="text-xl text-navy mb-3"
-                      style={{ fontFamily: 'var(--font-playfair)' }}
-                    >
-                      {video.title}
-                    </h3>
+                    <div className="mb-3 flex flex-wrap items-start justify-between gap-3">
+                      <h3
+                        className="text-xl text-navy"
+                        style={{ fontFamily: 'var(--font-playfair)' }}
+                      >
+                        {video.title}
+                      </h3>
+                      <span
+                        className={`rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] ${
+                          video.faceVisibility === 'shown'
+                            ? 'bg-gold/20 text-navy'
+                            : 'bg-navy/10 text-muted'
+                        }`}
+                      >
+                        {video.faceVisibility === 'shown' ? 'Client video' : 'Privacy protected'}
+                      </span>
+                    </div>
                     <p className="text-muted leading-relaxed">{video.description}</p>
                     {video.storyHref ? (
                       <Link

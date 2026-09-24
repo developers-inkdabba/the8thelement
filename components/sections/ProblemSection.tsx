@@ -16,42 +16,42 @@ import { ASSESSMENT_FORM_URL } from '@/lib/links'
 const problems = [
   {
     icon: <Scale size={20} />,
-    image: '/home-image/weight.png',
+    image: '/home-image/weight.jpg',
     imageAlt: 'Woman looking unhappily at a bowl of salad',
     title: 'Weight Gain',
     description: 'Eating much the same, but your body is changing.',
   },
   {
     icon: <Moon size={20} />,
-    image: '/home-image/sleep.png',
+    image: '/home-image/sleep.jpg',
     imageAlt: 'Woman lying awake in bed at night, sweating and holding her forehead',
     title: 'Sleep & Night Sweats',
     description: 'Restless nights leave you tired the next day.',
   },
   {
     icon: <Zap size={20} />,
-    image: '/home-image/fatigue.png',
+    image: '/home-image/fatigue.jpg',
     imageAlt: 'Tired woman resting her head on her hand at a desk with a laptop',
     title: 'Fatigue & Brain Fog',
     description: "Your energy and mental clarity aren't what they used to be.",
   },
   {
     icon: <Cookie size={20} />,
-    image: '/home-image/carving.png',
+    image: '/home-image/carving.jpg',
     imageAlt: 'Woman on a sofa looking distressed while eating chocolate cake',
     title: 'Cravings & Emotional Eating',
     description: 'Stress, overwhelm or fatigue can make food harder to navigate.',
   },
   {
     icon: <Thermometer size={20} />,
-    image: '/home-image/heating.png',
+    image: '/home-image/heating.jpg',
     imageAlt: 'Woman with her eyes closed and a hand on her forehead, feeling overheated',
     title: 'Hot Flashes',
     description: 'Unexpected heat and sweating can disrupt your day or night.',
   },
   {
     icon: <Dumbbell size={20} />,
-    image: '/home-image/loss-strength.png',
+    image: '/home-image/loss-strength.jpg',
     imageAlt: 'Woman sitting tired on a staircase, holding the railing',
     title: 'Loss of Strength',
     description: "You don't feel as strong or capable as you once did.",
@@ -133,7 +133,7 @@ export function ProblemSection() {
                       alt={problem.imageAlt ?? ''}
                       fill
                       sizes="384px"
-                      quality={95}
+                      quality={82}
                       className="object-cover object-top"
                     />
                   </div>
