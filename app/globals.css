@@ -1,0 +1,256 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors — Human Connection: Navy, Oxblood & Cream */
+  --color-navy: #192028;
+  --color-accent: #8E0000;
+  --color-oxblood: #8E0000;
+  --color-oxblood-deep: #6B0000;
+  --color-brick: #A52A2A;
+  --color-rose-tint: #F4E4E2;
+  --color-rose-faint: #FBF1EF;
+  --color-gold: #C5A880;
+  --color-warm-bg: #FAF6F0;
+  --color-cream: #EDE4D8;
+  --color-dark: #12242D;
+  --color-muted: #57707A;
+  --color-surface: #FFFFFF;
+
+  /* Fonts */
+  --font-playfair: var(--font-playfair-display), Georgia, serif;
+  --font-inter: var(--font-inter-var), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--color-warm-bg);
+  color: var(--color-dark);
+  font-family: var(--font-inter);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Fluid typography utilities */
+.text-hero {
+  font-size: clamp(2.2rem, 11vw, 5rem);
+  font-family: var(--font-playfair);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.text-section {
+  font-size: clamp(1.75rem, 8vw, 3rem);
+  font-family: var(--font-playfair);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Horizontal scroll snapping for mobile carousels */
+.snap-x-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.snap-x-scroll::-webkit-scrollbar {
+  display: none;
+}
+.snap-x-scroll > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* Endless premium marquee animations */
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.3333%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-33.3333%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 220s linear infinite;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-right 220s linear infinite;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
+
+.marquee-drag-viewport {
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
+  contain: layout paint;
+  overflow: hidden;
+  touch-action: pan-x pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.marquee-drag-viewport::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.marquee-drag-viewport * {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.marquee-drag-viewport.is-dragging .animate-marquee-left,
+.marquee-drag-viewport.is-dragging .animate-marquee-right {
+  animation-play-state: paused;
+}
+
+/* Orbiting pillar ring (About page) */
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbit-spin-reverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.orbit-ring {
+  animation: orbit-spin 60s linear infinite;
+}
+
+.orbit-item-counter {
+  animation: orbit-spin-reverse 60s linear infinite;
+}
+
+/* Pause the ring and every item together, in lockstep, so their cancelling
+   rotations never fall out of phase with each other. Pausing them
+   independently (e.g. on a per-card :hover) would let one keep spinning
+   while the other stops, permanently misaligning that card afterwards. */
+.orbit-ring:hover,
+.orbit-ring:hover .orbit-item-counter {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .animate-marquee-left,
+  .animate-marquee-right {
+    animation: none !important;
+    overflow-x: auto;
+    width: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    line-height: 1.65;
+  }
+
+  [class~="px-8"],
+  [class~="px-7"],
+  [class~="px-6"] {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  [class~="py-24"],
+  [class~="py-20"] {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  [class~="py-16"],
+  [class~="py-14"] {
+    padding-top: 2.75rem !important;
+    padding-bottom: 2.75rem !important;
+  }
+
+  [class~="pt-36"],
+  [class~="pt-28"] {
+    padding-top: 6rem !important;
+  }
+
+  [class~="pt-32"],
+  [class~="pt-24"],
+  [class~="pt-20"] {
+    padding-top: 5.25rem !important;
+  }
+
+  [class~="pt-16"] {
+    padding-top: 4.5rem !important;
+  }
+
+  [class~="pb-28"],
+  [class~="pb-20"] {
+    padding-bottom: 3.5rem !important;
+  }
+
+  [class~="pb-16"],
+  [class~="pb-14"],
+  [class~="pb-12"] {
+    padding-bottom: 2.75rem !important;
+  }
+
+  [class~="gap-16"],
+  [class~="gap-14"],
+  [class~="gap-12"] {
+    gap: 2.5rem !important;
+  }
+
+  [class~="p-10"],
+  [class~="p-8"],
+  [class~="p-7"] {
+    padding: 1.5rem !important;
+  }
+
+  [class~="text-xl"] {
+    font-size: 1.0625rem !important;
+    line-height: 1.7 !important;
+  }
+
+  [class~="text-lg"] {
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .text-hero {
+    font-size: clamp(2rem, 10vw, 2.45rem);
+  }
+
+  .text-section {
+    font-size: clamp(1.6rem, 8vw, 2.1rem);
+  }
+
+  [class~="px-8"],
+  [class~="px-7"],
+  [class~="px-6"] {
+    padding-left: 0.875rem !important;
+    padding-right: 0.875rem !important;
+  }
+}
+
