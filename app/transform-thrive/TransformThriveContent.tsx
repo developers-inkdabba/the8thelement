@@ -220,7 +220,7 @@ export function TransformThriveContent() {
       {/* 1. Hero */}
       <section className="bg-navy pt-32 pb-14 lg:pb-28" aria-labelledby="tt-hero-heading">
         <div className="w-full px-8 sm:px-12 lg:px-20">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="text-center lg:col-span-7 lg:text-left">
               <motion.p {...fadeUp} transition={{ duration: 0.5, delay: 0.04 }} className="text-gold uppercase tracking-[0.18em] text-sm font-semibold mb-5">
                 Transform &amp; Thrive&trade;
@@ -364,7 +364,7 @@ export function TransformThriveContent() {
             </h2>
           </motion.div>
 
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-8" role="list">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8" role="list">
             {pillars.map((pillar, i) => (
               <motion.article
                 key={pillar.title}
@@ -434,7 +434,7 @@ export function TransformThriveContent() {
               Skills You Can Keep For Life.
             </h2>
           </motion.div>
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
             {skillsYoullBuild.map(({ Icon, title, description }, i) => (
               <motion.div
                 key={title}
@@ -462,7 +462,7 @@ export function TransformThriveContent() {
             </h2>
           </motion.div>
 
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <motion.div {...stagger(0.1)} className="bg-warm-bg rounded-2xl p-8 border border-gray-100">
               <h3 className="text-2xl font-bold text-navy mb-6" style={{ fontFamily: 'var(--font-playfair)' }}>
                 Transform &amp; Thrive is for you if&hellip;
@@ -503,7 +503,7 @@ export function TransformThriveContent() {
               See What Can Change When You Stay With It.
             </h2>
           </motion.div>
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {transformStories.map(({ name, stat, detail, imageSrc, imageAlt, href }, i) => (
               <motion.article
                 key={name}

@@ -206,7 +206,7 @@ export function MenoThriveContent() {
       {/* 1. Hero - Sell the Outcome */}
       <section className="bg-navy pt-24 pb-16 lg:pt-28 lg:pb-24" aria-labelledby="menothrive-hero-heading">
         <div className="w-full px-8 sm:px-12 lg:px-20">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-14 xl:gap-20">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-14 xl:gap-20">
             <div className="text-center lg:col-span-6 lg:text-left">
               <motion.p {...stagger(0.05)} className="text-gold uppercase tracking-[0.18em] text-sm font-semibold mb-5">MenoThrive&trade; Private 1:1 Coaching</motion.p>
               <motion.h1 {...stagger(0.1)} id="menothrive-hero-heading" className="text-hero text-white" style={{ fontFamily: 'var(--font-playfair)' }}>
@@ -375,7 +375,7 @@ export function MenoThriveContent() {
             <p className="text-accent uppercase tracking-[0.18em] text-sm font-semibold mb-4">The Offer</p>
             <h2 id="offer-heading" className="text-section text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>Your 6-Month MenoThrive Experience</h2>
           </motion.div>
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
             {offerItems.map(({ Icon, title, detail }, idx) => (
               <motion.div
                 key={title}
@@ -402,7 +402,7 @@ export function MenoThriveContent() {
             <h2 id="real-women-heading" className="text-section text-navy mb-3" style={{ fontFamily: 'var(--font-playfair)' }}>Real Women. Real Transformations.</h2>
             <p className="text-muted text-xl max-w-2xl mx-auto leading-relaxed">See What Can Change When the Strategy Changes.</p>
           </motion.div>
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {realWomenCases.map(({ name, stat, detail, imageSrc, imageAlt, href }, idx) => (
               <motion.article
                 key={name}
@@ -502,7 +502,7 @@ export function MenoThriveContent() {
           <motion.div {...fadeUp} className="text-center mb-14">
             <h2 id="who-heading" className="text-section text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>Is MenoThrive Right for You?</h2>
           </motion.div>
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             <motion.div {...stagger(0.1)} className="bg-warm-bg rounded-2xl p-8 lg:p-10 border border-gray-100">
               <h3 className="text-2xl font-bold text-navy mb-6" style={{ fontFamily: 'var(--font-playfair)' }}>This is for you if&hellip;</h3>
               <ul className="space-y-4" role="list">

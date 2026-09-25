@@ -65,7 +65,7 @@ export default function ContactPage() {
     <>
       <section className="pt-32 pb-16 bg-warm-bg">
         <div className="w-full px-8 sm:px-12 lg:px-20">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             <div className="lg:col-span-6 text-center lg:text-left">
               <p className="text-accent font-semibold uppercase tracking-[0.2em] text-sm mb-4">
                 Start The Conversation
@@ -136,7 +136,7 @@ export default function ContactPage() {
 
       <section className="py-16 lg:py-20 bg-surface">
         <div className="w-full px-8 sm:px-12 lg:px-20">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
             <div className="lg:col-span-7">
               <div className="mb-8">
                 <h2

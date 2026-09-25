@@ -653,7 +653,7 @@ export function AboutOneContent() {
     <>
       <section className="bg-navy pt-24 pb-14 lg:pt-28 lg:pb-16 overflow-hidden" aria-labelledby="about-heading">
         <div className="w-full px-8 sm:px-12 lg:px-20">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <motion.div {...fade(0.1)} className="order-2 lg:order-1 lg:col-span-7">
               <p className="text-gold uppercase tracking-[0.18em] text-xs font-semibold mb-5">Nutrition &amp; Dietetics &bull; Strength Training &bull; Behaviour Change &bull; Women&apos;s Health</p>
               <h1 id="about-heading" className="text-hero text-white" style={{ fontFamily: 'var(--font-playfair)' }}>
@@ -767,7 +767,7 @@ export function AboutOneContent() {
             )})}
           </div>
 
-          <motion.blockquote {...fade(0.3)} className="mx-auto mt-10 max-w-6xl border-l-4 border-gold py-2 pl-8 lg:mt-14">
+          <motion.blockquote {...fade(0.3)} className="mt-10 lg:mt-14 border-l-4 border-gold pl-8 py-2">
             <p className="italic text-dark leading-relaxed" style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
               &ldquo;At 40+, the physiological rules change. Your coaching system must change with them.&rdquo;
             </p>

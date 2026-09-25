@@ -656,7 +656,7 @@ export function SuccessStoriesContent() {
           >
             <div className="w-full px-8 sm:px-12 lg:px-20">
               <div
-                className={`mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16 ${
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center ${
                   story.imageRight ? 'lg:grid-flow-dense' : ''
                 }`}
               >
@@ -673,7 +673,7 @@ export function SuccessStoriesContent() {
                 <motion.div
                   {...fadeUp}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className={`text-center lg:text-left ${story.imageRight ? 'lg:col-start-1 lg:row-start-1' : ''}`}
+                  className={story.imageRight ? 'lg:col-start-1 lg:row-start-1' : ''}
                 >
                   <h2
                     id={`story-heading-${i}`}
