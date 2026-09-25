@@ -29,8 +29,6 @@ const approachPoints = [
 export function ReframeSection() {
   return (
     <section className="py-14 lg:py-16 bg-white relative overflow-hidden" aria-labelledby="reframe-heading">
-      <div className="absolute right-0 bottom-0 w-80 h-80 bg-rose-faint/50 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
-
       <div className="w-full px-8 sm:px-12 lg:px-20 relative z-10">
         <div className="max-w-6xl mx-auto">
           <motion.div

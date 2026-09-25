@@ -7,9 +7,6 @@ import { ASSESSMENT_FORM_URL } from '@/lib/links'
 export function ProgramsSection() {
   return (
     <section className="py-16 lg:py-24 bg-navy relative overflow-hidden" aria-labelledby="programs-heading">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-white/[0.02] rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
-      <div className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-accent/[0.03] rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
-
       <div className="w-full px-8 sm:px-12 lg:px-20 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -218,7 +218,7 @@ export function Navbar() {
                 }`}
               />
               <span
-                className={`font-bold text-sm uppercase tracking-[0.1em] transition-colors duration-300 sm:text-lg sm:tracking-[0.2em] lg:text-xl ${
+                className={`hidden font-bold text-sm uppercase tracking-[0.1em] transition-colors duration-300 min-[430px]:inline sm:text-lg sm:tracking-[0.2em] lg:text-xl ${
                   onDark
                     ? 'text-white group-hover:text-white/70'
                     : 'text-navy group-hover:text-accent'

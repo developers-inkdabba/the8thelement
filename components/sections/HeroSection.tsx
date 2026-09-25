@@ -40,11 +40,11 @@ export function HeroSection() {
       aria-label="Welcome"
     >
       <div className="z-10 w-full px-8 sm:px-12 lg:px-16 xl:px-20">
-        <div className="grid w-full grid-cols-1 items-center gap-8 sm:gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(430px,560px)] lg:gap-14 xl:gap-18">
+        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-8 sm:gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(430px,560px)] lg:gap-14 xl:gap-18">
 
           {/* Left Column */}
           <motion.div
-            className="order-2 flex flex-col justify-center lg:order-1 lg:pl-16 xl:pl-24"
+            className="order-2 flex flex-col justify-center lg:order-1"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -118,7 +118,7 @@ export function HeroSection() {
             animate={shouldReduce ? {} : { opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="relative h-[15.5rem] w-[14rem] sm:h-[25rem] sm:w-96 lg:h-[34rem] lg:w-[29rem] lg:-translate-x-12 xl:h-[36rem] xl:w-[31rem] xl:-translate-x-20">
+            <div className="relative h-[15.5rem] w-[14rem] sm:h-[25rem] sm:w-96 lg:h-[34rem] lg:w-[29rem] xl:h-[36rem] xl:w-[31rem]">
 
               {/* Back Card (Gold Outline) */}
               <div

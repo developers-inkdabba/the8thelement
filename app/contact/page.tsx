@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { buildMeta, seoKeywords } from '@/lib/metadata'
 import { ArrowRight, CheckCircle2, Clock, Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
 import { ContactForm } from '@/components/forms/ContactForm'
-import { NewsletterForm } from '@/components/forms/NewsletterForm'
 import { ASSESSMENT_FORM_URL } from '@/lib/links'
 
 function IgIcon() {
@@ -66,7 +65,7 @@ export default function ContactPage() {
     <>
       <section className="pt-32 pb-16 bg-warm-bg">
         <div className="w-full px-8 sm:px-12 lg:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-6 text-center lg:text-left">
               <p className="text-accent font-semibold uppercase tracking-[0.2em] text-sm mb-4">
                 Start The Conversation
@@ -137,48 +136,8 @@ export default function ContactPage() {
 
       <section className="py-16 lg:py-20 bg-surface">
         <div className="w-full px-8 sm:px-12 lg:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-7">
-              <div className="grid gap-4 sm:grid-cols-2 mb-10">
-                <div className="rounded-2xl border border-gold/30 bg-cream p-6">
-                  <p className="text-accent font-semibold uppercase tracking-[0.18em] text-xs mb-3">
-                    Best first step
-                  </p>
-                  <h2
-                    className="text-2xl font-bold text-navy mb-3"
-                    style={{ fontFamily: 'var(--font-playfair)' }}
-                  >
-                    Menopause Health Assessment
-                  </h2>
-                  <p className="text-muted leading-relaxed mb-5">
-                    Share what is happening in your body and lifestyle. We&apos;ll recommend the
-                    most useful next step.
-                  </p>
-                  <a href={ASSESSMENT_FORM_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[48px] max-w-full items-center justify-center rounded-full bg-navy px-6 py-3 text-center text-sm font-semibold leading-snug text-white transition-colors hover:bg-accent">
-                    Book Appointment
-                  </a>
-                </div>
-
-                <div className="rounded-2xl border border-rose-tint bg-rose-faint p-6">
-                  <p className="text-accent font-semibold uppercase tracking-[0.18em] text-xs mb-3">
-                    Quick question?
-                  </p>
-                  <h2
-                    className="text-2xl font-bold text-navy mb-3"
-                    style={{ fontFamily: 'var(--font-playfair)' }}
-                  >
-                    Message Srividya
-                  </h2>
-                  <p className="text-muted leading-relaxed mb-5">
-                    If you want to check something before booking, WhatsApp is the fastest way to
-                    reach us.
-                  </p>
-                  <a href="https://wa.me/919884835729" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[48px] max-w-full items-center justify-center rounded-full bg-white px-6 py-3 text-center text-sm font-semibold leading-snug text-navy transition-colors hover:bg-navy hover:text-white">
-                    WhatsApp Now
-                  </a>
-                </div>
-              </div>
-
               <div className="mb-8">
                 <h2
                   className="text-3xl font-bold text-navy mb-3"
@@ -299,25 +258,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-cream">
-        <div className="max-w-2xl mx-auto px-8 text-center">
-          <p className="text-accent font-semibold uppercase tracking-[0.22em] text-sm mb-3">
-            Stay Connected
-          </p>
-          <h2
-            className="text-4xl font-bold text-navy mb-4"
-            style={{ fontFamily: 'var(--font-playfair)' }}
-          >
-            Join Our Community
-          </h2>
-          <p className="text-[1.2rem] mb-4 leading-relaxed">
-            Receive practical, science-backed insights, expert guidance, and simple strategies to help
-            you navigate perimenopause and menopause with confidence.
-          </p>
-          <p className="text-muted mb-8">No spam. Just valuable guidance delivered straight to your inbox.</p>
-          <NewsletterForm buttonText="Subscribe" />
-        </div>
-      </section>
     </>
   )
 }

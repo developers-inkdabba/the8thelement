@@ -23,6 +23,14 @@ const stagger = (delay: number) => ({
 
 const skillsToBuild = ['Eat with confidence.', 'Build strength.', 'Manage stress.', 'Sleep and recover better.', 'Create habits that last.']
 
+const skillHighlights = [
+  { label: 'Food confidence', detail: 'Eat without all-or-nothing rules.' },
+  { label: 'Strength', detail: 'Build a body that feels capable.' },
+  { label: 'Stress tools', detail: 'Respond instead of restarting.' },
+  { label: 'Better recovery', detail: 'Support sleep, energy and rhythm.' },
+  { label: 'Lasting habits', detail: 'Keep going in real life.' },
+]
+
 const pillars = [
   {
     icon: <Users size={28} aria-hidden="true" />,
@@ -52,10 +60,34 @@ const pillars = [
 ]
 
 const journeyPhases = [
-  { number: '01', title: 'Build Your Foundation', description: 'Strength, balanced nutrition and simple routines.' },
-  { number: '02', title: 'Make It Easier', description: 'Meal planning, intuitive eating and practical systems.' },
-  { number: '03', title: 'Handle Real Life', description: 'Stress, cravings, setbacks and changing schedules.' },
-  { number: '04', title: 'Make It Yours', description: 'Build the confidence and skills to keep going beyond the programme.' },
+  {
+    number: '01',
+    title: 'Build Your Foundation',
+    description: 'Strength, balanced nutrition and simple routines.',
+    imageSrc: '/transform-thrive/journey-foundation.jpg',
+    imageAlt: 'South Indian woman preparing for a simple strength routine at home',
+  },
+  {
+    number: '02',
+    title: 'Make It Easier',
+    description: 'Meal planning, intuitive eating and practical systems.',
+    imageSrc: '/transform-thrive/journey-easier.jpg',
+    imageAlt: 'South Indian woman planning practical meals in a simple home kitchen',
+  },
+  {
+    number: '03',
+    title: 'Handle Real Life',
+    description: 'Stress, cravings, setbacks and changing schedules.',
+    imageSrc: '/transform-thrive/journey-real-life.jpg',
+    imageAlt: 'South Indian woman using a notebook beside her laptop in a calm home setting',
+  },
+  {
+    number: '04',
+    title: 'Make It Yours',
+    description: 'Build the confidence and skills to keep going beyond the programme.',
+    imageSrc: '/transform-thrive/journey-yours.jpg',
+    imageAlt: 'South Indian woman walking confidently in her neighborhood after building healthy habits',
+  },
 ]
 
 const skillsYoullBuild = [
@@ -188,7 +220,7 @@ export function TransformThriveContent() {
       {/* 1. Hero */}
       <section className="bg-navy pt-32 pb-14 lg:pb-28" aria-labelledby="tt-hero-heading">
         <div className="w-full px-8 sm:px-12 lg:px-20">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="text-center lg:col-span-7 lg:text-left">
               <motion.p {...fadeUp} transition={{ duration: 0.5, delay: 0.04 }} className="text-gold uppercase tracking-[0.18em] text-sm font-semibold mb-5">
                 Transform &amp; Thrive&trade;
@@ -265,25 +297,60 @@ export function TransformThriveContent() {
       </section>
 
       {/* 2. The Promise */}
-      <section className="py-14 lg:py-20 bg-white" aria-labelledby="tt-promise-heading">
-        <div className="w-full px-8 sm:px-12 lg:px-20 max-w-3xl mx-auto text-center">
-          <motion.h2 {...fadeUp} id="tt-promise-heading" className="text-section text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>
-            Stop Starting Over.
-          </motion.h2>
-          <motion.p {...stagger(0.1)} className="mt-6 text-muted text-lg leading-relaxed">
-            You don&apos;t need another diet or a perfect routine.
-          </motion.p>
-          <motion.p {...stagger(0.18)} className="mt-3 text-navy text-lg font-semibold leading-relaxed">
-            You need <strong className="font-bold">simple strategies, consistent support and habits that fit real life</strong>.
-          </motion.p>
-          <motion.p {...stagger(0.28)} className="mt-10 text-dark font-semibold text-lg">
-            Over 20 weeks, build the skills to:
-          </motion.p>
-          <motion.div {...stagger(0.34)} className="mt-4 space-y-1.5 text-muted text-lg leading-normal">
-            {skillsToBuild.map((skill) => (
-              <p key={skill}>{skill}</p>
-            ))}
-          </motion.div>
+      <section className="relative overflow-hidden py-14 lg:py-20 bg-white" aria-labelledby="tt-promise-heading">
+        <div className="w-full px-8 sm:px-12 lg:px-20">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
+            <motion.div {...fadeUp} className="text-center lg:col-span-5 lg:text-left">
+              <p className="text-accent uppercase tracking-[0.18em] text-sm font-semibold mb-4">Simple. Supported. Sustainable.</p>
+              <h2 id="tt-promise-heading" className="text-section text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>
+                Stop Starting Over.
+              </h2>
+              <p className="mt-6 text-muted text-lg leading-relaxed">
+                You don&apos;t need another diet or a perfect routine.
+              </p>
+              <p className="mt-3 text-navy text-lg font-semibold leading-relaxed">
+                You need simple strategies, consistent support and habits that fit real life.
+              </p>
+              <div className="mx-auto mt-8 h-px w-24 bg-gold/50 lg:mx-0" aria-hidden="true" />
+              <p className="mt-8 text-dark font-semibold text-lg">
+                Over 20 weeks, build the skills to:
+              </p>
+              <div className="mt-4 flex flex-wrap justify-center gap-2 lg:justify-start" aria-label="Skills built over 20 weeks">
+                {skillsToBuild.map((skill) => (
+                  <span key={skill} className="rounded-full border border-gold/25 bg-warm-bg px-4 py-2 text-sm font-semibold text-navy">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div {...stagger(0.12)} className="lg:col-span-7">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2" role="list">
+                {skillHighlights.map((skill, i) => (
+                  <motion.div
+                    key={skill.label}
+                    {...stagger(i * 0.06)}
+                    role="listitem"
+                    className={`group rounded-2xl border border-gold/20 bg-warm-bg p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-white hover:shadow-lg ${
+                      i === skillHighlights.length - 1 ? 'sm:col-span-2' : ''
+                    }`}
+                  >
+                    <div className="flex items-start gap-4">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-navy text-sm font-bold text-gold transition-transform duration-300 group-hover:scale-110" aria-hidden="true">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <div>
+                        <h3 className="text-lg font-bold text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>
+                          {skill.label}
+                        </h3>
+                        <p className="mt-1 text-muted leading-relaxed">{skill.detail}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -297,7 +364,7 @@ export function TransformThriveContent() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8" role="list">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-8" role="list">
             {pillars.map((pillar, i) => (
               <motion.article
                 key={pillar.title}
@@ -325,22 +392,35 @@ export function TransformThriveContent() {
       {/* 4. Your 20-Week Journey */}
       <section className="py-14 lg:py-20 bg-white" aria-labelledby="tt-curriculum-heading">
         <div className="w-full px-8 sm:px-12 lg:px-20">
-          <motion.div {...fadeUp} className="text-center mb-14">
+          <motion.div {...fadeUp} className="text-center mb-12">
             <p className="text-accent uppercase tracking-[0.18em] text-sm font-semibold mb-4">Your 20-Week Journey</p>
             <h2 id="tt-curriculum-heading" className="text-section text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>
               Small Changes. Real Skills. Lasting Change.
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6" role="list">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4" role="list">
             {journeyPhases.map((phase, i) => (
-              <motion.div key={phase.number} {...stagger(i * 0.1)} role="listitem" className="bg-warm-bg rounded-2xl p-7 border border-gray-100 flex gap-4">
-                <span className="shrink-0 text-2xl font-bold text-gold" style={{ fontFamily: 'var(--font-playfair)' }}>{phase.number}</span>
-                <div>
-                  <h3 className="font-bold text-navy text-xl mb-1" style={{ fontFamily: 'var(--font-playfair)' }}>{phase.title}</h3>
-                  <p className="text-muted leading-relaxed">{phase.description}</p>
+              <motion.article
+                key={phase.number}
+                {...stagger(i * 0.08)}
+                role="listitem"
+                className="group overflow-hidden rounded-xl border border-gold/20 bg-warm-bg shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-white hover:shadow-lg"
+              >
+                <div className="relative aspect-[5/4] overflow-hidden bg-cream">
+                  <Image
+                    src={phase.imageSrc}
+                    alt={phase.imageAlt}
+                    fill
+                    sizes="(min-width: 1280px) 16rem, (min-width: 1024px) 23vw, (min-width: 640px) 45vw, 100vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
                 </div>
-              </motion.div>
+                <div className="p-4">
+                  <h3 className="font-bold text-navy text-lg mb-2 leading-snug" style={{ fontFamily: 'var(--font-playfair)' }}>{phase.title}</h3>
+                  <p className="text-muted text-sm leading-relaxed">{phase.description}</p>
+                </div>
+              </motion.article>
             ))}
           </div>
         </div>
@@ -354,7 +434,7 @@ export function TransformThriveContent() {
               Skills You Can Keep For Life.
             </h2>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
             {skillsYoullBuild.map(({ Icon, title, description }, i) => (
               <motion.div
                 key={title}
@@ -382,7 +462,7 @@ export function TransformThriveContent() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
             <motion.div {...stagger(0.1)} className="bg-warm-bg rounded-2xl p-8 border border-gray-100">
               <h3 className="text-2xl font-bold text-navy mb-6" style={{ fontFamily: 'var(--font-playfair)' }}>
                 Transform &amp; Thrive is for you if&hellip;
@@ -415,35 +495,35 @@ export function TransformThriveContent() {
       </section>
 
       {/* 7. Real Women. Real Results. */}
-      <section className="py-14 lg:py-20 bg-cream" aria-labelledby="tt-results-heading">
+      <section className="scroll-mt-32 bg-cream pt-20 pb-14 lg:pt-24 lg:pb-20" aria-labelledby="tt-results-heading">
         <div className="w-full px-8 sm:px-12 lg:px-20">
-          <motion.div {...fadeUp} className="text-center mb-14">
+          <motion.div {...fadeUp} className="mx-auto max-w-4xl text-center mb-12">
             <p className="text-accent uppercase tracking-[0.18em] text-sm font-semibold mb-4">Real Women. Real Results.</p>
             <h2 id="tt-results-heading" className="text-section text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>
               See What Can Change When You Stay With It.
             </h2>
           </motion.div>
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {transformStories.map(({ name, stat, detail, imageSrc, imageAlt, href }, i) => (
               <motion.article
                 key={name}
                 {...stagger(i * 0.04)}
-                className="group overflow-hidden rounded-2xl border border-gold/20 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="group overflow-hidden rounded-xl border border-gold/20 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-lg"
               >
                 <Link href={href} className="block h-full">
-                  <div className="relative aspect-[4/3] overflow-hidden bg-cream">
+                  <div className="relative aspect-[5/4] overflow-hidden bg-warm-bg">
                     <Image
                       src={imageSrc}
                       alt={imageAlt}
                       fill
-                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(min-width: 1280px) 15rem, (min-width: 1024px) 22vw, (min-width: 640px) 40vw, 100vw"
+                      className="object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   </div>
-                  <div className="p-4 lg:p-5">
-                    <p className="text-[0.68rem] uppercase tracking-[0.16em] font-semibold text-accent mb-2">{name}</p>
-                    <p className="font-bold text-navy text-base leading-snug" style={{ fontFamily: 'var(--font-playfair)' }}>{stat}</p>
-                    <p className="mt-2 text-muted text-sm leading-relaxed">{detail}</p>
+                  <div className="p-4">
+                    <p className="text-[0.66rem] uppercase tracking-[0.16em] font-semibold text-accent mb-2">{name}</p>
+                    <p className="font-bold text-navy text-[0.98rem] leading-snug" style={{ fontFamily: 'var(--font-playfair)' }}>{stat}</p>
+                    <p className="mt-2 text-muted text-[0.92rem] leading-relaxed">{detail}</p>
                     <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-navy transition-colors group-hover:text-accent">
                       Read story
                       <ArrowRight size={16} aria-hidden="true" />
@@ -509,7 +589,7 @@ export function TransformThriveContent() {
             >
               Book Your Appointment Today
             </a>
-            <p className="mt-5 text-muted italic">Limited places per cohort.</p>
+            <p className="mt-5 text-muted italic">Limited spots per cohort.</p>
           </motion.div>
         </div>
       </section>

@@ -31,7 +31,7 @@ export function AppointmentNudge() {
   }, [])
 
   return (
-    <div className="fixed bottom-4 right-20 z-50 flex flex-col items-end gap-2 sm:bottom-24 sm:right-6 sm:flex-row sm:gap-3" aria-label="Book an appointment">
+    <div className="fixed bottom-4 right-[4.75rem] z-50 flex flex-col items-end gap-2 max-[380px]:bottom-3 max-[380px]:right-[4.25rem] sm:bottom-24 sm:right-6 sm:flex-row sm:gap-3" aria-label="Book an appointment">
       <div
         className={`hidden max-w-[12.75rem] rounded-lg border border-gold/30 bg-white px-4 py-3 text-sm leading-relaxed text-navy shadow-xl shadow-navy/15 transition-all duration-300 sm:block sm:max-w-[15rem] sm:px-5 sm:py-4 sm:text-[0.95rem] ${
           bubbleVisible

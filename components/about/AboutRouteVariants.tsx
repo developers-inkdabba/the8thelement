@@ -123,14 +123,6 @@ const strongHerPillars = [
   { letter: 'R', short: 'Reflect', label: 'Reflect & Reset Consistently', Icon: RefreshCw },
 ]
 
-const WHEEL_SLICE_ANGLE = 360 / strongHerPillars.length
-const WHEEL_RADIUS = 48
-
-function wheelPoint(angleDeg: number, radius: number) {
-  const rad = (angleDeg * Math.PI) / 180
-  return { x: 50 + radius * Math.cos(rad), y: 50 + radius * Math.sin(rad) }
-}
-
 const credentials = [
   { Icon: Award, title: 'Gold Medalist', detail: 'Nutrition & Dietetics' },
   { Icon: Sparkles, title: 'Precision Nutrition', detail: 'Level 1 & Level 2' },
@@ -399,12 +391,9 @@ function TeamSection() {
 
 function StrongHerSection() {
   return (
-    <section className="relative overflow-hidden py-14 lg:py-20 bg-cream" aria-labelledby="strong-her-heading">
-      <div className="absolute left-1/2 top-1/2 h-[50rem] w-[50rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/10 blur-3xl" aria-hidden="true" />
-      <div className="absolute left-[10%] top-1/4 h-64 w-64 rounded-full bg-accent/5 blur-3xl" aria-hidden="true" />
-      <div className="absolute right-[10%] bottom-1/4 h-64 w-64 rounded-full bg-navy/5 blur-3xl" aria-hidden="true" />
-      <div className="relative z-10 w-full px-8 sm:px-12 lg:px-20">
-        <motion.div {...fade(0)} className="mx-auto max-w-3xl text-center mb-14">
+    <section className="py-14 lg:py-20 bg-cream" aria-labelledby="strong-her-heading">
+      <div className="w-full px-8 sm:px-12 lg:px-20">
+        <motion.div {...fade(0)} className="mx-auto mb-12 max-w-3xl text-center">
           <p className="text-xs uppercase tracking-[0.18em] text-accent font-semibold mb-4">
             My Framework
           </p>
@@ -417,56 +406,53 @@ function StrongHerSection() {
           </h2>
         </motion.div>
 
-        <div
-          className="relative mx-auto h-[300px] w-[300px] sm:h-[380px] sm:w-[380px] lg:h-[480px] lg:w-[480px] xl:h-[560px] xl:w-[560px]"
-          role="list"
-          aria-label="The 9 pillars of the STRONG-HER framework"
-        >
-          {strongHerPillars.map((pillar, i) => {
-            const mid = -90 + i * WHEEL_SLICE_ANGLE
-            const pos = wheelPoint(mid, WHEEL_RADIUS * 0.66)
-            const { Icon } = pillar
-            return (
-              <motion.div
-                key={pillar.letter + pillar.short}
-                {...fade(i * 0.05)}
-                role="listitem"
-                className="absolute -translate-x-1/2 -translate-y-1/2"
-                style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
-              >
-                <div
-                  className="flex h-20 w-20 flex-col items-center justify-center gap-1 bg-gold/20 text-center shadow-sm transition-colors duration-300 hover:bg-gold/35 sm:h-24 sm:w-24 xl:h-28 xl:w-28"
-                  style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}
-                >
-                  <Icon size={16} className="text-accent" aria-hidden="true" />
-                  <span className="px-2 text-[0.6rem] font-semibold leading-tight text-navy sm:text-[0.65rem]">
-                    <span className="font-bold text-accent">{pillar.letter}</span> {pillar.short}
-                  </span>
-                </div>
-              </motion.div>
-            )
-          })}
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="absolute left-1/2 top-1/2 flex h-[38%] w-[38%] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-white text-center shadow-lg"
-          >
-            <p className="text-2xl sm:text-3xl text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>9</p>
-            <p className="mt-1 text-[0.6rem] uppercase tracking-[0.16em] text-accent font-semibold">Pillars</p>
+        <div className="mx-auto max-w-5xl">
+          <motion.div {...fade(0.08)} className="mx-auto mb-9 max-w-2xl text-center">
+            <p className="text-lg font-semibold leading-relaxed text-navy">
+              9 pillars. One integrated approach for real-life strength, regulation and confidence.
+            </p>
+            <div className="mx-auto mt-6 h-px w-20 bg-gold/60" aria-hidden="true" />
           </motion.div>
+
+          <div
+            className="grid grid-cols-1 border-y border-gold/30 sm:grid-cols-3"
+            role="list"
+            aria-label="The 9 pillars of the STRONG-HER framework"
+          >
+            {strongHerPillars.map((pillar, i) => (
+              <motion.article
+                key={pillar.letter + pillar.short}
+                {...fade(i * 0.035)}
+                role="listitem"
+                className="group border-b border-gold/25 py-5 sm:border-r sm:px-6 sm:py-6 sm:[&:nth-child(3n)]:border-r-0 sm:[&:nth-last-child(-n+3)]:border-b-0"
+              >
+                <div className="flex items-baseline gap-4">
+                  <span
+                    className="text-sm font-bold uppercase tracking-[0.18em] text-accent"
+                    style={{ fontFamily: 'var(--font-playfair)' }}
+                  >
+                    {pillar.letter}
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-bold text-navy transition-colors duration-300 group-hover:text-accent" style={{ fontFamily: 'var(--font-playfair)' }}>
+                      {pillar.short}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted">
+                      {pillar.label}
+                    </p>
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+
         </div>
 
-        <motion.div {...fade(0.3)} className="mx-auto mt-12 max-w-2xl text-center">
-          <p className="text-muted text-lg leading-relaxed font-light">
-            9 pillars. One integrated approach.
-          </p>
-          <p className="mt-2 text-lg font-semibold text-navy">
+        <div className="hidden">
+          <p>
             Built to help you become stronger, more regulated, confident and capable — in real life.
           </p>
-        </motion.div>
+          </div>
+      </div>
       </div>
     </section>
   )
@@ -667,7 +653,7 @@ export function AboutOneContent() {
     <>
       <section className="bg-navy pt-24 pb-14 lg:pt-28 lg:pb-16 overflow-hidden" aria-labelledby="about-heading">
         <div className="w-full px-8 sm:px-12 lg:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <motion.div {...fade(0.1)} className="order-2 lg:order-1 lg:col-span-7">
               <p className="text-gold uppercase tracking-[0.18em] text-xs font-semibold mb-5">Nutrition &amp; Dietetics &bull; Strength Training &bull; Behaviour Change &bull; Women&apos;s Health</p>
               <h1 id="about-heading" className="text-hero text-white" style={{ fontFamily: 'var(--font-playfair)' }}>
@@ -714,31 +700,40 @@ export function AboutOneContent() {
         <div className="w-full px-8 sm:px-12 lg:px-20">
           <h2 id="about-story-heading" className="sr-only">Srividya&apos;s Story</h2>
           <div className="space-y-24 lg:space-y-28">
-            {storySections.map((section, index) => (
+            {storySections.map((section, index) => {
+              const showVisual = section.eyebrow !== 'My Philosophy'
+
+              return (
               <motion.article
                 key={section.title ?? section.titleLines?.join(' ')}
                 {...fade(index * 0.08)}
-                className={`mx-auto grid max-w-6xl grid-cols-1 items-start gap-10 lg:gap-14 ${
-                  index % 2 === 0
-                    ? 'lg:grid-cols-[minmax(0,1fr)_minmax(18rem,23rem)]'
-                    : 'lg:grid-cols-[minmax(18rem,23rem)_minmax(0,1fr)]'
+                className={`mx-auto grid grid-cols-1 items-start gap-10 lg:gap-14 ${
+                  showVisual
+                    ? `max-w-6xl ${
+                        index % 2 === 0
+                          ? 'lg:grid-cols-[minmax(0,1fr)_minmax(18rem,23rem)]'
+                          : 'lg:grid-cols-[minmax(18rem,23rem)_minmax(0,1fr)]'
+                      }`
+                    : 'max-w-5xl'
                 }`}
               >
-                <div className={`flex ${index % 2 === 0 ? 'lg:order-2 lg:justify-start' : 'lg:justify-start'}`}>
-                  {section.images ? (
-                    <JourneySlider photos={section.images} className="max-w-[23rem] mb-8 lg:mb-0" />
-                  ) : (
-                    <FeaturedPortraitHolder
-                      src={section.image}
-                      alt={section.alt}
-                      sizes="(min-width: 1024px) 23rem, 86vw"
-                      eyebrow={section.cardEyebrow}
-                      caption={section.highlight}
-                      className="max-w-[23rem] mb-8 lg:mb-0"
-                    />
-                  )}
-                </div>
-                <div className={index % 2 === 0 ? 'lg:order-1 lg:text-right' : ''}>
+                {showVisual ? (
+                  <div className={`flex ${index % 2 === 0 ? 'lg:order-2 lg:justify-start' : 'lg:justify-start'}`}>
+                    {section.images ? (
+                      <JourneySlider photos={section.images} className="max-w-[23rem] mb-8 lg:mb-0" />
+                    ) : (
+                      <FeaturedPortraitHolder
+                        src={section.image}
+                        alt={section.alt}
+                        sizes="(min-width: 1024px) 23rem, 86vw"
+                        eyebrow={section.cardEyebrow}
+                        caption={section.highlight}
+                        className="max-w-[23rem] mb-8 lg:mb-0"
+                      />
+                    )}
+                  </div>
+                ) : null}
+                <div className={showVisual && index % 2 === 0 ? 'lg:order-1 lg:text-right' : 'mx-auto max-w-4xl text-center'}>
                   <p className="text-xs uppercase tracking-[0.18em] text-accent font-semibold mb-4">{section.eyebrow}</p>
                   <h3 className="text-section text-navy mb-6" style={{ fontFamily: 'var(--font-playfair)' }}>
                     {section.titleLines
@@ -756,7 +751,9 @@ export function AboutOneContent() {
                   {section.quote ? (
                     <p
                       className={`mt-7 border-gold text-dark text-xl leading-relaxed ${
-                        index % 2 === 0
+                        !showVisual
+                          ? 'mx-auto max-w-3xl border-t pt-6'
+                          : index % 2 === 0
                           ? 'border-r-4 pr-5'
                           : 'border-l-4 pl-5'
                       }`}
@@ -767,10 +764,10 @@ export function AboutOneContent() {
                   ) : null}
                 </div>
               </motion.article>
-            ))}
+            )})}
           </div>
 
-          <motion.blockquote {...fade(0.3)} className="mt-10 lg:mt-14 border-l-4 border-gold pl-8 py-2">
+          <motion.blockquote {...fade(0.3)} className="mx-auto mt-10 max-w-6xl border-l-4 border-gold py-2 pl-8 lg:mt-14">
             <p className="italic text-dark leading-relaxed" style={{ fontFamily: 'var(--font-playfair)', fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
               &ldquo;At 40+, the physiological rules change. Your coaching system must change with them.&rdquo;
             </p>

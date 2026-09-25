@@ -6,7 +6,6 @@ import Link from 'next/link'
 import {
   CheckCircle2, XCircle, Dumbbell, Salad,
   Target, BookOpen, Phone, MessageCircle, ArrowRight,
-  Scale, Battery, ShieldCheck, Repeat,
 } from 'lucide-react'
 import { FAQAccordion } from '@/components/ui/FAQAccordion'
 import { ASSESSMENT_FORM_URL } from '@/lib/links'
@@ -15,12 +14,42 @@ const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0
 const stagger = (delay: number) => ({ initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: '-80px' }, transition: { duration: 0.5, delay } })
 
 const dreamOutcomeItems = [
-  { Icon: Scale, title: 'Lose stubborn weight', detail: 'without living on another restrictive diet.' },
-  { Icon: Dumbbell, title: 'Build strength', detail: 'so your body feels capable again.' },
-  { Icon: Battery, title: 'Have more energy', detail: 'for work, family, travel and yourself.' },
-  { Icon: Salad, title: 'Feel calmer around food', detail: 'without constantly starting over.' },
-  { Icon: ShieldCheck, title: 'Trust yourself again', detail: 'to follow through without perfectionism.' },
-  { Icon: Repeat, title: 'Build habits that last', detail: 'because they fit your actual life.' },
+  {
+    title: 'Lose stubborn weight',
+    detail: 'without living on another restrictive diet.',
+    imageSrc: '/menothrive/dream-weight.jpg',
+    imageAlt: 'South Indian woman feeling hopeful while checking the fit of comfortable clothes',
+  },
+  {
+    title: 'Build strength',
+    detail: 'so your body feels capable again.',
+    imageSrc: '/menothrive/dream-strength.jpg',
+    imageAlt: 'South Indian woman doing simple strength training at home',
+  },
+  {
+    title: 'Have more energy',
+    detail: 'for work, family, travel and yourself.',
+    imageSrc: '/menothrive/dream-energy.jpg',
+    imageAlt: 'South Indian woman feeling energized in her home kitchen',
+  },
+  {
+    title: 'Feel calmer around food',
+    detail: 'without constantly starting over.',
+    imageSrc: '/menothrive/dream-food.jpg',
+    imageAlt: 'South Indian woman preparing a balanced everyday meal at home',
+  },
+  {
+    title: 'Trust yourself again',
+    detail: 'to follow through without perfectionism.',
+    imageSrc: '/menothrive/dream-trust.jpg',
+    imageAlt: 'South Indian woman journaling calmly at a dining table',
+  },
+  {
+    title: 'Build habits that last',
+    detail: 'because they fit your actual life.',
+    imageSrc: '/menothrive/dream-habits.jpg',
+    imageAlt: 'South Indian woman tying walking shoes at her doorway',
+  },
 ]
 
 const offerItems = [
@@ -30,6 +59,14 @@ const offerItems = [
   { Icon: Target, title: 'Daily-Life Habit Coaching', detail: 'Turn intentions into routines.' },
   { Icon: MessageCircle, title: 'WhatsApp Support', detail: 'Guidance and accountability between sessions.' },
   { Icon: BookOpen, title: 'Practical Resources', detail: 'Tools you can keep using for life.' },
+]
+
+const coachingSteps = ['Understand', 'Personalise', 'Implement', 'Adjust', 'Sustain']
+
+const coachingPromises = [
+  'No generic plan.',
+  'No "just be more disciplined."',
+  'No starting over every Monday.',
 ]
 
 const realWomenCases = [
@@ -158,7 +195,7 @@ const faqs = [
   { question: 'Who is MenoThrive for?', answer: 'MenoThrive is designed for women in perimenopause and postmenopause who are ready to take a personalised, science-backed approach to improving their health, strength, energy, and confidence.' },
   { question: `Is it suitable if I'm already postmenopausal?`, answer: `Yes. Whether you're in perimenopause or postmenopause, the program is tailored to your current stage, symptoms, health history, and goals.` },
   { question: 'Do I need previous fitness or nutrition experience?', answer: `Not at all. Your coaching plan is designed around your current fitness level, lifestyle, and medical history. Whether you're just getting started or already active, every recommendation is personalised to you.` },
-  { question: 'How much time will I need?', answer: 'Most clients spend 3–5 hours per week, including exercise, meal planning, coaching activities, and implementing new habits. The focus is on creating sustainable routines that fit your lifestyle—not adding unnecessary complexity.' },
+  { question: 'How much time will I need?', answer: 'Most clients spend 3-5 hours per week, including exercise, meal planning, coaching activities, and implementing new habits. The focus is on creating sustainable routines that fit your lifestyle, not adding unnecessary complexity.' },
   { question: 'Is MenoThrive delivered online?', answer: 'Yes. MenoThrive is a fully online coaching program, allowing you to receive personalised support wherever you are. Coaching, check-ins, resources, and accountability are all provided virtually.' },
   { question: 'What happens after the assessment?', answer: `I'll personally review your assessment. If we're a good fit, you'll be invited to a Menopause Strategy Session, where we'll discuss your health goals, answer your questions, and determine whether MenoThrive is the right coaching partnership for you.` },
 ]
@@ -166,10 +203,10 @@ const faqs = [
 export function MenoThriveContent() {
   return (
     <>
-      {/* 1. Hero — Sell the Outcome */}
+      {/* 1. Hero - Sell the Outcome */}
       <section className="bg-navy pt-24 pb-16 lg:pt-28 lg:pb-24" aria-labelledby="menothrive-hero-heading">
         <div className="w-full px-8 sm:px-12 lg:px-20">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-14 xl:gap-20">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-14 xl:gap-20">
             <div className="text-center lg:col-span-6 lg:text-left">
               <motion.p {...stagger(0.05)} className="text-gold uppercase tracking-[0.18em] text-sm font-semibold mb-5">MenoThrive&trade; Private 1:1 Coaching</motion.p>
               <motion.h1 {...stagger(0.1)} id="menothrive-hero-heading" className="text-hero text-white" style={{ fontFamily: 'var(--font-playfair)' }}>
@@ -181,7 +218,7 @@ export function MenoThriveContent() {
               <motion.div {...stagger(0.4)} className="mt-10">
                 <a href={ASSESSMENT_FORM_URL} target="_blank" rel="noopener noreferrer" className="inline-flex max-w-full items-center justify-center px-8 py-4 bg-accent text-white font-bold rounded-full hover:opacity-90 hover:scale-[1.03] hover:shadow-2xl transition-all duration-200 min-h-[56px] text-center text-base leading-snug whitespace-normal sm:px-10 sm:text-lg" id="assessment">See If MenoThrive Is Right for You</a>
               </motion.div>
-              <motion.p {...stagger(0.5)} className="mt-6 text-white/50 text-base italic">Limited 1:1 places.</motion.p>
+              <motion.p {...stagger(0.5)} className="mt-6 text-white/50 text-base italic">Limited 1:1 spots.</motion.p>
             </div>
 
             <motion.div
@@ -213,7 +250,7 @@ export function MenoThriveContent() {
         </div>
       </section>
 
-      {/* 2. Problem — "This Is Me" */}
+      {/* 2. Problem */}
       <section className="py-12 lg:py-20 bg-white" aria-labelledby="problem-heading">
         <div className="w-full px-8 sm:px-12 lg:px-20">
           <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
@@ -234,7 +271,6 @@ export function MenoThriveContent() {
             </motion.div>
 
             <div className="order-1 text-center lg:order-2 lg:col-span-7 lg:text-left">
-              <motion.p {...stagger(0.05)} className="text-accent uppercase tracking-[0.18em] text-sm font-semibold mb-5">This Is Me</motion.p>
               <motion.h2 {...stagger(0.1)} id="problem-heading" className="text-section text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>
                 You Know What To Do.
               </motion.h2>
@@ -269,19 +305,27 @@ export function MenoThriveContent() {
               <span className="block">A Stronger Life.</span>
             </h2>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
-            {dreamOutcomeItems.map(({ Icon, title, detail }, idx) => (
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3" role="list">
+            {dreamOutcomeItems.map(({ title, detail, imageSrc, imageAlt }, idx) => (
               <motion.div
                 key={title}
                 {...stagger(idx * 0.07)}
                 role="listitem"
-                className="group relative rounded-2xl bg-white p-7 text-center shadow-sm border border-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-rose-faint/40 hover:shadow-lg"
+                className="group relative overflow-hidden rounded-2xl bg-white text-left shadow-sm border border-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-lg"
               >
-                <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-navy text-gold transition-transform duration-300 ease-out group-hover:scale-110 group-hover:rotate-6" aria-hidden="true">
-                  <Icon size={24} />
-                </span>
-                <p className="mt-5 font-bold text-dark text-lg" style={{ fontFamily: 'var(--font-playfair)' }}>{title}</p>
-                <p className="mt-2 text-muted text-sm leading-relaxed">{detail}</p>
+                <div className="relative aspect-[16/10] overflow-hidden bg-cream">
+                  <Image
+                    src={imageSrc}
+                    alt={imageAlt}
+                    fill
+                    sizes="(min-width: 1024px) 28vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-4 text-center sm:p-5">
+                  <p className="font-bold text-dark text-lg" style={{ fontFamily: 'var(--font-playfair)' }}>{title}</p>
+                  <p className="mt-2 text-muted text-sm leading-relaxed">{detail}</p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -289,28 +333,38 @@ export function MenoThriveContent() {
       </section>
 
       {/* 4. The Vehicle */}
-      <section className="py-14 lg:py-20 bg-white" aria-labelledby="vehicle-heading">
-        <div className="w-full px-8 sm:px-12 lg:px-20 max-w-3xl mx-auto text-center">
-          <motion.p {...fadeUp} className="text-accent uppercase tracking-[0.18em] text-sm font-semibold mb-4">This Is Not Another Diet Or Workout Plan.</motion.p>
-          <motion.h2 {...stagger(0.1)} id="vehicle-heading" className="text-section text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>This Is Personalised Coaching.</motion.h2>
-          <motion.p {...stagger(0.2)} className="mt-6 text-muted text-lg leading-relaxed">
-            We look at <strong className="font-semibold text-dark">your body, your habits, your lifestyle and your goals</strong> &mdash; then build the strategy around you.
-          </motion.p>
-          <motion.div {...stagger(0.28)} className="mt-8 flex flex-wrap items-center justify-center gap-2">
-            {['Understand', 'Personalise', 'Implement', 'Adjust', 'Sustain'].map((step, idx, arr) => (
-              <span key={step} className="flex items-center gap-2">
-                <span className="rounded-full bg-navy text-white text-sm font-bold px-4 py-2" style={{ fontFamily: 'var(--font-playfair)' }}>
-                  {step}
+      <section className="py-12 lg:py-16 bg-white" aria-labelledby="vehicle-heading">
+        <div className="w-full px-8 sm:px-12 lg:px-20">
+          <div className="mx-auto max-w-5xl rounded-2xl border border-gold/20 bg-warm-bg px-6 py-10 text-center shadow-sm sm:px-10 lg:px-14 lg:py-12">
+            <motion.p {...fadeUp} className="text-accent uppercase tracking-[0.18em] text-sm font-semibold mb-4">This Is Not Another Diet Or Workout Plan.</motion.p>
+            <motion.h2 {...stagger(0.1)} id="vehicle-heading" className="text-section text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>This Is Personalised Coaching.</motion.h2>
+            <motion.p {...stagger(0.2)} className="mx-auto mt-6 max-w-3xl text-muted text-lg leading-relaxed">
+              We look at <strong className="font-semibold text-dark">your body, your habits, your lifestyle and your goals</strong> - then build the strategy around you.
+            </motion.p>
+
+            <motion.div {...stagger(0.28)} className="relative mx-auto mt-9 grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-5">
+              <span className="absolute left-[10%] right-[10%] top-5 hidden h-px bg-gold/40 sm:block" aria-hidden="true" />
+              {coachingSteps.map((step, idx) => (
+                <span key={step} className="relative z-10 flex items-center justify-center gap-3 sm:block">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-navy text-xs font-bold text-gold shadow-sm sm:mx-auto" style={{ fontFamily: 'var(--font-playfair)' }} aria-hidden="true">
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
+                  <span className="block rounded-full bg-white px-4 py-2 text-sm font-bold text-navy shadow-sm sm:mt-3" style={{ fontFamily: 'var(--font-playfair)' }}>
+                    {step}
+                  </span>
                 </span>
-                {idx < arr.length - 1 && <ArrowRight size={16} className="text-gold" aria-hidden="true" />}
-              </span>
-            ))}
-          </motion.div>
-          <motion.div {...stagger(0.36)} className="mt-8 space-y-2 text-muted text-lg leading-relaxed">
-            <p>No generic plan.</p>
-            <p>No &ldquo;just be more disciplined.&rdquo;</p>
-            <p>No starting over every Monday.</p>
-          </motion.div>
+              ))}
+            </motion.div>
+
+            <motion.div {...stagger(0.36)} className="mx-auto mt-9 grid max-w-4xl gap-3 border-t border-gold/30 pt-7 text-left sm:grid-cols-3">
+              {coachingPromises.map((promise) => (
+                <p key={promise} className="flex items-start gap-3 rounded-xl bg-white/70 px-4 py-3 text-sm font-semibold leading-relaxed text-navy">
+                  <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-gold" aria-hidden="true" />
+                  <span>{promise}</span>
+                </p>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -321,7 +375,7 @@ export function MenoThriveContent() {
             <p className="text-accent uppercase tracking-[0.18em] text-sm font-semibold mb-4">The Offer</p>
             <h2 id="offer-heading" className="text-section text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>Your 6-Month MenoThrive Experience</h2>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
             {offerItems.map(({ Icon, title, detail }, idx) => (
               <motion.div
                 key={title}
@@ -341,34 +395,34 @@ export function MenoThriveContent() {
       </section>
 
       {/* 6. Real Women. Real Transformations. */}
-      <section className="py-14 lg:py-20 bg-white" aria-labelledby="real-women-heading">
+      <section className="scroll-mt-32 bg-white pt-20 pb-14 lg:pt-24 lg:pb-20" aria-labelledby="real-women-heading">
         <div className="w-full px-8 sm:px-12 lg:px-20">
-          <motion.div {...fadeUp} className="text-center mb-14">
+          <motion.div {...fadeUp} className="mx-auto max-w-4xl text-center mb-12">
             <p className="text-accent uppercase tracking-[0.18em] text-sm font-semibold mb-4">Don&apos;t Take My Word For It.</p>
             <h2 id="real-women-heading" className="text-section text-navy mb-3" style={{ fontFamily: 'var(--font-playfair)' }}>Real Women. Real Transformations.</h2>
             <p className="text-muted text-xl max-w-2xl mx-auto leading-relaxed">See What Can Change When the Strategy Changes.</p>
           </motion.div>
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {realWomenCases.map(({ name, stat, detail, imageSrc, imageAlt, href }, idx) => (
               <motion.article
                 key={name}
                 {...stagger(idx * 0.04)}
-                className="group overflow-hidden rounded-2xl border border-gold/20 bg-warm-bg shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="group overflow-hidden rounded-xl border border-gold/20 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-lg"
               >
                 <Link href={href} className="block h-full">
-                  <div className="relative aspect-[4/3] overflow-hidden bg-cream">
+                  <div className="relative aspect-[5/4] overflow-hidden bg-warm-bg">
                     <Image
                       src={imageSrc}
                       alt={imageAlt}
                       fill
-                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(min-width: 1280px) 15rem, (min-width: 1024px) 22vw, (min-width: 640px) 40vw, 100vw"
+                      className="object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   </div>
-                  <div className="p-4 lg:p-5">
-                    <p className="text-[0.68rem] uppercase tracking-[0.16em] font-semibold text-accent mb-2">{name}</p>
-                    <p className="font-bold text-navy text-base leading-snug" style={{ fontFamily: 'var(--font-playfair)' }}>{stat}</p>
-                    <p className="mt-2 text-muted text-sm leading-relaxed">{detail}</p>
+                  <div className="p-4">
+                    <p className="text-[0.66rem] uppercase tracking-[0.16em] font-semibold text-accent mb-2">{name}</p>
+                    <p className="font-bold text-navy text-[0.98rem] leading-snug" style={{ fontFamily: 'var(--font-playfair)' }}>{stat}</p>
+                    <p className="mt-2 text-muted text-[0.92rem] leading-relaxed">{detail}</p>
                     <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-navy transition-colors group-hover:text-accent">
                       Read story
                       <ArrowRight size={16} aria-hidden="true" />
@@ -436,7 +490,7 @@ export function MenoThriveContent() {
             <p className="text-xs uppercase tracking-[0.18em] text-accent font-semibold mb-4">MenoThrive Private 1:1</p>
             <h2 id="pricing-heading" className="text-3xl lg:text-4xl font-bold text-navy mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>Personalised Support for Your Next Chapter</h2>
             <p className="text-muted text-[1.1rem] leading-relaxed mb-4">A high-touch, 6-month coaching experience for women who are ready to make a meaningful investment in their health, strength and wellbeing.</p>
-            <p className="text-navy font-semibold text-[1.1rem] leading-relaxed mb-8">Limited 1:1 places available.</p>
+            <p className="text-navy font-semibold text-[1.1rem] leading-relaxed mb-8">Limited 1:1 spots available.</p>
             <a href={ASSESSMENT_FORM_URL} target="_blank" rel="noopener noreferrer" className="inline-flex w-full max-w-full items-center justify-center px-8 py-4 bg-accent text-white font-bold rounded-full hover:opacity-90 hover:scale-[1.03] hover:shadow-xl transition-all duration-200 min-h-[56px] text-center text-base leading-snug whitespace-normal sm:w-auto sm:px-10 sm:text-lg">See If MenoThrive Is Right for You</a>
           </motion.div>
         </div>
@@ -448,7 +502,7 @@ export function MenoThriveContent() {
           <motion.div {...fadeUp} className="text-center mb-14">
             <h2 id="who-heading" className="text-section text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>Is MenoThrive Right for You?</h2>
           </motion.div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
             <motion.div {...stagger(0.1)} className="bg-warm-bg rounded-2xl p-8 lg:p-10 border border-gray-100">
               <h3 className="text-2xl font-bold text-navy mb-6" style={{ fontFamily: 'var(--font-playfair)' }}>This is for you if&hellip;</h3>
               <ul className="space-y-4" role="list">
