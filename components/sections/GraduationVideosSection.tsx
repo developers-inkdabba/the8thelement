@@ -53,6 +53,7 @@ const graduationVideos: GraduationVideo[] = [
       '40+, perimenopause, Bharatanatyam dancer in Zurich, stubborn weight, midsection fat, and no progress despite moving more and eating less.',
     youtubeUrl: 'https://youtu.be/gX4QnV1PY48',
     storyHref: '/success-stories#story-sharmila',
+    testimonialKey: 'sharmila',
     storyCta: 'Read Success Story',
   },
   {
@@ -74,6 +75,7 @@ const graduationVideos: GraduationVideo[] = [
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/mDWyO5Lp9TQ',
     storyHref: '/success-stories#story-kavitha',
+    testimonialKey: 'kavitha',
     storyCta: 'Read Success Story',
   },
   {
@@ -96,6 +98,7 @@ const graduationVideos: GraduationVideo[] = [
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/La9p67SeQJ8',
     storyHref: '/success-stories#story-krithiga',
+    testimonialKey: 'krithiga',
     storyCta: 'Read Success Story',
   },
   {
@@ -103,6 +106,7 @@ const graduationVideos: GraduationVideo[] = [
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/2JwLiFTVbsQ',
     storyHref: '/success-stories#story-aishwarya',
+    testimonialKey: 'aishwarya',
     storyCta: 'Read Success Story',
   },
   {
@@ -235,14 +239,18 @@ export function GraduationVideosSection() {
                       </h3>
                     </div>
                     <p className="text-muted leading-relaxed">{video.description}</p>
-                    {video.testimonialKey ? <TestimonialLink testimonialKey={video.testimonialKey} /> : null}
-                    {video.storyHref ? (
-                      <Link
-                        href={video.storyHref}
-                        className="mt-5 inline-flex items-center justify-center rounded-full border border-navy px-5 py-2.5 text-sm font-semibold text-navy transition-colors duration-200 hover:bg-navy hover:text-white"
-                      >
-                        {video.storyCta ?? 'View Story'}
-                      </Link>
+                    {video.testimonialKey || video.storyHref ? (
+                      <div className="mt-5 flex flex-wrap gap-3">
+                        {video.storyHref ? (
+                          <Link
+                            href={video.storyHref}
+                            className="inline-flex items-center justify-center rounded-full border border-navy px-5 py-2.5 text-sm font-semibold text-navy transition-colors duration-200 hover:bg-navy hover:text-white"
+                          >
+                            {video.storyCta ?? 'View Story'}
+                          </Link>
+                        ) : null}
+                        {video.testimonialKey ? <TestimonialLink testimonialKey={video.testimonialKey} /> : null}
+                      </div>
                     ) : null}
                   </div>
                 </article>

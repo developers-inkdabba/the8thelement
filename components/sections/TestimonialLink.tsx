@@ -11,7 +11,7 @@ export function TestimonialLink({ testimonialKey }: { testimonialKey: string }) 
     <button
       type="button"
       onClick={open}
-      className="mt-5 inline-flex items-center justify-center rounded-full border border-navy px-5 py-2.5 text-sm font-semibold text-navy transition-colors duration-200 hover:bg-navy hover:text-white"
+      className="inline-flex items-center justify-center rounded-full border border-navy px-5 py-2.5 text-sm font-semibold text-navy transition-colors duration-200 hover:bg-navy hover:text-white"
     >
       View Testimonial
     </button>

@@ -560,10 +560,24 @@ const featuredTransformations = [
   },
 ]
 
-const quoteCards = ['dr-priya', 'ramya', 'mythily', 'usha-kumar']
+const quoteCardImages: Record<string, string> = {
+  'dr-priya': '/success-stories/dr-priya.jpg',
+  ramya: '/success-stories/ramya.jpg',
+  'usha-kumar': '/success-stories/usha.jpg',
+  sharmila: '/success-stories/Sharmila.jpeg',
+  kavitha: '/success-stories/Kavitha.jpg',
+  krithiga: '/success-stories/Krithiga.jpg',
+  aishwarya: '/success-stories/Aishwarya.jpg',
+  mythily: '/success-stories/mythily.jpg',
+}
+
+const quoteCards = ['dr-priya', 'ramya', 'mythily', 'usha-kumar', 'sharmila', 'kavitha', 'krithiga', 'aishwarya']
   .map((key) => testimonials.find((item) => slugifyName(item.name) === key))
   .filter((item): item is (typeof testimonials)[number] => Boolean(item))
-  .map((item) => ({ ...item, hideCta: true }))
+  .map((item) => {
+    const imageSrc = quoteCardImages[slugifyName(item.name)]
+    return { ...item, hideCta: true, ...(imageSrc ? { imageSrc, imageAlt: `${item.name}'s testimonial` } : {}) }
+  })
 
 type CarouselItem = {
   quote: string
@@ -647,7 +661,7 @@ function DraggableMarqueeRow({ direction, children, paused = false, focusKey = n
     if (!viewport || !focusKey) return
 
     const frame = window.requestAnimationFrame(() => {
-      const cards = Array.from(viewport.querySelectorAll<HTMLElement>(`[data-card-key="${focusKey}"]`))
+      const cards = Array.from(viewport.querySelectorAll<HTMLElement>(`[data-card-key="quote-${focusKey}"]`))
       if (cards.length === 0) return
       const viewportRect = viewport.getBoundingClientRect()
       const viewportCenter = viewportRect.left + viewportRect.width / 2
@@ -762,9 +776,11 @@ export function TestimonialsSection() {
     }
   }, [])
 
-  const cardClass = (name: string) =>
+  const cardKey = (t: CarouselItem) => `${t.hideCta ? 'quote' : 'story'}-${slugifyName(t.name)}`
+
+  const cardClass = (key: string) =>
     `aspect-square w-[260px] sm:w-[300px] lg:w-[320px] shrink-0 px-2 transition-transform duration-500 ${
-      highlightKey && slugifyName(name) === highlightKey
+      highlightKey && key === `quote-${highlightKey}`
         ? 'scale-105 [&>article]:border-gold [&>article]:shadow-2xl [&>article]:ring-4 [&>article]:ring-gold/60'
         : ''
     }`
@@ -809,8 +825,8 @@ export function TestimonialsSection() {
             {marqueeRow1.map((t, idx) => (
               <div
                 key={`r1-${t.name}-${idx}`}
-                data-card-key={slugifyName(t.name)}
-                className={cardClass(t.name)}
+                data-card-key={cardKey(t)}
+                className={cardClass(cardKey(t))}
               >
                 <TestimonialCard {...t} rating={getTestimonialRating(idx)} />
               </div>
@@ -822,8 +838,8 @@ export function TestimonialsSection() {
             {marqueeRow2.map((t, idx) => (
               <div
                 key={`r2-${t.name}-${idx}`}
-                data-card-key={slugifyName(t.name)}
-                className={cardClass(t.name)}
+                data-card-key={cardKey(t)}
+                className={cardClass(cardKey(t))}
               >
                 <TestimonialCard {...t} rating={getTestimonialRating(idx + 2)} />
               </div>
