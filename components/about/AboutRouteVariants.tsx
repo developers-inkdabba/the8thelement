@@ -124,51 +124,58 @@ const storySections = [
   },
 ]
 
-const journeyPhotos = [
+const journeyPhotos: JourneyPhoto[] = [
   {
-    src: '/lead-magnet/powerlifting-meet.jpg',
-    alt: 'Srividya competing at a powerlifting meet',
-    eyebrow: 'Where It Began',
-    caption: 'Silver Medalist, 2018 Powerlifting Championship, Coimbatore.',
+    src: '/lead-magnet/journey-saree.jpg',
+    alt: 'Srividya smiling in a blue saree, early in her journey',
+    eyebrow: 'Early / Struggling Me',
+    caption: 'Where the journey began.',
+    objectPosition: 'center 15%',
+  },
+  {
+    src: '/lead-magnet/journey-dupatta.jpg',
+    alt: 'Srividya smiling in a pink dupatta, early in her journey',
+    eyebrow: 'Early / Struggling Me',
+    caption: 'Every journey starts before you feel ready.',
+    objectPosition: 'center 15%',
   },
   {
     src: '/images/old1.jpg',
     alt: 'Srividya running a road race',
-    eyebrow: 'Staying Active',
+    eyebrow: 'I Started Moving',
     caption: 'Every run built the discipline I now bring to coaching.',
   },
   {
     src: '/lead-magnet/journey-marathon.jpg',
     alt: 'Srividya running a marathon',
-    eyebrow: 'Showing Up',
+    eyebrow: 'I Started Moving',
     caption: 'Learning to keep going, one step at a time.',
     objectPosition: 'center 0%',
   },
   {
     src: '/lead-magnet/journey-tshirt.jpg',
     alt: 'Srividya smiling in a Playing 2 Win t-shirt',
-    eyebrow: 'Playing To Win',
-    caption: 'Building strength and confidence, one day at a time.',
+    eyebrow: 'I Started Moving',
+    caption: 'Showing up, day after day.',
     objectPosition: 'center 30%',
   },
   {
-    src: '/lead-magnet/journey-saree.jpg',
-    alt: 'Srividya smiling in a blue saree',
-    eyebrow: 'Who I Am',
-    caption: 'The woman behind the coach.',
-    objectPosition: 'center 15%',
+    src: '/lead-magnet/powerlifting-meet.jpg',
+    alt: 'Srividya competing at a powerlifting meet',
+    eyebrow: 'I Discovered Strength',
+    caption: 'Silver Medalist, 2018 Powerlifting Championship, Coimbatore.',
   },
   {
-    src: '/lead-magnet/journey-dupatta.jpg',
-    alt: 'Srividya smiling in a pink dupatta',
-    eyebrow: 'Where I Started',
-    caption: 'Every journey starts before you feel ready.',
-    objectPosition: 'center 15%',
+    src: '/lead-magnet/journey-beach.jpg',
+    alt: 'Srividya standing by a swimming pool in a swimsuit and sunglasses',
+    eyebrow: 'Learning To Live In My Body',
+    caption: 'Learning to feel at home in my body.',
+    objectPosition: 'center 12%',
   },
   {
     src: '/lead-magnet/journey-trek.jpg',
     alt: 'Srividya trekking through the snow with poles',
-    eyebrow: 'Strength In Motion',
+    eyebrow: 'The Woman I Am Today',
     caption: 'Strength that takes me to the mountains.',
     objectPosition: 'center 25%',
   },
@@ -259,11 +266,13 @@ function PortraitFrame({
   )
 }
 
+type JourneyPhoto = { src: string; alt: string; eyebrow: string; caption: string; objectPosition?: string }
+
 function JourneySlider({
   photos,
   className = '',
 }: {
-  photos: { src: string; alt: string; eyebrow: string; caption: string; objectPosition?: string }[]
+  photos: JourneyPhoto[]
   className?: string
 }) {
   const [index, setIndex] = useState(0)
@@ -290,7 +299,7 @@ function JourneySlider({
       <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-cream shadow-xl shadow-navy/10">
         <AnimatePresence initial={false} custom={direction} mode="popLayout">
           <motion.div
-            key={current.src}
+            key={index}
             custom={direction}
             initial={{ x: direction > 0 ? '100%' : '-100%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -335,7 +344,7 @@ function JourneySlider({
       <div className="absolute top-3 left-1/2 z-10 flex -translate-x-1/2 gap-1.5" role="tablist" aria-label="Photo selector">
         {photos.map((photo, i) => (
           <button
-            key={photo.src}
+            key={i}
             type="button"
             role="tab"
             aria-selected={i === index}
