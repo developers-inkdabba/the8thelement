@@ -142,11 +142,11 @@ const stories: SuccessStory[] = [
     imageAlt: "Aishwarya's transformation journey",
     program: 'MenoThrive',
     challenge:
-      'Post-pregnancy weight gain, binge eating patterns, and hormonal imbalance that resisted conventional approaches.',
+      'Stubborn weight gain, binge eating patterns, and hormonal imbalance that resisted conventional approaches.',
     approach:
       'Balanced whole-food meals, progressive strength training, and the Track 2 Transform habit tracking tool to build consistent daily routines.',
     result:
-      'Returned to her pre-pregnancy weight in just 4 months — and has maintained it sustainably without crash dieting.',
+      'Worked on it for 6 months and returned to her healthy body composition — and has maintained it sustainably without crash dieting.',
     pullQuote:
       "Regarding my coach, what stood out most was the feeling of having a personal cheerleader by my side. The focus was always on improvement and tackling challenges together, rather than dwelling on negatives. I never felt judged; instead, I was constantly motivated by the insightful feedback and practical suggestions. My coach's unique ability to make every session feel personalized and uplifting was invaluable. I relied on her not just for guidance but also for that boost of positivity and reassurance. Her passion and interest in not just achieving goals but genuinely improving clients' lives were evident in every interaction.",
     imageRight: false,

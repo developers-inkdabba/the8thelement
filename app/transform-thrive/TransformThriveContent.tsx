@@ -34,7 +34,7 @@ const skillHighlights = [
 const pillars = [
   {
     icon: <Users size={28} aria-hidden="true" />,
-    title: 'Small-Group Coaching',
+    title: 'Online Group Coaching',
     description: 'Up to 10 women. Personal attention within a supportive group.',
   },
   {
@@ -245,7 +245,7 @@ export function TransformThriveContent() {
                 transition={{ duration: 0.5, delay: 0.26 }}
                 className="text-white/80 text-xl leading-relaxed max-w-3xl mx-auto lg:mx-0 mb-10"
               >
-                A 20-week small-group coaching experience for women who want expert guidance,
+                A 20-week Small Group online coaching experience for women who want expert guidance,
                 accountability and the support to make healthy habits stick.
               </motion.p>
 

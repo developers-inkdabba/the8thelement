@@ -96,7 +96,7 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="inline-flex min-h-[54px] max-w-full items-center justify-center gap-2 rounded-full border border-navy/15 bg-white px-7 py-3 text-center text-base font-bold leading-snug text-navy transition-all duration-200 hover:border-navy hover:bg-navy hover:text-white"
                 >
-                  WhatsApp Srividya
+                  Connect to WhatsApp
                 </a>
               </div>
               <div className="mt-8 grid gap-3 text-left sm:grid-cols-3">

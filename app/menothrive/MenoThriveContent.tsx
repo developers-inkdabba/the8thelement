@@ -339,7 +339,7 @@ export function MenoThriveContent() {
             <motion.p {...fadeUp} className="text-accent uppercase tracking-[0.18em] text-sm font-semibold mb-4">This Is Not Another Diet Or Workout Plan.</motion.p>
             <motion.h2 {...stagger(0.1)} id="vehicle-heading" className="text-section text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>This Is Personalised Coaching.</motion.h2>
             <motion.p {...stagger(0.2)} className="mx-auto mt-6 max-w-3xl text-muted text-lg leading-relaxed">
-              We look at <strong className="font-semibold text-dark">your body, your habits, your lifestyle and your goals</strong> - then build the strategy around you.
+              We map your body, understand your habits, lifestyle and goals — <strong className="font-semibold text-dark">then build a strategy designed around you.</strong>
             </motion.p>
 
             <motion.div {...stagger(0.28)} className="relative mx-auto mt-9 grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-5">
