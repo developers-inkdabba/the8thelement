@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { TestimonialLink } from '@/components/sections/TestimonialLink'
 import { GraduationCap } from 'lucide-react'
 import { ASSESSMENT_FORM_URL } from '@/lib/links'
 
@@ -6,80 +7,51 @@ type GraduationVideo = {
   title: string
   description: string
   youtubeUrl: string
-  faceVisibility: 'shown' | 'private'
   storyHref?: string
   storyCta?: string
+  testimonialKey?: string
 }
 
 const graduationVideos: GraduationVideo[] = [
-  {
-    title: 'Sowmya',
-    description:
-      '40+, perimenopause, busy professional, sciatica, stubborn weight, midsection fat, bloating, heaviness, weakness, aches, and pains.',
-    youtubeUrl: 'https://youtu.be/3wMiEcCu1Ws',
-    faceVisibility: 'private',
-  },
   {
     title: 'Dr. Priya Ravi',
     description:
       '60+, diabetes, stubborn weight, weakness, and knee pain. A client story about rebuilding health, strength, and confidence later in life.',
     youtubeUrl: 'https://youtu.be/mN6YrwRX_bg?si=mKC4W3Mi3vtpotQh',
-    faceVisibility: 'shown',
-    storyHref: '/success-stories#testimonial-dr-priya',
-    storyCta: 'View Testimonial',
+    testimonialKey: 'dr-priya',
   },
   {
     title: 'Ramya Vadlamudi',
     description:
       '40+, perimenopause, busy professional in the US, stubborn weight, midsection fat, poor energy, mood changes, irritability, and inconsistent habits.',
     youtubeUrl: 'https://youtu.be/y7WO_dQ3FDo',
-    faceVisibility: 'shown',
-    storyHref: '/success-stories#testimonial-ramya',
-    storyCta: 'View Testimonial',
-  },
-  {
-    title: 'Subha Kannan',
-    description:
-      '50+, menopause, busy professional in the US, stubborn weight, and midsection fat despite eating clean and exercising.',
-    youtubeUrl: 'https://youtu.be/uPye-9I2mIE',
-    faceVisibility: 'private',
+    testimonialKey: 'ramya',
   },
   {
     title: 'Vasanthi',
     description:
       '40+, perimenopause, stubborn weight, and midsection fat despite eating clean and strength training.',
     youtubeUrl: 'https://youtu.be/6b5nOmHlRdw',
-    faceVisibility: 'shown',
   },
   {
     title: 'Abhilasha',
     description:
       '40+, perimenopause, busy professional, stubborn weight, confusion, mindset challenges, professional stress, and inconsistent food and exercise habits.',
     youtubeUrl: 'https://youtu.be/SJ1rMPZGpY0',
-    faceVisibility: 'shown',
   },
   {
     title: 'Kriti',
     description:
       '40+, perimenopause, homemaker in Germany, stubborn weight, midsection fat, bloating, fibromyalgia, sleep issues, cravings, and heavy snacking.',
     youtubeUrl: 'https://youtu.be/iU3djHwO4PA',
-    faceVisibility: 'shown',
     storyHref: '/success-stories#story-kriti',
     storyCta: 'Read Success Story',
-  },
-  {
-    title: 'Anusha',
-    description:
-      '40+, perimenopause, stubborn weight, joint family life, inconsistent food and exercise habits, sleep issues, poor energy, and cravings.',
-    youtubeUrl: 'https://youtu.be/ef1_ETiOiCg',
-    faceVisibility: 'private',
   },
   {
     title: 'Sharmila Bansal Rao',
     description:
       '40+, perimenopause, Bharatanatyam dancer in Zurich, stubborn weight, midsection fat, and no progress despite moving more and eating less.',
     youtubeUrl: 'https://youtu.be/gX4QnV1PY48',
-    faceVisibility: 'shown',
     storyHref: '/success-stories#story-sharmila',
     storyCta: 'Read Success Story',
   },
@@ -88,52 +60,19 @@ const graduationVideos: GraduationVideo[] = [
     description:
       '40, perimenopause, busy professional, cravings, stubborn weight, belly fat, bloating, body discomfort, and inconsistent food and exercise habits.',
     youtubeUrl: 'https://youtu.be/PUEDDOTy-m0',
-    faceVisibility: 'shown',
-    storyHref: '/success-stories#testimonial-sangeetha',
-    storyCta: 'View Testimonial',
   },
   {
     title: 'Aritu',
     description:
       '40+, perimenopause, busy professional in Zurich, cravings, stubborn weight, belly fat, bloating, body discomfort, and inconsistent habits.',
     youtubeUrl: 'https://youtu.be/omEPpVWtd_k',
-    faceVisibility: 'shown',
     storyHref: '/success-stories#story-aritu',
     storyCta: 'Read Success Story',
-  },
-  {
-    title: 'Sahitya',
-    description:
-      'A client graduation reflection from The 8th Element journey, shared with privacy protected.',
-    youtubeUrl: 'https://youtu.be/zp2b2kRb1xc',
-    faceVisibility: 'private',
-  },
-  {
-    title: 'Ranjani',
-    description:
-      'A client graduation reflection from The 8th Element journey, shared with privacy protected.',
-    youtubeUrl: 'https://youtu.be/lQpnoGK0onc',
-    faceVisibility: 'private',
-  },
-  {
-    title: 'Charanya',
-    description:
-      'A client graduation reflection from The 8th Element journey, shared with privacy protected.',
-    youtubeUrl: 'https://youtu.be/RhcexDLZcv4',
-    faceVisibility: 'private',
-  },
-  {
-    title: 'Kartika',
-    description:
-      'A client graduation reflection from The 8th Element journey, shared with privacy protected.',
-    youtubeUrl: 'https://youtu.be/7xTcQooHOyI',
-    faceVisibility: 'private',
   },
   {
     title: 'Kavitha',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/mDWyO5Lp9TQ',
-    faceVisibility: 'shown',
     storyHref: '/success-stories#story-kavitha',
     storyCta: 'Read Success Story',
   },
@@ -141,25 +80,21 @@ const graduationVideos: GraduationVideo[] = [
     title: 'Rabini',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/WueJCoM22lA',
-    faceVisibility: 'shown',
   },
   {
     title: 'Dr. Swetha',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/7xG1i2aUyUs',
-    faceVisibility: 'shown',
   },
   {
     title: 'Kavitha Srinivas',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/OkEVOtI90G4',
-    faceVisibility: 'shown',
   },
   {
     title: 'Krithiga',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/La9p67SeQJ8',
-    faceVisibility: 'shown',
     storyHref: '/success-stories#story-krithiga',
     storyCta: 'Read Success Story',
   },
@@ -167,7 +102,6 @@ const graduationVideos: GraduationVideo[] = [
     title: 'Aishwarya',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/2JwLiFTVbsQ',
-    faceVisibility: 'shown',
     storyHref: '/success-stories#story-aishwarya',
     storyCta: 'Read Success Story',
   },
@@ -175,54 +109,37 @@ const graduationVideos: GraduationVideo[] = [
     title: 'Mythily - Story 1',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/kSe-3FGu_kU',
-    faceVisibility: 'shown',
-    storyHref: '/success-stories#testimonial-mythily',
-    storyCta: 'View Testimonial',
+    testimonialKey: 'mythily',
   },
   {
     title: 'Mythily - Story 2',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/bcv07b9DE4o',
-    faceVisibility: 'shown',
-    storyHref: '/success-stories#testimonial-mythily',
-    storyCta: 'View Testimonial',
-  },
-  {
-    title: 'Varsha',
-    description:
-      'A client graduation reflection from The 8th Element journey, shared with privacy protected.',
-    youtubeUrl: 'https://youtu.be/eARFCS70Xxw',
-    faceVisibility: 'private',
   },
   {
     title: 'Radhika',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/ecXt1knC0J0',
-    faceVisibility: 'shown',
   },
   {
     title: 'Swati',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/yldfb_yw-RI',
-    faceVisibility: 'shown',
   },
   {
     title: 'Srividya',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/i2ywijDtY0k',
-    faceVisibility: 'shown',
   },
   {
     title: 'Subashini',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/NbY1w5ivK7M',
-    faceVisibility: 'shown',
   },
   {
     title: 'Swetha Vignesh',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/UCV3C2VW0-k',
-    faceVisibility: 'shown',
     storyHref: '/success-stories#story-swetha-vignesh',
     storyCta: 'Read Success Story',
   },
@@ -230,35 +147,17 @@ const graduationVideos: GraduationVideo[] = [
     title: 'Rekha',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/584kgxHPU7M',
-    faceVisibility: 'shown',
-  },
-  {
-    title: 'Smruti',
-    description:
-      'A client graduation reflection from The 8th Element journey, shared with privacy protected.',
-    youtubeUrl: 'https://youtu.be/FO0rDP8Y6vg',
-    faceVisibility: 'private',
-  },
-  {
-    title: 'Maalavika',
-    description:
-      'A client graduation reflection from The 8th Element journey, shared with privacy protected.',
-    youtubeUrl: 'https://youtu.be/7Wi8gBcpb-4',
-    faceVisibility: 'private',
   },
   {
     title: 'Jyotsna',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/BrQnZfQok50',
-    faceVisibility: 'shown',
   },
   {
     title: 'Usha',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/Ay38J9mTIVY',
-    faceVisibility: 'shown',
-    storyHref: '/success-stories#testimonial-usha',
-    storyCta: 'View Testimonial',
+    testimonialKey: 'usha-kumar',
   },
 ]
 
@@ -334,17 +233,9 @@ export function GraduationVideosSection() {
                       >
                         {video.title}
                       </h3>
-                      <span
-                        className={`rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] ${
-                          video.faceVisibility === 'shown'
-                            ? 'bg-gold/20 text-navy'
-                            : 'bg-navy/10 text-muted'
-                        }`}
-                      >
-                        {video.faceVisibility === 'shown' ? 'Client video' : 'Privacy protected'}
-                      </span>
                     </div>
                     <p className="text-muted leading-relaxed">{video.description}</p>
+                    {video.testimonialKey ? <TestimonialLink testimonialKey={video.testimonialKey} /> : null}
                     {video.storyHref ? (
                       <Link
                         href={video.storyHref}

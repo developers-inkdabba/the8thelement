@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
-  CheckCircle2, XCircle, Dumbbell, Salad,
+  CheckCircle2, XCircle,
   Target, BookOpen, Phone, MessageCircle, ArrowRight,
 } from 'lucide-react'
 import { FAQAccordion } from '@/components/ui/FAQAccordion'
@@ -52,12 +52,22 @@ const dreamOutcomeItems = [
   },
 ]
 
+const strongHerItems = [
+  { letter: 'S', title: 'Sleep', detail: 'Sleep & Recovery' },
+  { letter: 'T', title: 'Strength', detail: 'Training for Strength & Mobility' },
+  { letter: 'R', title: 'Emotions', detail: 'Regulate Emotions & Stress' },
+  { letter: 'O', title: 'Eating', detail: 'Own Intuitive Eating' },
+  { letter: 'N', title: 'Nutrition', detail: 'Nourish with Balanced Nutrition' },
+  { letter: 'G', title: 'Movement', detail: 'Ground in Daily Movement & Mindfulness' },
+  { letter: 'H', title: 'Self-Image', detail: 'Heal Relationships & Self-Image' },
+  { letter: 'E', title: 'Self-Trust', detail: 'Elevate Self-Trust' },
+  { letter: 'R', title: 'Reflect', detail: 'Reflect & Reset Consistently' },
+]
+
 const offerItems = [
-  { Icon: Salad, title: 'Personalised Nutrition', detail: 'Your food strategy, built around your life.' },
-  { Icon: Dumbbell, title: 'Progressive Strength Training', detail: 'Build strength and physical confidence.' },
-  { Icon: Phone, title: 'Weekly 1:1 Coaching', detail: 'Review. Troubleshoot. Recalibrate.' },
+  { Icon: Phone, title: '1:1 Coaching', detail: 'Review. Troubleshoot. Recalibrate.' },
   { Icon: Target, title: 'Daily-Life Habit Coaching', detail: 'Turn intentions into routines.' },
-  { Icon: MessageCircle, title: 'WhatsApp Support', detail: 'Guidance and accountability between sessions.' },
+  { Icon: MessageCircle, title: 'Daily WhatsApp Support', detail: 'Guidance and accountability between sessions.' },
   { Icon: BookOpen, title: 'Practical Resources', detail: 'Tools you can keep using for life.' },
 ]
 
@@ -375,7 +385,28 @@ export function MenoThriveContent() {
             <p className="text-accent uppercase tracking-[0.18em] text-sm font-semibold mb-4">The Offer</p>
             <h2 id="offer-heading" className="text-section text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>Your 6-Month MenoThrive Experience</h2>
           </motion.div>
+          <p className="mb-6 text-center text-sm font-semibold uppercase tracking-[0.18em] text-navy">The STRONG-HER Framework</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
+            {strongHerItems.map(({ letter, title, detail }, idx) => (
+              <motion.div
+                key={`${letter}-${title}`}
+                {...stagger(idx * 0.06)}
+                role="listitem"
+                className="group relative flex items-center gap-5 rounded-2xl bg-white p-6 text-left shadow-sm border border-white/80 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-rose-faint/40 hover:shadow-lg"
+              >
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-navy text-2xl font-bold text-gold transition-transform duration-300 ease-out group-hover:scale-110 group-hover:rotate-6" style={{ fontFamily: 'var(--font-playfair)' }} aria-hidden="true">
+                  {letter}
+                </span>
+                <div>
+                  <h3 className="font-bold text-dark text-xl" style={{ fontFamily: 'var(--font-playfair)' }}>{title}</h3>
+                  <p className="mt-1 text-muted text-sm leading-relaxed">{detail}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <p className="mb-6 mt-14 text-center text-sm font-semibold uppercase tracking-[0.18em] text-navy">Alongside Your Coaching</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" role="list">
             {offerItems.map(({ Icon, title, detail }, idx) => (
               <motion.div
                 key={title}

@@ -11,6 +11,7 @@ interface TestimonialCardProps {
   imageAlt?: string
   result?: string
   storyHref?: string
+  hideCta?: boolean
 }
 
 export function TestimonialCard({
@@ -20,6 +21,7 @@ export function TestimonialCard({
   imageAlt,
   result,
   storyHref = '/success-stories',
+  hideCta = false,
 }: TestimonialCardProps) {
   const displayName = name === 'Client Win' ? '' : name
 
@@ -38,6 +40,10 @@ export function TestimonialCard({
               className="object-cover object-top"
             />
           </div>
+        ) : displayName ? (
+          <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-full bg-navy text-3xl font-bold text-gold sm:h-28 sm:w-28" style={{ fontFamily: 'var(--font-playfair)' }} aria-hidden="true">
+            {displayName.replace(/^Dr\.\s*/, '').charAt(0)}
+          </div>
         ) : null}
 
         {displayName ? (
@@ -51,13 +57,15 @@ export function TestimonialCard({
         &ldquo;{headline}&rdquo;
       </p>
 
-      <Link
-        href={storyHref}
-        className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-navy transition-colors hover:text-accent"
-      >
-        See her story
-        <ArrowRight size={13} className="transition-transform group-hover:translate-x-1" />
-      </Link>
+      {hideCta ? null : (
+        <Link
+          href={storyHref}
+          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-navy transition-colors hover:text-accent"
+        >
+          See her story
+          <ArrowRight size={13} className="transition-transform group-hover:translate-x-1" />
+        </Link>
+      )}
     </article>
   )
 }

@@ -1,12 +1,14 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ImageOff } from 'lucide-react'
 
 export function AboutPreviewSection() {
   const storyCardShape = '60% 40% 60% 40% / 40% 60% 40% 60%'
+  const [flipped, setFlipped] = useState(false)
 
   return (
     <section className="relative overflow-hidden bg-white py-10 lg:py-12" aria-labelledby="about-preview-heading">
@@ -28,17 +30,39 @@ export function AboutPreviewSection() {
               />
 
               <div
-                className="relative h-full w-full overflow-hidden bg-cream shadow-xl shadow-navy/5"
-                style={{ borderRadius: storyCardShape }}
-                aria-label="Srividya's first transformation photo"
+                className="relative h-full w-full cursor-pointer [perspective:1200px]"
+                onMouseEnter={() => setFlipped(true)}
+                onMouseLeave={() => setFlipped(false)}
+                onClick={() => setFlipped((v) => !v)}
               >
-                <Image
-                  src="/images/old.jpg"
-                  alt="Srividya's early health journey photo"
-                  fill
-                  sizes="(min-width: 1024px) 25rem, (min-width: 640px) 24rem, 18rem"
-                  className="object-cover object-top"
-                />
+                <div
+                  className="relative h-full w-full transition-transform duration-700 ease-out [transform-style:preserve-3d]"
+                  style={{ transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}
+                >
+                  <div
+                    className="absolute inset-0 overflow-hidden bg-cream shadow-xl shadow-navy/5 [backface-visibility:hidden]"
+                    style={{ borderRadius: storyCardShape }}
+                    aria-label="Srividya's first transformation photo"
+                  >
+                    <Image
+                      src="/images/old.jpg"
+                      alt="Srividya's early health journey photo"
+                      fill
+                      sizes="(min-width: 1024px) 25rem, (min-width: 640px) 24rem, 18rem"
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <div
+                    className="absolute inset-0 flex items-center justify-center overflow-hidden bg-cream shadow-xl shadow-navy/5 [backface-visibility:hidden]"
+                    style={{ borderRadius: storyCardShape, transform: 'rotateY(180deg)' }}
+                    aria-hidden={!flipped}
+                  >
+                    <div className="flex flex-col items-center gap-2 px-6 text-center text-muted">
+                      <ImageOff size={30} aria-hidden="true" />
+                      <span className="text-xs uppercase tracking-wider">Image placeholder</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>

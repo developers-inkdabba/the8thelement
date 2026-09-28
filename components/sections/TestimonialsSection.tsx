@@ -397,6 +397,13 @@ const testimonials = [
   },
 ]
 
+function slugifyName(name: string) {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+}
+
 const featuredTransformations = [
   {
     quote: "At 75, her transformation goes far beyond weight loss. She is stronger, lighter, more mobile, and confident in her body again.",
@@ -553,18 +560,32 @@ const featuredTransformations = [
   },
 ]
 
-const row1 = featuredTransformations.filter((_, index) => index % 2 === 0)
-const row2 = featuredTransformations.filter((_, index) => index % 2 === 1)
+const quoteCards = ['dr-priya', 'ramya', 'mythily', 'usha-kumar']
+  .map((key) => testimonials.find((item) => slugifyName(item.name) === key))
+  .filter((item): item is (typeof testimonials)[number] => Boolean(item))
+  .map((item) => ({ ...item, hideCta: true }))
+
+type CarouselItem = {
+  quote: string
+  name: string
+  program: string
+  imageSrc?: string
+  imageAlt?: string
+  result?: string
+  storyHref?: string
+  hideCta?: boolean
+}
+
+const carouselItems: CarouselItem[] = [
+  ...featuredTransformations,
+  ...quoteCards,
+]
+
+const row1 = carouselItems.filter((_, index) => index % 2 === 0)
+const row2 = carouselItems.filter((_, index) => index % 2 === 1)
 
 function getTestimonialRating(index: number): 4 | 5 {
   return index % 5 === 2 || index % 7 === 4 ? 4 : 5
-}
-
-function slugifyName(name: string) {
-  return name
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '')
 }
 
 const testimonialAnchorNames = Array.from(
@@ -580,9 +601,11 @@ const marqueeRow2 = [...marqueeSet2, ...marqueeSet2, ...marqueeSet2]
 type DraggableMarqueeRowProps = {
   direction: 'left' | 'right'
   children: ReactNode
+  paused?: boolean
+  focusKey?: string | null
 }
 
-function DraggableMarqueeRow({ direction, children }: DraggableMarqueeRowProps) {
+function DraggableMarqueeRow({ direction, children, paused = false, focusKey = null }: DraggableMarqueeRowProps) {
   const viewportRef = useRef<HTMLDivElement>(null)
   const dragRef = useRef({ active: false, moved: false, pointerId: 0, startX: 0, scrollLeft: 0 })
   const [isDragging, setIsDragging] = useState(false)
@@ -618,6 +641,27 @@ function DraggableMarqueeRow({ direction, children }: DraggableMarqueeRowProps) 
 
     return () => window.removeEventListener('resize', setInitialScroll)
   }, [])
+
+  useEffect(() => {
+    const viewport = viewportRef.current
+    if (!viewport || !focusKey) return
+
+    const frame = window.requestAnimationFrame(() => {
+      const cards = Array.from(viewport.querySelectorAll<HTMLElement>(`[data-card-key="${focusKey}"]`))
+      if (cards.length === 0) return
+      const viewportRect = viewport.getBoundingClientRect()
+      const viewportCenter = viewportRect.left + viewportRect.width / 2
+      const closest = cards.reduce((best, card) => {
+        const rect = card.getBoundingClientRect()
+        const distance = Math.abs(rect.left + rect.width / 2 - viewportCenter)
+        return distance < best.distance ? { card, distance } : best
+      }, { card: cards[0], distance: Infinity }).card
+      const rect = closest.getBoundingClientRect()
+      viewport.scrollLeft += rect.left + rect.width / 2 - viewportCenter
+    })
+
+    return () => window.cancelAnimationFrame(frame)
+  }, [focusKey])
 
   const startDrag = (event: PointerEvent<HTMLDivElement>) => {
     if (event.pointerType === 'mouse' && event.button !== 0) return
@@ -684,7 +728,7 @@ function DraggableMarqueeRow({ direction, children }: DraggableMarqueeRowProps) 
     >
       <div
         className={`${direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'} gap-6 flex`}
-        style={{ animationPlayState: isDragging ? 'paused' : undefined }}
+        style={{ animationPlayState: isDragging || paused ? 'paused' : undefined }}
       >
         {children}
       </div>
@@ -693,6 +737,38 @@ function DraggableMarqueeRow({ direction, children }: DraggableMarqueeRowProps) 
 }
 
 export function TestimonialsSection() {
+  const [highlightKey, setHighlightKey] = useState<string | null>(null)
+  const timerRef = useRef<number | null>(null)
+
+  useEffect(() => {
+    const show = (key: string) => {
+      if (timerRef.current) window.clearTimeout(timerRef.current)
+      setHighlightKey(key)
+      timerRef.current = window.setTimeout(() => setHighlightKey(null), 3000)
+    }
+    const fromHash = () => {
+      const match = window.location.hash.match(/^#testimonial-(.+)$/)
+      if (match) show(decodeURIComponent(match[1]))
+    }
+    const onShow = (event: Event) => show((event as CustomEvent<string>).detail)
+
+    fromHash()
+    window.addEventListener('show-testimonial', onShow)
+    window.addEventListener('hashchange', fromHash)
+    return () => {
+      window.removeEventListener('show-testimonial', onShow)
+      window.removeEventListener('hashchange', fromHash)
+      if (timerRef.current) window.clearTimeout(timerRef.current)
+    }
+  }, [])
+
+  const cardClass = (name: string) =>
+    `aspect-square w-[260px] sm:w-[300px] lg:w-[320px] shrink-0 px-2 transition-transform duration-500 ${
+      highlightKey && slugifyName(name) === highlightKey
+        ? 'scale-105 [&>article]:border-gold [&>article]:shadow-2xl [&>article]:ring-4 [&>article]:ring-gold/60'
+        : ''
+    }`
+
   return (
     <section className="py-16 lg:py-24 bg-cream/10 relative overflow-hidden" aria-labelledby="testimonials-heading">
       {/* Decorative background glow */}
@@ -723,17 +799,18 @@ export function TestimonialsSection() {
         </div>
 
         {/* Marquee Rows Container */}
-        <div className="relative flex flex-col gap-6 w-full overflow-hidden py-4">
+        <div id="testimonial-marquee" className="relative flex flex-col gap-6 w-full scroll-mt-32 overflow-hidden py-4">
           {/* Beautiful Edge Vignettes / Fade Masks */}
           <div className="absolute inset-y-0 left-0 w-16 sm:w-32 lg:w-48 bg-gradient-to-r from-warm-bg via-warm-bg/70 to-transparent pointer-events-none z-20" />
           <div className="absolute inset-y-0 right-0 w-16 sm:w-32 lg:w-48 bg-gradient-to-l from-warm-bg via-warm-bg/70 to-transparent pointer-events-none z-20" />
 
           {/* Row 1: Sliding Left */}
-          <DraggableMarqueeRow direction="left">
+          <DraggableMarqueeRow direction="left" paused={Boolean(highlightKey)} focusKey={highlightKey}>
             {marqueeRow1.map((t, idx) => (
               <div
                 key={`r1-${t.name}-${idx}`}
-                className="aspect-square w-[260px] sm:w-[300px] lg:w-[320px] shrink-0 px-2"
+                data-card-key={slugifyName(t.name)}
+                className={cardClass(t.name)}
               >
                 <TestimonialCard {...t} rating={getTestimonialRating(idx)} />
               </div>
@@ -741,11 +818,12 @@ export function TestimonialsSection() {
           </DraggableMarqueeRow>
 
           {/* Row 2: Sliding Right */}
-          <DraggableMarqueeRow direction="right">
+          <DraggableMarqueeRow direction="right" paused={Boolean(highlightKey)} focusKey={highlightKey}>
             {marqueeRow2.map((t, idx) => (
               <div
                 key={`r2-${t.name}-${idx}`}
-                className="aspect-square w-[260px] sm:w-[300px] lg:w-[320px] shrink-0 px-2"
+                data-card-key={slugifyName(t.name)}
+                className={cardClass(t.name)}
               >
                 <TestimonialCard {...t} rating={getTestimonialRating(idx + 2)} />
               </div>
