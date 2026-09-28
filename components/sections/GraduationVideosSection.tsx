@@ -26,7 +26,6 @@ const graduationVideos: GraduationVideo[] = [
     description:
       '40+, perimenopause, busy professional in the US, stubborn weight, midsection fat, poor energy, mood changes, irritability, and inconsistent habits.',
     youtubeUrl: 'https://youtu.be/y7WO_dQ3FDo',
-    testimonialKey: 'ramya',
   },
   {
     title: 'Vasanthi',
@@ -75,9 +74,6 @@ const graduationVideos: GraduationVideo[] = [
     title: 'Kavitha',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/mDWyO5Lp9TQ',
-    storyHref: '/success-stories#story-kavitha',
-    testimonialKey: 'kavitha',
-    storyCta: 'Read Success Story',
   },
   {
     title: 'Rabini',
@@ -93,6 +89,9 @@ const graduationVideos: GraduationVideo[] = [
     title: 'Kavitha Srinivas',
     description: 'Client graduation reflection from The 8th Element journey.',
     youtubeUrl: 'https://youtu.be/OkEVOtI90G4',
+    storyHref: '/success-stories#story-kavitha',
+    testimonialKey: 'kavitha',
+    storyCta: 'Read Success Story',
   },
   {
     title: 'Krithiga',
