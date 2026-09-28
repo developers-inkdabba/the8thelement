@@ -7,6 +7,7 @@ import {
   CheckCircle2, XCircle,
   Target, BookOpen, Phone, MessageCircle, ArrowRight,
 } from 'lucide-react'
+import { CrossfadePhoto } from '@/components/ui/CrossfadePhoto'
 import { FAQAccordion } from '@/components/ui/FAQAccordion'
 import { ASSESSMENT_FORM_URL } from '@/lib/links'
 
@@ -231,23 +232,20 @@ export function MenoThriveContent() {
               <motion.p {...stagger(0.5)} className="mt-6 text-white/50 text-base italic">Limited 1:1 spots.</motion.p>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="relative mx-auto w-full max-w-[300px] sm:max-w-[380px] lg:col-span-6 lg:mr-0 lg:ml-auto lg:max-w-[460px] xl:max-w-[520px]"
+            <div
+              className="hero-photo-in relative mx-auto w-full max-w-[300px] sm:max-w-[380px] lg:col-span-6 lg:mr-0 lg:ml-auto lg:max-w-[460px] xl:max-w-[520px]"
             >
               <div
                 className="absolute inset-0 -translate-x-3 translate-y-3 rounded-[2rem] border border-gold/40 sm:-translate-x-4 sm:translate-y-4"
                 aria-hidden="true"
               />
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-2xl shadow-black/35">
+              <div className="hero-photo-float relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-2xl shadow-black/35">
                 <Image
                   src="/success-stories/Uthra.jpg"
                   alt="Client transformation before and after from the MenoThrive coaching journey"
                   fill
-                  priority
+                  loading="eager"
+                  fetchPriority="low"
                   sizes="(min-width: 1280px) 520px, (min-width: 1024px) 460px, (min-width: 640px) 380px, 300px"
                   className="object-cover"
                 />
@@ -255,7 +253,7 @@ export function MenoThriveContent() {
                   Client Transformation
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -352,14 +350,14 @@ export function MenoThriveContent() {
               We map your body, understand your habits, lifestyle and goals — <strong className="font-semibold text-dark">then build a strategy designed around you.</strong>
             </motion.p>
 
-            <motion.div {...stagger(0.28)} className="relative mx-auto mt-9 grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-5">
+            <motion.div {...stagger(0.28)} className="relative mx-auto mt-9 grid max-w-4xl grid-cols-2 gap-x-3 gap-y-5 sm:grid-cols-5">
               <span className="absolute left-[10%] right-[10%] top-5 hidden h-px bg-gold/40 sm:block" aria-hidden="true" />
               {coachingSteps.map((step, idx) => (
-                <span key={step} className="relative z-10 flex items-center justify-center gap-3 sm:block">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-navy text-xs font-bold text-gold shadow-sm sm:mx-auto" style={{ fontFamily: 'var(--font-playfair)' }} aria-hidden="true">
+                <span key={step} className={`relative z-10 flex flex-col items-center ${idx === coachingSteps.length - 1 ? 'col-span-2 sm:col-span-1' : ''}`}>
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-navy text-xs font-bold text-gold shadow-sm" style={{ fontFamily: 'var(--font-playfair)' }} aria-hidden="true">
                     {String(idx + 1).padStart(2, '0')}
                   </span>
-                  <span className="block rounded-full bg-white px-4 py-2 text-sm font-bold text-navy shadow-sm sm:mt-3" style={{ fontFamily: 'var(--font-playfair)' }}>
+                  <span className="mt-3 block rounded-full bg-white px-4 py-2 text-sm font-bold text-navy shadow-sm" style={{ fontFamily: 'var(--font-playfair)' }}>
                     {step}
                   </span>
                 </span>
@@ -500,15 +498,16 @@ export function MenoThriveContent() {
                 className="absolute inset-0 -translate-x-3 translate-y-3 rounded-[2rem] border border-gold/40"
                 aria-hidden="true"
               />
-              <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem] bg-white shadow-xl shadow-black/10">
-                <Image
-                  src="/lead-magnet/strength-focus.jpg"
-                  alt="Woman strength training as part of the MenoThrive coaching approach"
-                  fill
-                  sizes="(min-width: 1024px) 384px, (min-width: 640px) 360px, 280px"
-                  className="object-cover object-[62%_50%]"
-                />
-              </div>
+              <CrossfadePhoto
+                className="relative aspect-[3/4]"
+                frontSrc="/lead-magnet/journey-trek.jpg"
+                frontAlt="Srividya trekking through the snow with poles"
+                frontPosition="center 25%"
+                backSrc="/lead-magnet/strength-focus.jpg"
+                backAlt="Woman strength training in a gym as part of the MenoThrive coaching approach"
+                backPosition="62% 50%"
+                sizes="(min-width: 1024px) 384px, (min-width: 640px) 360px, 280px"
+              />
             </motion.div>
           </div>
         </div>

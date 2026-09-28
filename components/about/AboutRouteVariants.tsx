@@ -165,6 +165,13 @@ const journeyPhotos = [
     caption: 'Every journey starts before you feel ready.',
     objectPosition: 'center 15%',
   },
+  {
+    src: '/lead-magnet/journey-trek.jpg',
+    alt: 'Srividya trekking through the snow with poles',
+    eyebrow: 'Strength In Motion',
+    caption: 'Strength that takes me to the mountains.',
+    objectPosition: 'center 25%',
+  },
 ]
 
 const strongHerPillars = [
@@ -279,7 +286,7 @@ function JourneySlider({
 
   return (
     <div className={`relative w-full ${className}`}>
-      <div className="absolute inset-0 translate-x-4 translate-y-4 border border-gold/45 rounded-2xl" aria-hidden="true" />
+      <div className="absolute inset-0 translate-x-2 translate-y-2 border border-gold/45 rounded-2xl sm:translate-x-4 sm:translate-y-4" aria-hidden="true" />
       <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-cream shadow-xl shadow-navy/10">
         <AnimatePresence initial={false} custom={direction} mode="popLayout">
           <motion.div
@@ -774,7 +781,7 @@ export function AboutOneContent() {
                 }`}
               >
                 {showVisual ? (
-                  <div className={`flex ${index % 2 === 0 ? 'lg:order-2 lg:justify-start' : 'lg:justify-start'}`}>
+                  <div className={`flex justify-center ${index % 2 === 0 ? 'lg:order-2 lg:justify-start' : 'lg:justify-start'}`}>
                     {section.images ? (
                       <JourneySlider photos={section.images} className="max-w-[23rem] mb-8 lg:mb-0" />
                     ) : (

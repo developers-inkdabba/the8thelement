@@ -4,7 +4,7 @@ export function TestimonialLink({ testimonialKey }: { testimonialKey: string }) 
   const open = () => {
     window.history.replaceState(null, '', `#testimonial-${testimonialKey}`)
     window.dispatchEvent(new CustomEvent('show-testimonial', { detail: testimonialKey }))
-    document.getElementById('testimonial-marquee')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    document.getElementById('testimonial-marquee')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   return (

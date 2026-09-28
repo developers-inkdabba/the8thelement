@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { GraduationVideoPlayer } from '@/components/sections/GraduationVideoPlayer'
 import { TestimonialLink } from '@/components/sections/TestimonialLink'
 import { GraduationCap } from 'lucide-react'
 import { ASSESSMENT_FORM_URL } from '@/lib/links'
@@ -163,19 +164,68 @@ const graduationVideos: GraduationVideo[] = [
     youtubeUrl: 'https://youtu.be/Ay38J9mTIVY',
     testimonialKey: 'usha-kumar',
   },
+  {
+    title: 'Nirupa',
+    description:
+      'Busy professional and mom, PCOS overwhelm, and the shift to effortless consistency.',
+    youtubeUrl: 'https://youtu.be/DgqUBJ24zec',
+    storyHref: '/success-stories#story-nirupa-seshadri',
+    storyCta: 'Read Success Story',
+  },
+  {
+    title: 'Deva',
+    description:
+      '51, menopause, stubborn belly fat, high cholesterol, and overeating snacks.',
+    youtubeUrl: 'https://youtu.be/uItCYP5PJ-I',
+  },
+  {
+    title: 'Ranjitha',
+    description:
+      'UK-based doctor, perimenopause chaos, and the move to sustainable strength.',
+    youtubeUrl: 'https://youtu.be/vvrUuCZNr7k',
+  },
 ]
 
-function getYoutubeEmbedUrl(url: string) {
-  const trimmedUrl = url.trim()
-  if (!trimmedUrl) return ''
+const groupGraduationCalls: GraduationVideo[] = [
+  {
+    title: 'Transform V1.0',
+    description: 'Group coaching program graduation call.',
+    youtubeUrl: 'https://youtu.be/glIBIn9hbSA',
+  },
+  {
+    title: 'Transform & Thrive',
+    description: 'Group graduation call with the Transform & Thrive cohort.',
+    youtubeUrl: 'https://youtu.be/FF9IPD34ckM',
+  },
+]
 
-  const match =
-    trimmedUrl.match(/youtu\.be\/([^?&/]+)/) ||
-    trimmedUrl.match(/[?&]v=([^?&/]+)/) ||
-    trimmedUrl.match(/youtube\.com\/embed\/([^?&/]+)/) ||
-    trimmedUrl.match(/youtube\.com\/shorts\/([^?&/]+)/)
-
-  return match ? `https://www.youtube.com/embed/${match[1]}` : trimmedUrl
+function VideoCard({ video }: { video: GraduationVideo }) {
+  return (
+    <article className="bg-white border border-gold/30 rounded-lg overflow-hidden shadow-sm">
+      <GraduationVideoPlayer title={video.title} youtubeUrl={video.youtubeUrl} />
+      <div className="p-6">
+        <div className="mb-3 flex flex-wrap items-start justify-between gap-3">
+          <h3 className="text-xl text-navy" style={{ fontFamily: 'var(--font-playfair)' }}>
+            {video.title}
+          </h3>
+        </div>
+        <p className="text-muted leading-relaxed">{video.description}</p>
+        {video.testimonialKey || video.storyHref ? (
+          <div className="mt-5 flex flex-wrap gap-3">
+            {video.storyHref ? (
+              <Link
+                href={video.storyHref}
+                className="inline-flex items-center justify-center rounded-full border border-navy px-5 py-2.5 text-sm font-semibold text-navy transition-colors duration-200 hover:bg-navy hover:text-white"
+              >
+                {video.storyCta ?? 'View Story'}
+              </Link>
+            ) : null}
+            {video.testimonialKey ? <TestimonialLink testimonialKey={video.testimonialKey} /> : null}
+          </div>
+        ) : null}
+      </div>
+    </article>
+  )
 }
 
 export function GraduationVideosSection() {
@@ -211,51 +261,26 @@ export function GraduationVideosSection() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {graduationVideos.map((video) => {
-              const embedUrl = getYoutubeEmbedUrl(video.youtubeUrl)
+            {graduationVideos.map((video) => (
+              <VideoCard key={video.title} video={video} />
+            ))}
+          </div>
 
-              return (
-                <article
-                  key={video.title}
-                  className="bg-white border border-gold/30 rounded-lg overflow-hidden shadow-sm"
-                >
-                  <div className="aspect-video bg-navy/95">
-                    <iframe
-                      className="w-full h-full"
-                      src={embedUrl}
-                      title={`${video.title} graduation story`}
-                      loading="lazy"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    />
-                  </div>
-                  <div className="p-6">
-                    <div className="mb-3 flex flex-wrap items-start justify-between gap-3">
-                      <h3
-                        className="text-xl text-navy"
-                        style={{ fontFamily: 'var(--font-playfair)' }}
-                      >
-                        {video.title}
-                      </h3>
-                    </div>
-                    <p className="text-muted leading-relaxed">{video.description}</p>
-                    {video.testimonialKey || video.storyHref ? (
-                      <div className="mt-5 flex flex-wrap gap-3">
-                        {video.storyHref ? (
-                          <Link
-                            href={video.storyHref}
-                            className="inline-flex items-center justify-center rounded-full border border-navy px-5 py-2.5 text-sm font-semibold text-navy transition-colors duration-200 hover:bg-navy hover:text-white"
-                          >
-                            {video.storyCta ?? 'View Story'}
-                          </Link>
-                        ) : null}
-                        {video.testimonialKey ? <TestimonialLink testimonialKey={video.testimonialKey} /> : null}
-                      </div>
-                    ) : null}
-                  </div>
-                </article>
-              )
-            })}
+          <div className="mt-16">
+            <h3
+              className="text-3xl lg:text-4xl text-navy mb-3"
+              style={{ fontFamily: 'var(--font-playfair)' }}
+            >
+              Group Graduation Calls
+            </h3>
+            <p className="text-muted text-lg leading-relaxed mb-8 max-w-2xl">
+              Celebrate with our coaching cohorts as they wrap up their programs together.
+            </p>
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {groupGraduationCalls.map((video) => (
+                <VideoCard key={video.title} video={video} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

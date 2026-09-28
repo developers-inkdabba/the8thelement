@@ -741,7 +741,7 @@ function DraggableMarqueeRow({ direction, children, paused = false, focusKey = n
       aria-label="Drag testimonials left or right"
     >
       <div
-        className={`${direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'} gap-6 flex`}
+        className={`${direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'} gap-6 flex shrink-0`}
         style={{ animationPlayState: isDragging || paused ? 'paused' : undefined }}
       >
         {children}
@@ -779,7 +779,7 @@ export function TestimonialsSection() {
   const cardKey = (t: CarouselItem) => `${t.hideCta ? 'quote' : 'story'}-${slugifyName(t.name)}`
 
   const cardClass = (key: string) =>
-    `aspect-square w-[260px] sm:w-[300px] lg:w-[320px] shrink-0 px-2 transition-transform duration-500 ${
+    `aspect-[3/4] w-[260px] sm:aspect-square sm:w-[300px] lg:w-[320px] shrink-0 px-2 transition-transform duration-500 ${
       highlightKey && key === `quote-${highlightKey}`
         ? 'scale-105 [&>article]:border-gold [&>article]:shadow-2xl [&>article]:ring-4 [&>article]:ring-gold/60'
         : ''
